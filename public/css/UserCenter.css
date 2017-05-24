@@ -1,0 +1,41 @@
+.input-form{
+	/*margin-top: 0.75rem;*/
+}
+.jd_btn{
+	margin:1rem auto;
+}
+.ck_all{
+	float: left;
+	width: 2.5rem;
+	height: 100%;
+}
+.input_info{
+	margin-top: 0.4rem;
+}
+.box_title{
+	float: left;
+	font-size: 0.6rem;
+	line-height: 1rem;
+	margin-left: 0.2rem;
+}
+.input_box{
+	float: left;
+}
+button, input, select, textarea{
+	line-height: normal;
+}
+.input-form-box2 {
+
+	margin-left: 0.4rem
+}
+.input-form-box2 img{
+	float: right;
+	margin: 0.5rem 0.5rem 0 0.5rem;
+	width: 0.6rem;
+	height: 0.6rem;
+	cursor: pointer;
+}
+.spantop{
+	width: 2.1rem;
+	min-width: 65px;
+}

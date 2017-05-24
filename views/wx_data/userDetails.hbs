@@ -1,0 +1,778 @@
+
+<div class="row ijy-modal-dialog-full-title navbar-fixed-top">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ijy-col-nopadding">
+        <div class="ijy-modal-dialog-full-title-left" onclick="historyBack()">〈返回 </div>
+        <div class="ijy-modal-dialog-full-title-middle">新闻详情</div>
+    </div>
+</div>
+<style>
+    .new-detail-warp{ padding-top:30px; font-family:"微软雅黑";}
+    .new-detail-title p{ font-size:18px; color:#ff7d1d; line-height:28px; margin-bottom:0px;}
+    .new-detail-time span{ display:block; font-size:12px; color:#8b8b8b; line-height:40px;}
+    #content{ font-size:12px; color:#a4a6ae; line-height:28px;}
+    .new-detail-time{ border-bottom:#363b46 1px solid; margin-bottom:20px;}
+
+
+</style>
+<!-- 内容区域 -->
+<div class="ijy-fluid-container mt50">
+    <div class="tab-content">
+        <div class="new-detail-warp">
+            <div class="row new-detail-title">
+                <div class="col-lg-12 col-xs-12">
+                    <p>关于服务器运维通知</p>
+                </div>
+            </div>
+            <div class="row new-detail-time">
+                <div class="col-lg-12 col-xs-12">
+                    <span>2016-11-29 16:46:34</span>
+                </div>
+            </div>
+            <div class="row new-detail-body">
+                <div class="col-lg-12 col-xs-12">
+                    <div id="content"><p>由于系统升级，服务器计划于2016年1月23日 12:00:00进行升级，望各单位做好准备</p></div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+</div>
+<!--底部菜单-->
+
+
+<!--用户信息窗口-->
+<div id="modalUserInfo" class="modal" aria-hidden="true" aria-labelledby="basicModal" role="dialog" tabindex="-1" style="display: none;">
+    <div class="modal-dialog   ijy-modal-dialog-full">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="row ijy-modal-dialog-full-title">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ijy-col-nopadding">
+                        <div class="ijy-modal-dialog-full-title-left" onclick="historyBack()">〈返回 </div>
+                        <div class="ijy-modal-dialog-full-title-middle">用户信息</div>
+                    </div>
+                </div>
+                <div class="ijy-modal-dialog-full-content">
+                    <div class="ijy-modal-userinfo-item">
+                        <div class="ijy-modal-userinfo-item-left">用户Id:</div>
+                        <div id="_modal_user_userId" class="ijy-modal-userinfo-item-right">101100</div>
+                    </div>
+                    <div class="ijy-modal-userinfo-item">
+                        <div class="ijy-modal-userinfo-item-left">用户名:</div>
+                        <div id="_modal_user_userName" class="ijy-modal-userinfo-item-right">D101100</div>
+                    </div>
+                    <div class="ijy-modal-userinfo-item">
+                        <div class="ijy-modal-userinfo-item-left">姓名:</div>
+                        <div id="_modal_user_name" class="ijy-modal-userinfo-item-right">赵友晨</div>
+                    </div>
+                    <div class="ijy-modal-userinfo-item">
+                        <div class="ijy-modal-userinfo-item-left">手机:</div>
+                        <div id="_modal_user_phone" class="ijy-modal-userinfo-item-right">15166007843</div>
+                    </div>
+                    <div class="ijy-modal-userinfo-item">
+                        <div class="ijy-modal-userinfo-item-left">邮箱:</div>
+                        <div id="_modal_user_email" class="ijy-modal-userinfo-item-right">xxx@xxx.com</div>
+                    </div>
+                    <div class="ijy-modal-userinfo-item">
+                        <div class="ijy-modal-userinfo-item-left">Android客户端在线:</div>
+                        <div id="_modal_user_isAndroidOnline" class="ijy-modal-userinfo-item-right">离线</div>
+                    </div>
+                    <div class="ijy-modal-userinfo-item">
+                        <div class="ijy-modal-userinfo-item-left">IOS客户端在线:</div>
+                        <div id="_modal_user_isIOSOnline" class="ijy-modal-userinfo-item-right">离线</div>
+                    </div>
+                    <div class="ijy-modal-userinfo-item">
+                        <div class="ijy-modal-userinfo-item-left">PC客户端在线:</div>
+                        <div id="_modal_user_isPCOnline" class="ijy-modal-userinfo-item-right">离线</div>
+                    </div>
+                    <div class="ijy-modal-userinfo-item">
+                        <div class="ijy-modal-userinfo-item-left">注册时间:</div>
+                        <div id="_modal_user_dateCreate" class="ijy-modal-userinfo-item-right">2015-05-25 11:05</div>
+                    </div>
+                    <div class="ijy-modal-userinfo-item">
+                        <div class="ijy-modal-userinfo-item-left">微信绑定:</div>
+                        <div class="ijy-modal-userinfo-item-right"> <span id="wechatBindStatusContent">欣欣 </span>
+                            <button id="wechatBindStatusButton" class="ijy-modal-userinfo-button hide" onclick="buttonWechatBindStatus()"></button>
+                        </div>
+                    </div>
+                    <div class="ijy-modal-userinfo-item">
+                        <div class="ijy-modal-userinfo-item-left">快速登录:</div>
+                        <div class="ijy-modal-userinfo-item-right">
+                            <button id="fastSigninStatusButton" class="ijy-modal-userinfo-button" onclick="buttonFastSigninStatus()">已开启</button>
+                        </div>
+                    </div>
+                    <div class="ijy-modal-userinfo-item">
+                        <div class="ijy-modal-userinfo-item-left">密码修改:</div>
+                        <div class="ijy-modal-userinfo-item-right">
+                            <button class="ijy-modal-userinfo-button" onclick="openChangePasswordModal()">修改</button>
+                        </div>
+                    </div>
+                    <div class="ijy-modal-userinfo-item">
+                        <div class="ijy-modal-userinfo-item-left">主题选择:</div>
+                        <div class="ijy-modal-userinfo-item-right">
+                            <button id="updateThemeButton" class="ijy-modal-userinfo-button" onclick="buttonUpdateTheme()">专业版</button>
+                            <div class="ijy-modal-userinfo-themearea hide">
+                                <div class="ijy-modal-userinfo-theme" onclick="eventUpdateTheme(&quot;profession&quot;)">专业版</div>
+                                <div class="ijy-modal-userinfo-theme" onclick="eventUpdateTheme(&quot;cartoon&quot;)">卡通版</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--用户资金窗口-->
+<div id="modalUserMoney" class="modal" aria-hidden="true" aria-labelledby="basicModal" role="dialog" tabindex="-1" style="display: none;">
+    <div class="modal-dialog  ijy-modal-dialog-full">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div id="modalUserMoneyContent">
+                    <div class="row ijy-modal-dialog-full-title">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ijy-col-nopadding">
+                            <div class="ijy-modal-dialog-full-title-left" onclick="historyBack()">〈返回 </div>
+                            <div class="ijy-modal-dialog-full-title-middle">账户信息</div>
+                        </div>
+                    </div>
+                    <div class="ijy-modal-dialog-full-content">
+                        <div class="ijy-modal-usermoney-item"> <span class="ijy-modal-usermoney-item-left">余额:</span><span id="_modal_user_balance" class="ijy-modal-usermoney-item-right">977.27</span> </div>
+                        <div class="ijy-modal-usermoney-item"> <span class="ijy-modal-usermoney-item-left">冻结资金:</span><span id="_modal_user_frozen" class="ijy-modal-usermoney-item-right">0</span> </div>
+                        <div class="ijy-modal-usermoney-item"> <span class="ijy-modal-usermoney-item-left">已用保证金:</span><span id="_modal_user_marginUsed" class="ijy-modal-usermoney-item-right">0</span> </div>
+                        <div class="ijy-modal-usermoney-item"> <span class="ijy-modal-usermoney-item-left">可用保证金:</span><span id="_modal_user_marginFree" class="ijy-modal-usermoney-item-right">977.27</span> </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--单个商品窗口-->
+<div id="modalProduct" class="modal" aria-hidden="true" aria-labelledby="basicModal" role="dialog" tabindex="-1" style="display: none;">
+    <div class="modal-dialog ijy-modal-dialog-full">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="row ijy-modal-dialog-full-title">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ijy-col-nopadding">
+                        <div class="ijy-modal-dialog-full-title-left" onclick="historyBack()">〈返回 </div>
+                        <div class="ijy-modal-dialog-full-title-middle">商品详情</div>
+                    </div>
+                </div>
+                <div class="ijy-modal-dialog-full-content">
+                    <div class="row ijy-product-title">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ijy-col-nopadding"> <span class="ijy-product-title-name">商品</span><span class="ijy-product-title-price">卖出</span><span class="ijy-product-title-price">买入</span> </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ijy-col-nopadding">
+                            <div class="COPPERRMB ijy-product-item">
+                                <div class="hide ijy-product-item-productid">100015</div>
+                                <div class="ijy-product-item-spread hide">0</div>
+                                <div class="ijy-product-item-symbol hide">COPPERRMB</div>
+                                <div class="ijy-product-item-name">铜100千克
+                                    <div class="ijy-product-item-name-time">更新时间:11:15:04</div>
+                                </div>
+                                <div class="ijy-product-item-buy ijy-product-item-equal">37,514.89</div>
+                                <div class="ijy-product-item-sale ijy-product-item-equal">37,514.89</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--菜单-->
+                    <div class="ijy-modal-product-menu">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ijy-col-nopadding">
+                                <button onclick="buttonProductBuy()" class="ijy-modal-product-menu-button">买入</button>
+                                <button onclick="buttonProductSell()" class="ijy-modal-product-menu-button">卖出</button>
+                                <button onclick="buttonProductDiscretionary()" class="ijy-modal-product-menu-button">挂单</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!--买入-->
+                    <div class="ijy-modal-product-buy hide">
+                        <div class="row">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 text-right ijy-col-nopadding"> <span class="ijy-modal-product-introduction">数量：</span> </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left ijy-col-nopadding">
+                                <input type="text" class="form-control ijy-modal-product-text  ijy-modal-product-buy-openlots-input">
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 ijy-col-nopadding">
+                                <div class="ijy-modal-product-tip"><span class="ijy-modal-product-buy-buyopenmin">1</span>~<span class="ijy-modal-product-buy-buyopenmax">100</span> </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 text-right ijy-col-nopadding">
+                                <div class="ijy-checkbox">
+                                    <input type="checkbox" id="ijy-modal-product-buy-takeprofit-checkbox" onclick="checkboxProductBuyTakeProfit()" class="ijy-modal-product-buy-takeprofit-checkbox">
+                                    <label for="ijy-modal-product-buy-takeprofit-checkbox"></label>
+                                </div>
+                                <span class="ijy-modal-product-introduction">止盈：</span> </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left ijy-col-nopadding">
+                                <input type="text" class="form-control  ijy-modal-product-text ijy-modal-product-buy-takeprofit-input ijy-text-inactive" onclick="focusProductBuy()">
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 ijy-col-nopadding">
+                                <div class="ijy-modal-product-tip">&gt;<span class="ijy-modal-product-buy-takeprofit">37515.55</span> </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 text-right ijy-col-nopadding">
+                                <div class="ijy-checkbox">
+                                    <input type="checkbox" id="ijy-modal-product-buy-stoploss-checkbox" onclick="checkboxProductBuyStopLoss()" class="ijy-modal-product-buy-stoploss-checkbox">
+                                    <label for="ijy-modal-product-buy-stoploss-checkbox"></label>
+                                </div>
+                                <span class="ijy-modal-product-introduction">止损：</span> </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left ijy-col-nopadding">
+                                <input type="text" class="form-control ijy-modal-product-text ijy-modal-product-buy-stoploss-input ijy-text-inactive" onclick="focusProductBuy()">
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 ijy-col-nopadding">
+                                <div class="ijy-modal-product-tip">&lt;<span class="ijy-modal-product-buy-stoploss">37515.55</span> </div>
+                            </div>
+                        </div>
+                        <div class="row ijy-modal-product-button">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ijy-col-nopadding">
+                                <button onclick="buttonProductCancel()" class="ijy-modal-product-button-cancel">取消</button>
+                                <button class="ijy-modal-product-button-event" onclick="confirmOpen('你确定买入？','eventBuyOpenMarket')">买入</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!--卖出-->
+                    <div class="ijy-modal-product-sell hide">
+                        <div class="row">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 text-right ijy-col-nopadding"> <span class="ijy-modal-product-introduction">数量：</span> </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left ijy-col-nopadding">
+                                <input type="text" class="form-control ijy-modal-product-text  ijy-modal-product-sell-openlots-input">
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 ijy-col-nopadding">
+                                <div class="ijy-modal-product-tip"><span class="ijy-modal-product-sell-sellopenmin">1</span>~<span class="ijy-modal-product-sell-sellopenmax">100</span> </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 text-right ijy-col-nopadding">
+                                <div class="ijy-checkbox">
+                                    <input type="checkbox" id="ijy-modal-product-sell-takeprofit-checkbox" onclick="checkboxProductSellTakeProfit()" class="ijy-modal-product-sell-takeprofit-checkbox">
+                                    <label for="ijy-modal-product-sell-takeprofit-checkbox"></label>
+                                </div>
+                                <span class="ijy-modal-product-introduction">止盈：</span> </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left ijy-col-nopadding">
+                                <input type="text" class="form-control  ijy-modal-product-text ijy-modal-product-sell-takeprofit-input ijy-text-inactive" onclick="focusProductSell()">
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 ijy-col-nopadding">
+                                <div class="ijy-modal-product-tip">&lt;<span class="ijy-modal-product-sell-takeprofit">37514.85</span> </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 text-right ijy-col-nopadding">
+                                <div class="ijy-checkbox">
+                                    <input type="checkbox" id="ijy-modal-product-sell-stoploss-checkbox" onclick="checkboxProductSellStopLoss()" class="ijy-modal-product-sell-stoploss-checkbox">
+                                    <label for="ijy-modal-product-sell-stoploss-checkbox"></label>
+                                </div>
+                                <span class="ijy-modal-product-introduction">止损：</span> </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left ijy-col-nopadding">
+                                <input type="text" class="form-control ijy-modal-product-text ijy-modal-product-sell-stoploss-input ijy-text-inactive" onclick="focusProductSell()">
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 ijy-col-nopadding">
+                                <div class="ijy-modal-product-tip">&gt;<span class="ijy-modal-product-sell-stoploss">37514.85</span> </div>
+                            </div>
+                        </div>
+                        <div class="row ijy-modal-product-button">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ijy-col-nopadding">
+                                <button onclick="buttonProductCancel()" class="ijy-modal-product-button-cancel">取消</button>
+                                <button class="ijy-modal-product-button-event" onclick="confirmOpen('你确定卖出？','eventSellOpenMarket')">卖出</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!--委托-->
+                    <div class="ijy-modal-product-discretionary hide">
+                        <div class="row">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 text-right ijy-col-nopadding"> <span class="ijy-modal-product-introduction">委托类型：</span> </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left ijy-col-nopadding">
+                                <div class="ijy-modal-product-discretionary-category"> <span class="ijy-modal-product-discretionary-category-checked" onclick="buttonProductDiscretionaryCategory()">高位挂多</span> <span class="caret ijy-modal-product-discretionary-category-arrow"></span>
+                                    <div class="ijy-modal-product-discretionary-category-more">
+                                        <div class="ijy-modal-product-discretionary-category-more-item" onclick="buttonProductDiscretionaryCategoryItem(this)">高位挂多</div>
+                                        <div class="ijy-modal-product-discretionary-category-more-item" onclick="buttonProductDiscretionaryCategoryItem(this)">低位挂多</div>
+                                        <div class="ijy-modal-product-discretionary-category-more-item" onclick="buttonProductDiscretionaryCategoryItem(this)">低位挂空</div>
+                                        <div class="ijy-modal-product-discretionary-category-more-item" onclick="buttonProductDiscretionaryCategoryItem(this)">高位挂空</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 ijy-col-nopadding"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 text-right ijy-col-nopadding"> <span class="ijy-modal-product-introduction">数量：</span> </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left ijy-col-nopadding">
+                                <input type="text" class="form-control ijy-modal-product-text  ijy-modal-product-discretionary-openlots-input">
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 ijy-col-nopadding">
+                                <div class="ijy-modal-product-tip"><span class="ijy-modal-product-discretionary-openlotsmin"></span>~<span class="ijy-modal-product-discretionary-openlotsmax"></span> </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 text-right ijy-col-nopadding"> <span class="ijy-modal-product-introduction">价格：</span> </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left ijy-col-nopadding">
+                                <input type="text" class="form-control ijy-modal-product-text  ijy-modal-product-discretionary-price-input" onfocus="focusProductDiscretionary();">
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 ijy-col-nopadding">
+                                <div class="ijy-modal-product-tip"><span class="ijy-modal-product-discretionary-price-status">&lt;</span><span class="ijy-modal-product-discretionary-price"></span></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 text-right ijy-col-nopadding">
+                                <div class="ijy-checkbox">
+                                    <input type="checkbox" id="ijy-modal-product-discretionary-takeprofit-checkbox" onclick="checkboxProductDiscretionaryTakeProfit()" class="ijy-modal-product-discretionary-takeprofit-checkbox">
+                                    <label for="ijy-modal-product-discretionary-takeprofit-checkbox"></label>
+                                </div>
+                                <span class="ijy-modal-product-introduction">止盈：</span> </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left ijy-col-nopadding">
+                                <input type="text" class="form-control  ijy-modal-product-text ijy-modal-product-discretionary-takeprofit-input ijy-text-inactive" onfocus="focusProductDiscretionary();">
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 ijy-col-nopadding">
+                                <div class="ijy-modal-product-tip"><span class="ijy-modal-product-discretionary-takeprofit-status">&lt;</span><span class="ijy-modal-product-discretionary-takeprofit"></span> </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 text-right ijy-col-nopadding">
+                                <div class="ijy-checkbox">
+                                    <input type="checkbox" id="ijy-modal-product-discretionary-stoploss-checkbox" onclick="checkboxProductDiscretionaryStopLoss()" class="ijy-modal-product-discretionary-stoploss-checkbox">
+                                    <label for="ijy-modal-product-discretionary-stoploss-checkbox"></label>
+                                </div>
+                                <span class="ijy-modal-product-introduction">止损：</span> </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left ijy-col-nopadding">
+                                <input type="text" class="form-control ijy-modal-product-text ijy-modal-product-discretionary-stoploss-input ijy-text-inactive" onfocus="focusProductDiscretionary();">
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 ijy-col-nopadding">
+                                <div class="ijy-modal-product-tip"><span class="ijy-modal-product-discretionary-stoploss-status">&gt;</span><span class="ijy-modal-product-discretionary-stoploss"></span> </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 text-right ijy-col-nopadding"> <span class="ijy-modal-product-introduction">有效日期：</span> </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left ijy-col-nopadding">
+                                <input type="text" readonly="" class="form-control ijy-modal-product-text ijy-modal-product-discretionary-dateexpire">
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 ijy-col-nopadding">
+                                <div class="ijy-modal-product-tip"> </div>
+                            </div>
+                        </div>
+                        <div class="row ijy-modal-product-button">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ijy-col-nopadding">
+                                <button onclick="buttonProductCancel()" class="ijy-modal-product-button-cancel">取消</button>
+                                <button class="ijy-modal-product-button-event" onclick="confirmOpen('你确定建立委托订单？','eventCreateDiscretionaryOrder')">确定</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!--行情-->
+                    <div class="row ijy-modal-product-quote-menu">
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 ijy-col-nopadding">
+                            <button onclick="buttonQuote(this,0)" class="ijy-modal-product-quote-button ijy-modal-product-quote-button-active">分时</button>
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 ijy-col-nopadding">
+                            <button onclick="buttonQuote(this,1)" class="ijy-modal-product-quote-button">M1</button>
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 ijy-col-nopadding">
+                            <button onclick="buttonQuote(this,2)" class="ijy-modal-product-quote-button">M5</button>
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 ijy-col-nopadding">
+                            <button onclick="buttonQuote(this,4)" class="ijy-modal-product-quote-button">M30</button>
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 ijy-col-nopadding">
+                            <button onclick="buttonQuote(this,5)" class="ijy-modal-product-quote-button">H1</button>
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 ijy-col-nopadding">
+                            <button onclick="buttonQuote(this,-1)" class="ijy-modal-product-quote-button">更多</button>
+                        </div>
+                    </div>
+                    <div class="row ijy-modal-product-quote-menu-more" style="display: block;">
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 ijy-col-nopadding">
+                            <button onclick="buttonQuote(this,3)" class="ijy-modal-product-quote-button">M15</button>
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 ijy-col-nopadding">
+                            <button onclick="buttonQuote(this,6)" class="ijy-modal-product-quote-button">H4</button>
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 ijy-col-nopadding">
+                            <button onclick="buttonQuote(this,7)" class="ijy-modal-product-quote-button">D1</button>
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 ijy-col-nopadding">
+                            <button onclick="buttonQuote(this,8)" class="ijy-modal-product-quote-button">W1</button>
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 ijy-col-nopadding">
+                            <button onclick="buttonQuote(this,9)" class="ijy-modal-product-quote-button">MN1</button>
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 ijy-col-nopadding"></div>
+                    </div>
+                    <div class="row ijy-modal-product-quote">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ijy-col-nopadding">
+                            <div id="vkContent" style="height: 300px; position: relative;">
+                                <div id="vkY" style="display: none; z-index: 1000; position: absolute; width: 1px; height: 200px; top: 65.5px; left: 499.0125px; background: white;"></div>
+                                <div id="vkX" style="display: none; z-index: 1000; position: absolute; height: 1px; width: 1901px; left: 0px; top: 102.533198487379px; background: white;"></div>
+                                <canvas style="z-index: 999; position: absolute;" width="1901" height="300"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--在手订单窗口-->
+<div id="modalOrderOpen" class="modal" aria-hidden="true" aria-labelledby="basicModal" role="dialog" tabindex="-1" style="display: none;">
+    <div class="modal-dialog ijy-modal-dialog-full">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div id="modalOrderOpenContent">
+                    <div class="row ijy-modal-dialog-full-title">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ijy-col-nopadding">
+                            <div class="ijy-modal-dialog-full-title-left" onclick="historyBack()">〈返回 </div>
+                            <div class="ijy-modal-dialog-full-title-middle">在手订单详情</div>
+                        </div>
+                    </div>
+                    <div class="ijy-modal-dialog-full-content">
+                        <div class="row ijy-order-open-title">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12  ijy-col-nopadding"> <span class="ijy-order-open-title-name">商品</span><span class="ijy-order-open-title-number">数量</span><span>盈亏</span> </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ijy-col-nopadding">
+                                <div class="ijy-order-open-item"></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 text-right ijy-col-nopadding">
+                                <div class="ijy-checkbox">
+                                    <input type="checkbox" id="ijy-modal-order-open-takeprofit-checkbox" onclick="checkboxOrderOpenTakeProfit()" class="ijy-modal-order-open-takeprofit-checkbox">
+                                    <label for="ijy-modal-order-open-takeprofit-checkbox"></label>
+                                </div>
+                                <span class="ijy-modal-order-open-introduction">止盈：</span> </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left ijy-col-nopadding">
+                                <input type="text" class="form-control  ijy-modal-order-open-text ijy-modal-order-open-takeprofit-input ijy-text-inactive">
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 ijy-col-nopadding">
+                                <div class="ijy-modal-order-open-tip"><span class="ijy-modal-order-open-takeprofit-status">&lt;</span><span class="ijy-modal-order-open-takeprofit"></span> </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 text-right ijy-col-nopadding">
+                                <div class="ijy-checkbox">
+                                    <input type="checkbox" id="ijy-modal-order-open-stoploss-checkbox" onclick="checkboxOrderOpenStopLoss()" class="ijy-modal-order-open-stoploss-checkbox">
+                                    <label for="ijy-modal-order-open-stoploss-checkbox"></label>
+                                </div>
+                                <span class="ijy-modal-order-open-introduction">止损：</span> </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left ijy-col-nopadding">
+                                <input type="text" class="form-control ijy-modal-order-open-text ijy-modal-order-open-stoploss-input ijy-text-inactive">
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 ijy-col-nopadding">
+                                <div class="ijy-modal-order-open-tip"><span class="ijy-modal-order-open-stoploss-status">&gt;</span><span class="ijy-modal-order-open-stoploss"></span> </div>
+                            </div>
+                        </div>
+                        <div class="row ijy-modal-order-open-close">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 text-right ijy-col-nopadding"> <span class="ijy-modal-product-introduction">平仓数量：</span> </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left ijy-col-nopadding">
+                                <input type="text" class="form-control ijy-modal-order-open-text  ijy-modal-order-open-close-input">
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 ijy-col-nopadding">
+                                <div class="ijy-modal-order-open-tip"> </div>
+                            </div>
+                        </div>
+                        <div class="row ijy-modal-order-open-button">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ijy-col-nopadding">
+                                <button class="ijy-modal-order-open-button-event" onclick="historyBack()">取消</button>
+                                <button class="ijy-modal-order-open-button-event" onclick="confirmOpen('你确定设置止盈止损？','eventUpdateTakeProfitAndStopLoss')">止盈止损</button>
+                                <button class="ijy-modal-order-open-button-event" onclick="confirmOpen('你确定平仓？','eventCloseOrder')">平仓</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--委托订单窗口-->
+<div id="modalOrderDiscretionary" class="modal" aria-hidden="true" aria-labelledby="basicModal" role="dialog" tabindex="-1" style="display: none;">
+    <div class="modal-dialog ijy-modal-dialog-full">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="row ijy-modal-dialog-full-title">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ijy-col-nopadding">
+                        <div class="ijy-modal-dialog-full-title-left" onclick="historyBack()">〈返回 </div>
+                        <div class="ijy-modal-dialog-full-title-middle">委托订单详情</div>
+                    </div>
+                </div>
+                <div class="ijy-modal-dialog-full-content">
+                    <div class="row ijy-order-open-title">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12  ijy-col-nopadding"> <span class="ijy-order-discretionary-title-name">商品</span><span class="ijy-order-discretionary-title-number">数量</span><span>委托价格</span> </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ijy-col-nopadding">
+                            <div class="ijy-order-discretionary-item"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 text-right ijy-col-nopadding"> <span class="ijy-modal-order-discretionary-introduction">数量：</span> </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left ijy-col-nopadding">
+                            <input type="text" class="form-control ijy-modal-order-discretionary-text  ijy-modal-order-discretionary-openlots-input">
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 ijy-col-nopadding">
+                            <div class="ijy-modal-order-discretionary-tip"><span class="ijy-modal-order-discretionary-openlotsmin"></span>~<span class="ijy-modal-order-discretionary-openlotsmax"></span> </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 text-right ijy-col-nopadding"> <span class="ijy-modal-order-discretionary-introduction">价格：</span> </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left ijy-col-nopadding">
+                            <input type="text" class="form-control ijy-modal-order-discretionary-text  ijy-modal-order-discretionary-price-input" onfocus="focusProductDiscretionary();">
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 ijy-col-nopadding">
+                            <div class="ijy-modal-order-discretionary-tip"><span class="ijy-modal-order-discretionary-price-status">&lt;</span><span class="ijy-modal-order-discretionary-price"></span></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 text-right ijy-col-nopadding">
+                            <div class="ijy-checkbox">
+                                <input type="checkbox" id="ijy-modal-order-discretionary-takeprofit-checkbox" onclick="checkboxOrderDiscretionaryTakeProfit()" class="ijy-modal-order-discretionary-takeprofit-checkbox">
+                                <label for="ijy-modal-order-discretionary-takeprofit-checkbox"></label>
+                            </div>
+                            <span class="ijy-modal-order-discretionary-introduction">止盈：</span> </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left ijy-col-nopadding">
+                            <input type="text" class="form-control  ijy-modal-order-discretionary-text ijy-modal-order-discretionary-takeprofit-input">
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 ijy-col-nopadding">
+                            <div class="ijy-modal-order-discretionary-tip"><span class="ijy-modal-order-discretionary-takeprofit-status">&lt;</span><span class="ijy-modal-order-discretionary-takeprofit"></span> </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 text-right ijy-col-nopadding">
+                            <div class="ijy-checkbox">
+                                <input type="checkbox" id="ijy-modal-order-discretionary-stoploss-checkbox" onclick="checkboxOrderDiscretionaryStopLoss()" class="ijy-modal-order-discretionary-stoploss-checkbox">
+                                <label for="ijy-modal-order-discretionary-stoploss-checkbox"></label>
+                            </div>
+                            <span class="ijy-modal-order-discretionary-introduction">止损：</span> </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left ijy-col-nopadding">
+                            <input type="text" class="form-control ijy-modal-order-discretionary-text ijy-modal-order-discretionary-stoploss-input" onfocus="focusProductDiscretionary();">
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 ijy-col-nopadding">
+                            <div class="ijy-modal-order-discretionary-tip"><span class="ijy-modal-order-discretionary-stoploss-status">&gt;</span><span class="ijy-modal-order-discretionary-stoploss"></span> </div>
+                        </div>
+                    </div>
+                    <div class="row ijy-modal-order-discretionary-button">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ijy-col-nopadding">
+                            <button class="ijy-modal-order-discretionary-button-event" onclick="historyBack()">取消</button>
+                            <button class="ijy-modal-order-discretionary-button-event" onclick="confirmOpen('你确定删除该委托订单？','eventDeleteDiscretionaryOrder')">删除</button>
+                            <button class="ijy-modal-order-discretionary-button-event" onclick="confirmOpen('你确定更新该委托订单？','eventUpdateDiscretionaryOrder')">更新</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--历史订单窗口-->
+<div id="modalOrderHistory" class="modal" aria-hidden="true" aria-labelledby="basicModal" role="dialog" tabindex="-1" style="display: none;">
+    <div class="modal-dialog ijy-modal-dialog-full">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div id="modalOrderHistoryContent">
+                    <div class="row ijy-modal-dialog-full-title">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ijy-col-nopadding">
+                            <div class="ijy-modal-dialog-full-title-left" onclick="historyBack()">〈返回 </div>
+                            <div class="ijy-modal-dialog-full-title-middle">历史订单详情</div>
+                        </div>
+                    </div>
+                    <div class="ijy-modal-dialog-full-content">
+                        <div class="row ijy-order-history-title">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ijy-col-nopadding"> <span class="ijy-order-history-title-name">商品</span><span class="ijy-order-history-title-closelots">数量</span><span>盈亏</span> </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ijy-col-nopadding">
+                                <div class="ijy-order-history-item"> </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--通知详情窗口-->
+<div id="modalNoticeDetail" class="modal" aria-hidden="true" aria-labelledby="basicModal" role="dialog" tabindex="-1" style="display: none;">
+    <div class="modal-dialog ijy-modal-dialog-full">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="row ijy-modal-dialog-full-title">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ijy-col-nopadding">
+                        <div class="ijy-modal-dialog-full-title-left" onclick="historyBack()">〈返回 </div>
+                        <div class="ijy-modal-dialog-full-title-middle">通知详情</div>
+                    </div>
+                </div>
+                <div class="ijy-modal-dialog-full-content">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="ijy-modal-notice-item-title"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="ijy-modal-notice-item-no"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="ijy-modal-notice-item-headsup"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="ijy-modal-notice-item-content"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="ijy-modal-notice-item-sign"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="ijy-modal-notice-item-datestart"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--新闻详情窗口-->
+<div id="modalNewsDetail" class="modal" aria-hidden="true" aria-labelledby="basicModal" role="dialog" tabindex="-1" style="display: none;">
+    <div class="modal-dialog ijy-modal-dialog-full">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="row ijy-modal-dialog-full-title">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ijy-col-nopadding">
+                        <div class="ijy-modal-dialog-full-title-left" onclick="historyBack()">〈返回 </div>
+                        <div class="ijy-modal-dialog-full-title-middle">新闻详情</div>
+                    </div>
+                </div>
+                <div class="ijy-modal-dialog-full-content">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="ijy-news-detail-title"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="ijy-news-detail"> <span class="ijy-news-detail-category"></span><span class="ijy-news-detail-date"></span> </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="ijy-news-detail-content"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--离线窗口-->
+<div id="modalOffline" class="modal" aria-hidden="true" aria-labelledby="basicModal" role="dialog" tabindex="-1" style="display: none;">
+    <div class="modal-dialog ijy-modal-dialog-full">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="ijy-modal-dialog-full-content">
+                    <div class="ijy-event-offline">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="ijy-modal-offline-tip">您已经断开连接，请重新登录!</div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+                                <button class="ijy-modal-offline-button" onclick="buttonExit()">退出</button>
+                                <button class="ijy-modal-offline-button" onclick="buttonOffline()">重新登录</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--密码修改窗口-->
+<div id="modalChangePassword" class="modal" aria-hidden="true" aria-labelledby="basicModal" role="dialog" tabindex="-1" style="display: none;">
+    <div class="modal-dialog ijy-modal-dialog-full">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="row ijy-modal-dialog-full-title">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ijy-col-nopadding">
+                        <div class="ijy-modal-dialog-full-title-left" onclick="historyBack()">〈返回 </div>
+                        <div class="ijy-modal-dialog-full-title-middle">密码修改</div>
+                    </div>
+                </div>
+                <div class="ijy-modal-dialog-full-content">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3  ijy-col-nopadding">
+                            <div class=" ijy-modal-changepassword-describe">原密码：</div>
+                        </div>
+                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 ijy-col-nopadding">
+                            <div>
+                                <input type="password" class="form-control   ijy-modal-changepassword-text-oldpassword">
+                            </div>
+                        </div>
+                        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3  ijy-col-nopadding">
+                            <div class=" ijy-modal-changepassword-describe">新密码：</div>
+                        </div>
+                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 ijy-col-nopadding">
+                            <div>
+                                <input type="password" class="form-control   ijy-modal-changepassword-text-newpassword">
+                            </div>
+                        </div>
+                        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 "></div>
+                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 ijy-col-nopadding">
+                            <div class="ijy-modal-changepassword-fastsignin">
+                                <div class="ijy-checkbox">
+                                    <input type="checkbox" id="ijy-modal-changepassword-fastsignin-checkbox" class="ijy-modal-changepassword-fastsignin-checkbox">
+                                    <label for="ijy-modal-changepassword-fastsignin-checkbox"></label>
+                                </div>
+                                <span class="ijy-modal-changepassword-fastsignin-describe">启用快速登录</span> </div>
+                        </div>
+                        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
+                    </div>
+                    <div class="row ijy-modal-changepassword-buttonbox">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ijy-col-nopadding">
+                            <button class="ijy-modal-changepassword-buttonbox-button" onclick="historyBack()">取消</button>
+                            <button class="ijy-modal-changepassword-buttonbox-button" onclick="confirmOpen('你确定修改密码？','eventUpdatePassword')">修改</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--提示窗口-->
+<div id="modalAlert" class="modal" aria-hidden="true" aria-labelledby="basicModal" role="dialog" tabindex="-1" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">操作提示</div>
+            <div class="modal-body">
+                <div class="ijy-model-alert-msg">订单建立成功!</div>
+            </div>
+            <div class="modal-footer">
+                <button onclick="alertClose()">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--确认窗口-->
+<div id="modalConfirm" class="modal" aria-hidden="true" aria-labelledby="basicModal" role="dialog" tabindex="-1" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">操作提示</div>
+            <div class="modal-body">
+                <div class="ijy-model-confirm-msg">你确定卖出？</div>
+            </div>
+            <div class="modal-footer">
+                <button onclick="confirmClose(true)">确定</button>
+                <button onclick="confirmClose(false)">取消</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--JS 代码区-->
+
+

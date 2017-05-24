@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{{page_title}} | 外汇</title>
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+    <!-- Bootstrap 3.3.4 -->
+    <link href="/theme/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <!-- Font Awesome Icons -->
+    <link href="/theme/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <!-- Theme style -->
+    <link href="/css/alertStyle.css" rel="stylesheet" type="text/css" />
+    <link href="/css/common.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/menu.css" rel="stylesheet" type="text/css"/>
+    <script src="/js/jquery-3.1.0.min.js"></script>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- jQuery 2.1.4 -->
+    <link rel="stylesheet" href="/upgrade/css/jquery.datetimepicker.css">
+    <link rel="stylesheet" href="/upgrade/css/icomoon-index.css" type="text/css">
+    <link rel="stylesheet" href="/upgrade/css/ijy-index-common-profession.css" type="text/css">
+    <link rel="stylesheet" href="/upgrade/css/ijy-index-content-profession.css" type="text/css">
+    <link rel="stylesheet" href="/upgrade/css/ijy-index-modal-profession.css" type="text/css">
+
+
+    <script src="/theme/bootstrap/js/bootstrap.js" type="text/javascript"></script>
+    <script src="/theme/plugins/slimScroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+    <script language="javascript" src="/js/history.js"></script>
+    <script src="/js/CommonFunc.js"></script>
+    <script src="/js/alert.js"></script>
+    <script src="/js/resize.js" type="text/javascript"></script>
+    <script type="text/javascript">
+
+        $(".leftsidebar_box dt img").attr("src","/images/left/select_xl01.png");
+        $(function(){
+            $(".leftsidebar_box dd").hide();
+            $(".leftsidebar_box dt").click(function(){
+
+                $(this).parent().find('dd').removeClass("menu_chioce");
+                $(".leftsidebar_box dt img").attr("src","/images/left/select_xl01.png");
+                $(this).parent().find('img').attr("src","/images/left/select_xl.png");
+                $(".menu_chioce").slideUp();
+                $(this).parent().find('dd').slideToggle();
+                $(this).parent().find('dd').addClass("menu_chioce");
+            });
+        })
+    </script>
+    <style>
+        body {
+            font-family: "Microsoft YaHei";
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+
+
+    <div class="main_left">
+            <div class="leftsidebar_box">
+                <div class="line"></div>
+                <dl class="laytab1">
+                    <a href="/wx_data/productlist">  <dt >交易<img src="/images/left/select_xl01.png"></dt></a>
+                </dl>
+
+                <dl class="laytab2">
+                    <a href="/wx_data">  <dt >个人中心<img src="/images/left/select_xl01.png"></dt></a>
+                    <!--<dd class="first_dd"><a href="#">1</a></dd>-->
+                    <!--<dd><a href="#">2</a></dd>-->
+                    <!--<dd><a href="#">3</a></dd>-->
+                    <!--<dd><a href="#">4</a></dd>-->
+                </dl>
+
+                <dl class="laytab3">
+                    <a href="/wx_data/uselist"> <dt >账号<img src="/images/left/select_xl01.png"></dt></a>
+                </dl>
+                <dl class="laytab4">
+                    <a href="/wx_data/positionlist"> <dt >持仓<img src="/images/left/select_xl01.png"></dt></a>
+                </dl>
+                <dl class="laytab5">
+                    <a href="/wx_data/newslist"> <dt >财经<img src="/images/left/select_xl01.png"></dt></a>
+                </dl>
+            </div>
+    </div>
+
+
+    <div class="main_right">
+
+            <!-- Main content -->
+                {{{body}}}<!-- /.content -->
+
+
+    </div>
+
+</div>
+
+</body>
+</html>

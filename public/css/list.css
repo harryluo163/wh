@@ -1,0 +1,162 @@
+body{
+    font-size: 0.6rem;
+}
+.title_tab{
+    height: 1.65rem;
+    background-color: white;
+    line-height: 1.65rem;
+    border-top: 1px solid #DFDFDF;
+}
+.title_tab ul li{
+    float: left;
+    width: 20%;
+    text-align: center;
+    font-size: 0.6rem;
+}
+.title_tab ul li a{
+    display: block;
+    width: 100%;
+    height: 100%;
+    color: black;
+    text-decoration: none;
+}
+.select_li{
+    border-bottom: 2px solid red;
+}
+
+.grouping_box{
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+.g_title{
+    padding:0 0.5rem;
+    height: 1.5rem;
+    line-height: 1.5rem;
+    background-color: #FFFFFF;
+    font-size: 0.6rem;
+}
+.g_ck{
+    width: 15%;
+    height: 2.2rem;
+    float: left;
+}
+.g_ck .input_box{
+    margin: 0 auto;
+    margin-top: 0.6rem;
+}
+.g_title i{
+    display: block;
+    width: 1rem;
+    height: 1rem;
+    float: left;
+}
+.g_title span{
+    display: block;
+    float: left;
+    font-size: 0.6rem;
+    padding: 0 0.25rem;
+    max-width: 10rem;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.g_title h1{
+    float: right;
+}
+.g_title i img{
+    width: 100%;
+    height: 100%;
+    margin-top: 0.2rem;
+}
+.p_list ul li:first-child{
+    border-top: 0.05rem solid #DFDFDF;
+}
+.p_list ul li{
+    padding:0.5rem 0;
+    background-color: #FFFFFF;
+    border-bottom: 0.05rem solid #DFDFDF;
+    overflow: hidden;
+}
+.p_list ul li .g_ck{
+    margin-top: 1rem;
+}
+.p_info{
+    padding: 0 0.5rem;
+}
+.p_img{
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 1px dashed #DFDFDF;
+    float: left;
+}
+.p_img img{
+    width: 100%;
+    height: 100%;
+}
+.p_name{
+    display:table;
+    width:7.5rem;
+    height: 2.5rem;
+    margin-left: 0.25rem;
+    font-size: 0.6rem;
+    float: left;
+    overflow: hidden;
+}
+.middle {display:table-cell; vertical-align:middle}
+.p_price{
+    width:3rem;
+    height: 2.5rem;
+    margin-left: 0.25rem;
+    float: right;
+}
+.p_price a{
+    text-decoration: none;
+    color: black;
+}
+.cart_price{
+    float: right;
+    height: 1.2rem;
+    margin-top: 0.65rem;
+    text-align: right;
+    line-height: 1.2rem;
+    overflow: hidden;
+}
+.price_text{
+    font-size: 0.6rem;
+}
+.price_text em{
+    font-size: 0.7rem;
+    color: red;
+}
+.price_text span{
+    display: block;
+    height: 1.2rem;
+}
+.total_box{
+    height: 3.5rem;
+    background-color: white;
+    text-align: right;
+    padding: 0 1rem;
+    font: 0.6rem/0.6rem "微软雅黑";
+}
+.total_box p:first-child{
+    display: block;
+    height: 1.2rem;
+    line-height: 1.2rem;
+}
+.total_box em{
+    color: #AAAAAA;
+    padding: 0 0.3rem;
+}
+.total_box a{
+    text-decoration: none;
+    padding: 0.2rem 0.4rem;
+    color: red;
+    border: 1px solid red;
+    border-radius: 0.2rem;
+    line-height: 50px;
+    margin-right: 0.5rem;
+}
+.total_box a:last-child{
+    margin: 0;
+}

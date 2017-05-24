@@ -1,0 +1,430 @@
+
+<style>
+    .froum_p{float: right;height: 25px;line-height: 25px;margin: 12px 2% 0 0;padding: 0 2px;width: 25%;}
+    .froum_p .margin_o{ width:22px; margin:auto;}
+    .ijy-checkbox label{background:#fff; border:#46c586 1px solid; border-radius:3px;}
+    .ijy-product-item-name{ width:50%;}
+
+</style>
+
+<!-- 顶部菜单 -->
+<div class="navbar-fixed-top">
+    <div class="row ijy-modal-dialog-full-title">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ijy-col-nopadding">
+            <div class="ijy-modal-dialog-full-title-left" onclick="historyBack()">〈返回 </div>
+            <div class="ijy-modal-dialog-full-title-middle">添加自选品种</div>
+            <div class="ijy-modal-dialog-full-title-right"><a href="#" class="btn btn-gold btn-sm" id="symboltj">确定</a></div>
+        </div>
+    </div>
+
+</div>
+<!-- 内容区域 -->
+<div class="ijy-fluid-container">
+    <div class="tab-content">
+        <!-- 商品tab -->
+        <div role="tabpanel" class="tab-pane active" id="tab-product">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ijy-col-nopadding">
+                    <div class="ijy-product-title">
+                        <span class="ijy-product-title-name">自选品种</span><span class="ijy-product-title-price"></span><span class="ijy-product-title-price">勾选</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ijy-col-nopadding">
+                    <div class="ijy-product">
+                        <div onclick="" class="ijy-product-item">
+                            <div class="ijy-product-item-name">XAUUSD(黄金)</div>
+
+                            <div class=" froum_p">
+                                <div class="margin_o">
+                                    <div class="ijy-checkbox add-checkbox" style="margin:0px;"><input type="checkbox" name="symbol" value="XAUUSD" id="XAUUSD" class="ijy-checkbox1" checked="checked"><label for="XAUUSD"></label></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div onclick="" class="ijy-product-item">
+                            <div class="ijy-product-item-name">XAGUSD(白银)</div>
+
+                            <div class=" froum_p">
+                                <div class="margin_o">
+                                    <div class="ijy-checkbox add-checkbox" style="margin:0px;"><input type="checkbox" name="symbol" value="XAGUSD" id="XAGUSD" class="ijy-checkbox1" checked="checked"><label for="XAGUSD"></label></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div onclick="" class="ijy-product-item">
+                            <div class="ijy-product-item-name">USOil(原油)</div>
+
+                            <div class=" froum_p">
+                                <div class="margin_o">
+                                    <div class="ijy-checkbox add-checkbox" style="margin:0px;"><input type="checkbox" name="symbol" value="USOil" id="USOil" class="ijy-checkbox1" checked="checked"><label for="USOil"></label></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div onclick="" class="ijy-product-item">
+                            <div class="ijy-product-item-name">EURUSD(欧美)</div>
+
+                            <div class=" froum_p">
+                                <div class="margin_o">
+                                    <div class="ijy-checkbox add-checkbox" style="margin:0px;"><input type="checkbox" name="symbol" value="EURUSD" id="EURUSD" class="ijy-checkbox1" checked="checked"><label for="EURUSD"></label></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div onclick="" class="ijy-product-item">
+                            <div class="ijy-product-item-name">GBPUSD(镑美)</div>
+
+                            <div class=" froum_p">
+                                <div class="margin_o">
+                                    <div class="ijy-checkbox add-checkbox" style="margin:0px;"><input type="checkbox" name="symbol" value="GBPUSD" id="GBPUSD" class="ijy-checkbox1" checked="checked"><label for="GBPUSD"></label></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div onclick="" class="ijy-product-item">
+                            <div class="ijy-product-item-name">AUDUSD(澳美)</div>
+
+                            <div class=" froum_p">
+                                <div class="margin_o">
+                                    <div class="ijy-checkbox add-checkbox" style="margin:0px;"><input type="checkbox" name="symbol" value="AUDUSD" id="AUDUSD" class="ijy-checkbox1" checked="checked"><label for="AUDUSD"></label></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div onclick="" class="ijy-product-item">
+                            <div class="ijy-product-item-name">NZDUSD(纽美)</div>
+
+                            <div class=" froum_p">
+                                <div class="margin_o">
+                                    <div class="ijy-checkbox add-checkbox" style="margin:0px;"><input type="checkbox" name="symbol" value="NZDUSD" id="NZDUSD" class="ijy-checkbox1"><label for="NZDUSD"></label></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div onclick="" class="ijy-product-item">
+                            <div class="ijy-product-item-name">USDJPY(美日)</div>
+
+                            <div class=" froum_p">
+                                <div class="margin_o">
+                                    <div class="ijy-checkbox add-checkbox" style="margin:0px;"><input type="checkbox" name="symbol" value="USDJPY" id="USDJPY" class="ijy-checkbox1"><label for="USDJPY"></label></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div onclick="" class="ijy-product-item">
+                            <div class="ijy-product-item-name">USDCAD(美加)</div>
+
+                            <div class=" froum_p">
+                                <div class="margin_o">
+                                    <div class="ijy-checkbox add-checkbox" style="margin:0px;"><input type="checkbox" name="symbol" value="USDCAD" id="USDCAD" class="ijy-checkbox1"><label for="USDCAD"></label></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div onclick="" class="ijy-product-item">
+                            <div class="ijy-product-item-name">USDCHF(美瑞)</div>
+
+                            <div class=" froum_p">
+                                <div class="margin_o">
+                                    <div class="ijy-checkbox add-checkbox" style="margin:0px;"><input type="checkbox" name="symbol" value="USDCHF" id="USDCHF" class="ijy-checkbox1"><label for="USDCHF"></label></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div onclick="" class="ijy-product-item">
+                            <div class="ijy-product-item-name">GER30</div>
+
+                            <div class=" froum_p">
+                                <div class="margin_o">
+                                    <div class="ijy-checkbox add-checkbox" style="margin:0px;"><input type="checkbox" name="symbol" value="GER30" id="GER30" class="ijy-checkbox1"><label for="GER30"></label></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div onclick="" class="ijy-product-item">
+                            <div class="ijy-product-item-name">US30</div>
+
+                            <div class=" froum_p">
+                                <div class="margin_o">
+                                    <div class="ijy-checkbox add-checkbox" style="margin:0px;"><input type="checkbox" name="symbol" value="US30" id="US30" class="ijy-checkbox1"><label for="US30"></label></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div onclick="" class="ijy-product-item">
+                            <div class="ijy-product-item-name">EUSTX50</div>
+
+                            <div class=" froum_p">
+                                <div class="margin_o">
+                                    <div class="ijy-checkbox add-checkbox" style="margin:0px;"><input type="checkbox" name="symbol" value="EUSTX50" id="EUSTX50" class="ijy-checkbox1"><label for="EUSTX50"></label></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div onclick="" class="ijy-product-item">
+                            <div class="ijy-product-item-name">SPX500</div>
+
+                            <div class=" froum_p">
+                                <div class="margin_o">
+                                    <div class="ijy-checkbox add-checkbox" style="margin:0px;"><input type="checkbox" name="symbol" value="SPX500" id="SPX500" class="ijy-checkbox1"><label for="SPX500"></label></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div onclick="" class="ijy-product-item">
+                            <div class="ijy-product-item-name">FRA40</div>
+
+                            <div class=" froum_p">
+                                <div class="margin_o">
+                                    <div class="ijy-checkbox add-checkbox" style="margin:0px;"><input type="checkbox" name="symbol" value="FRA40" id="FRA40" class="ijy-checkbox1"><label for="FRA40"></label></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div onclick="" class="ijy-product-item">
+                            <div class="ijy-product-item-name">UK100</div>
+
+                            <div class=" froum_p">
+                                <div class="margin_o">
+                                    <div class="ijy-checkbox add-checkbox" style="margin:0px;"><input type="checkbox" name="symbol" value="UK100" id="UK100" class="ijy-checkbox1"><label for="UK100"></label></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div onclick="" class="ijy-product-item">
+                            <div class="ijy-product-item-name">JPN225</div>
+
+                            <div class=" froum_p">
+                                <div class="margin_o">
+                                    <div class="ijy-checkbox add-checkbox" style="margin:0px;"><input type="checkbox" name="symbol" value="JPN225" id="JPN225" class="ijy-checkbox1"><label for="JPN225"></label></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div onclick="" class="ijy-product-item">
+                            <div class="ijy-product-item-name">EURJPY(欧日)</div>
+
+                            <div class=" froum_p">
+                                <div class="margin_o">
+                                    <div class="ijy-checkbox add-checkbox" style="margin:0px;"><input type="checkbox" name="symbol" value="EURJPY" id="EURJPY" class="ijy-checkbox1"><label for="EURJPY"></label></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div onclick="" class="ijy-product-item">
+                            <div class="ijy-product-item-name">EURAUD(欧澳)</div>
+
+                            <div class=" froum_p">
+                                <div class="margin_o">
+                                    <div class="ijy-checkbox add-checkbox" style="margin:0px;"><input type="checkbox" name="symbol" value="EURAUD" id="EURAUD" class="ijy-checkbox1"><label for="EURAUD"></label></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div onclick="" class="ijy-product-item">
+                            <div class="ijy-product-item-name">EURNZD(欧纽)</div>
+
+                            <div class=" froum_p">
+                                <div class="margin_o">
+                                    <div class="ijy-checkbox add-checkbox" style="margin:0px;"><input type="checkbox" name="symbol" value="EURNZD" id="EURNZD" class="ijy-checkbox1"><label for="EURNZD"></label></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div onclick="" class="ijy-product-item">
+                            <div class="ijy-product-item-name">EURCHF(欧瑞)</div>
+
+                            <div class=" froum_p">
+                                <div class="margin_o">
+                                    <div class="ijy-checkbox add-checkbox" style="margin:0px;"><input type="checkbox" name="symbol" value="EURCHF" id="EURCHF" class="ijy-checkbox1"><label for="EURCHF"></label></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div onclick="" class="ijy-product-item">
+                            <div class="ijy-product-item-name">EURCAD(欧加)</div>
+
+                            <div class=" froum_p">
+                                <div class="margin_o">
+                                    <div class="ijy-checkbox add-checkbox" style="margin:0px;"><input type="checkbox" name="symbol" value="EURCAD" id="EURCAD" class="ijy-checkbox1"><label for="EURCAD"></label></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div onclick="" class="ijy-product-item">
+                            <div class="ijy-product-item-name">EURGBP(欧镑)</div>
+
+                            <div class=" froum_p">
+                                <div class="margin_o">
+                                    <div class="ijy-checkbox add-checkbox" style="margin:0px;"><input type="checkbox" name="symbol" value="EURGBP" id="EURGBP" class="ijy-checkbox1"><label for="EURGBP"></label></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div onclick="" class="ijy-product-item">
+                            <div class="ijy-product-item-name">GBPCAD(镑加)</div>
+
+                            <div class=" froum_p">
+                                <div class="margin_o">
+                                    <div class="ijy-checkbox add-checkbox" style="margin:0px;"><input type="checkbox" name="symbol" value="GBPCAD" id="GBPCAD" class="ijy-checkbox1"><label for="GBPCAD"></label></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div onclick="" class="ijy-product-item">
+                            <div class="ijy-product-item-name">GBPJPY(镑日)</div>
+
+                            <div class=" froum_p">
+                                <div class="margin_o">
+                                    <div class="ijy-checkbox add-checkbox" style="margin:0px;"><input type="checkbox" name="symbol" value="GBPJPY" id="GBPJPY" class="ijy-checkbox1"><label for="GBPJPY"></label></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div onclick="" class="ijy-product-item">
+                            <div class="ijy-product-item-name">GBPAUD(镑澳)</div>
+
+                            <div class=" froum_p">
+                                <div class="margin_o">
+                                    <div class="ijy-checkbox add-checkbox" style="margin:0px;"><input type="checkbox" name="symbol" value="GBPAUD" id="GBPAUD" class="ijy-checkbox1"><label for="GBPAUD"></label></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div onclick="" class="ijy-product-item">
+                            <div class="ijy-product-item-name">GBPCHF(镑瑞)</div>
+
+                            <div class=" froum_p">
+                                <div class="margin_o">
+                                    <div class="ijy-checkbox add-checkbox" style="margin:0px;"><input type="checkbox" name="symbol" value="GBPCHF" id="GBPCHF" class="ijy-checkbox1"><label for="GBPCHF"></label></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div onclick="" class="ijy-product-item">
+                            <div class="ijy-product-item-name">AUDJPY(澳日)</div>
+
+                            <div class=" froum_p">
+                                <div class="margin_o">
+                                    <div class="ijy-checkbox add-checkbox" style="margin:0px;"><input type="checkbox" name="symbol" value="AUDJPY" id="AUDJPY" class="ijy-checkbox1"><label for="AUDJPY"></label></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div onclick="" class="ijy-product-item">
+                            <div class="ijy-product-item-name">AUDNZD(澳纽)</div>
+
+                            <div class=" froum_p">
+                                <div class="margin_o">
+                                    <div class="ijy-checkbox add-checkbox" style="margin:0px;"><input type="checkbox" name="symbol" value="AUDNZD" id="AUDNZD" class="ijy-checkbox1"><label for="AUDNZD"></label></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div onclick="" class="ijy-product-item">
+                            <div class="ijy-product-item-name">AUDCAD(澳加)</div>
+
+                            <div class=" froum_p">
+                                <div class="margin_o">
+                                    <div class="ijy-checkbox add-checkbox" style="margin:0px;"><input type="checkbox" name="symbol" value="AUDCAD" id="AUDCAD" class="ijy-checkbox1"><label for="AUDCAD"></label></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div onclick="" class="ijy-product-item">
+                            <div class="ijy-product-item-name">AUDCHF(澳瑞)</div>
+
+                            <div class=" froum_p">
+                                <div class="margin_o">
+                                    <div class="ijy-checkbox add-checkbox" style="margin:0px;"><input type="checkbox" name="symbol" value="AUDCHF" id="AUDCHF" class="ijy-checkbox1"><label for="AUDCHF"></label></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div onclick="" class="ijy-product-item">
+                            <div class="ijy-product-item-name">NZDJPY(纽日)</div>
+
+                            <div class=" froum_p">
+                                <div class="margin_o">
+                                    <div class="ijy-checkbox add-checkbox" style="margin:0px;"><input type="checkbox" name="symbol" value="NZDJPY" id="NZDJPY" class="ijy-checkbox1"><label for="NZDJPY"></label></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div onclick="" class="ijy-product-item">
+                            <div class="ijy-product-item-name">CADJPY(加日)</div>
+
+                            <div class=" froum_p">
+                                <div class="margin_o">
+                                    <div class="ijy-checkbox add-checkbox" style="margin:0px;"><input type="checkbox" name="symbol" value="CADJPY" id="CADJPY" class="ijy-checkbox1"><label for="CADJPY"></label></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div onclick="" class="ijy-product-item">
+                            <div class="ijy-product-item-name">CHFJPY(瑞日)</div>
+
+                            <div class=" froum_p">
+                                <div class="margin_o">
+                                    <div class="ijy-checkbox add-checkbox" style="margin:0px;"><input type="checkbox" name="symbol" value="CHFJPY" id="CHFJPY" class="ijy-checkbox1"><label for="CHFJPY"></label></div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--底部菜单-->
+<div class="navbar-fixed-bottom menu">
+    <div class="ijy-menu-bottom">
+        <ul class="nav nav-tabs">
+            <li class="ijy-menu-bottom-item active" style="margin-left: -5px"><a href="/wx_data/productlist?symboltype=1">
+                <img src="/upgrade/images/bar01.png" width="24" height="24"><br>
+                <span>交易</span>
+            </a>
+            </li>
+            <li class="ijy-menu-bottom-item" style="margin-left: -5px"><a href="/wx_data/">
+                <img src="/upgrade/images/bar04_o.png" width="24" height="24"><br>
+                <span>用户</span>
+            </a>
+            <li class="ijy-menu-bottom-item" style="margin-left: -5px"><a href="/wx_data/uselist">
+                <img src="/upgrade/images/bar05_o.png" width="24" height="24"><br>
+                <span>账户</span>
+            </a>
+            </li>
+            <li class="ijy-menu-bottom-item" style="margin-left: -5px"><a href="/wx_data/positionlist">
+                <img src="/upgrade/images/bar02_o.png" width="24" height="24"><br>
+                <span>持仓</span>
+            </a>
+            </li>
+
+            <li class="ijy-menu-bottom-item" style="margin-left: -5px"><a href="/wx_data/newslist">
+                <img src="/upgrade/images/bar03_o.png" width="24" height="24"><br>
+                <span>财经</span>
+            </a>
+            </li>
+
+        </ul>
+    </div>
+</div>
+
+
+
+
+<script>
+    $(function(){
+
+        var itemWidth = $(".ijy-menu-bottom-item").width();
+        var itemIndex = $(".currentFlag").index();
+        var toLeft = itemIndex*itemWidth;
+        $(".ijy-menu-bottom").animate({scrollLeft:toLeft},500);
+    });
+</script>
+
+<script>
+    $(function () {
+
+        $("#symboltj").click(function(){
+            var symbol="";
+            $("input[name='symbol']").each(
+                    function(){
+                        if($(this).get(0).checked){
+                            symbol=symbol+$(this).val()+";";
+                        }
+                    });
+            $.ajax({
+                type: "post",
+                url: "/index_contr/addsymbol.shtml",
+                data:{symbol:symbol},
+                success: function(msg, textStatus){
+                    if(msg=="1")
+                    {
+                        $.fn.SK_alert("提交成功");
+                        setTimeout('window.location.href="/index_contr/lists"',500);
+                    }
+                    else
+                    {
+                        $.fn.SK_alert("提交失败");
+                    }
+                }
+            });
+        });
+
+    });
+</script>
+
+

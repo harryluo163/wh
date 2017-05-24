@@ -1,0 +1,83 @@
+
+<div class="row ijy-modal-dialog-full-title navbar-fixed-top">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ijy-col-nopadding">
+        <div class="ijy-modal-dialog-full-title-left" onclick="historyBack()">〈返回 </div>
+        <div class="ijy-modal-dialog-full-title-middle">财经资讯</div>
+    </div>
+</div>
+<!-- 内容区域 -->
+<div class="ijy-fluid-container mt50">
+    <div class="tab-content">
+
+
+
+
+        <!-- 资讯tab -->
+        <div role="tabpanel" class="tab-pane active" id="tab-news">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12  ijy-col-nopadding">
+                    <div class="ijy-news">
+                        <a href="/wx_data/userDetails?id=12">
+                            <div onclick="goshowNewsDetail('12')" class="ijy-news-item">
+                                <div class="ijy-news-item-content">各国2015年GDP增长预期美国 (2.5%) 、欧元区 (1.4%) 、日本 (0.9%) 、英国 (2.5%) 、加拿大 (1.9%) 、澳大利亚 (2.3%) 、新西兰 (3%) 、中国 (7%)</div>
+                                <div class=" ijy-news-item-left"><span class="ijy-news-item-category">[]</span><span class="ijy-news-item-title">关于服务器运维通知</span></div>
+                                <div class="ijy-news-item-right ijy-news-item-date">11-29 16:46</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="pages_container">
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!--底部菜单-->
+<div class="navbar-fixed-bottom menu">
+    <div class="ijy-menu-bottom">
+        <ul class="nav nav-tabs">
+            <li class="ijy-menu-bottom-item"><a href="/wx_data/productlist?symboltype=1">
+                <img src="/upgrade/images/bar01_o.png" width="24" height="24"><br>
+                <span>交易</span>
+            </a>
+            </li>
+
+            <li class="ijy-menu-bottom-item "><a href="/wx_data/">
+                <img src="/upgrade/images/bar04_o.png" width="24" height="24"><br>
+                <span>用户</span>
+            </a>
+            <li class="ijy-menu-bottom-item"><a href="/wx_data/uselist">
+                <img src="/upgrade/images/bar05_o.png" width="24" height="24"><br>
+                <span>账户</span>
+            </a>
+            </li>
+            <li class="ijy-menu-bottom-item "><a href="/wx_data/positionlist">
+                <img src="/upgrade/images/bar02_o.png" width="24" height="24"><br>
+                <span>持仓</span>
+            </a>
+            </li>
+
+            <li class="ijy-menu-bottom-item active"><a href="/wx_data/newslist">
+                <img src="/upgrade/images/bar03.png" width="24" height="24"><br>
+                <span>财经</span>
+            </a>
+            </li>
+
+        </ul>
+    </div>
+</div>
+
+<!--JS 代码区-->
+
+<script>
+    function goshowNewsDetail(id){
+    window.location.href="wx_data/userDetails?id="+id;
+    }
+    if(isWechat()){
+        $(".navbar-fixed-top").hide();
+        $(".ijy-fluid-container").attr("class","ijy-fluid-container")
+        $(".ijy-fluid-container").css("margin","0 0 70px")
+    }
+</script>
+

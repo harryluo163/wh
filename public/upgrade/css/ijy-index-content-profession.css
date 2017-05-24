@@ -1,0 +1,590 @@
+@charset "utf-8";
+/**
+ * 顶部颜色
+ */
+.ijy-product-title,.ijy-order-open-title,.ijy-order-discretionary-title,.ijy-order-history-title,.ijy-normalorder-open-title{
+    background: none repeat scroll 0 0 #2d313c;
+    color: #666;
+}
+/**
+ * item颜色border-bottom: 1px solid #30333d;
+ */
+.ijy-product-item,.ijy-order-open-item ,.ijy-order-discretionary-item,.ijy-order-history-item ,.ijy-notice-item ,.ijy-news-item{
+    background: none repeat scroll 0 0 #23262f;
+    border-bottom: 1px solid #30333d;
+    color: white;
+}
+/**
+ * 普通item中的颜色
+ */
+.ijy-product-item-name-time,.ijy-order-open-item-middle ,.ijy-order-open-item-bottom ,.ijy-order-history-item-middle ,
+.ijy-order-discretionary-item-middle ,.ijy-order-discretionary-item-bottom ,.ijy-order-history-item-orderid ,.ijy-news-item,.ijy-news-detail-content{
+    color: #999;
+}
+.ijy-product-item-up {
+    background: none repeat scroll 0 0 #a95263;
+    color: #ebdcde;
+}
+.ijy-product-item-equal {
+    color: #fd0000;
+    font-size:
+}
+.ijy-product-item-down {
+    color: #01b301;
+}
+.ijy-order-history-item-closeprice, .ijy-order-history-item-commission {
+    border-top: 1px solid #30333d;
+}
+.ijy-news-detail-title {
+    color: #e47c64;
+}
+.ijy-app-download {
+    color: #666;
+}
+/*****************************************************************/
+/*商品*/
+.ijy-product-title {
+    font-size: 12px;
+    height: 28px;
+    line-height:28px;
+    text-align: left;
+}
+.ijy-product-title span {
+    display: inline-block;
+}
+.ijy-product-title-name {
+    padding-left: 10px;
+    width: 44%;
+}
+.ijy-product-title-price {
+    margin-right: 2%;
+    text-align: center;
+    width: 25%;
+}
+.ijy-col-option-detailset .ijy-product-title-name,.ijy-col-option-detailset .ijy-product-title-price{
+    padding-left: 10px;
+    width: 24%;
+    float:left;
+}
+.ijy-col-option-detailset .ijy-product-title-price{
+    margin-right:0;
+}
+.ijy-col-option-detailset .ijy-modal-product-discretionary-category{
+    width: 74%;
+    float:left;
+}
+.ijy-product-item {
+    height: 50px;
+}
+.ijy-modal-dialog-full-content .ijy-product-item {
+    height: 80px;
+}
+.ijy-product-item-name {
+    float: left;
+    font-family: microsoft yahei;
+    font-size: 16px;
+    line-height: 50px;
+    padding-left: 10px;
+    width: 44%;
+    color:#d9bc82;
+}
+.ijy-product-item-add{
+    width: 80%;
+}
+.ijy-product-item .add-checkbox{
+    margin-top:15px;
+    float:right;
+    margin-right:20px;
+}
+
+.ijy-product-item-name-time {
+    font-size: 14px;
+    font-weight: lighter;
+    height: 24px;
+    line-height: 24px;
+}
+.ijy-product-item-sale {
+    display: inline-block;
+    float: right;
+    height: 25px;
+    line-height: 25px;
+    margin: 12px 2% 0 0;
+    padding: 0 2px;
+    text-align: center;
+    font-size:16px;
+    width: 25%;
+}
+.ijy-product-item-buy {
+    float: right;
+    height: 25px;
+    line-height: 25px;
+    margin: 12px 2% 0 0;
+    text-align: center;
+    font-size:16px;
+    width: 25%;
+}
+.ijy-product-item-up {
+    background: none repeat scroll 0 0 #a95263;
+    color: #ebdcde;
+}
+.ijy-product-item-equal {
+    color: #fe3543;
+}
+.ijy-product-item-down {
+    color: #16f09b;
+}
+/*在手订单*/
+.ijy-order-open-title {
+    font-size: 12px;
+    height: 20px;
+    text-align: left;
+}
+.ijy-normalorder-open-title {
+    font-size: 12px;
+    height: 28px;
+    line-height:28px;
+    text-align: left;
+}
+.ijy-normalorder-moreinfo{
+    color:#666769;
+}
+.ijy-normalorder-moreinfo font{
+    color:#ccc;
+}
+.ijy-order-open-title span {
+    display: inline-block;
+}
+.ijy-normalorder-open-title span {
+    display: inline-block;
+}
+.ijy-order-open-title-name {
+    padding-left: 10px;
+    width: 60%;
+}
+.ijy-normalorder-open-title-name {
+    padding-left: 16px;
+    width: 46%;
+}
+.ijy-normalorder-open-title-number{
+    padding-left: 10px;
+    width:30%;
+}
+.ijy-order-open-title-number {
+    width: 13%
+}
+.ijy-order-open-item {
+    padding:6px 0;
+}
+.ijy-order-open-item-top {
+    height: 30px;
+    line-height: 30px;
+}
+.ijy-order-open-item-isbuy {
+    display: inline-block;
+    padding-left: 5px;
+    font-size: 15px;
+}
+.ijy-order-open-item-productname {
+    float: left;
+    font-family: microsoft yahei;
+    font-size: 16px;
+    line-height: 30px;
+    padding-left: 10px;
+    width: 60%;
+    color:#FFF;
+}
+.ijy-normalorder-open-item-productname {
+    float:left;
+    font-family:microsoft yahei;
+    font-size:16px;
+    line-height:30px;
+    padding-left:0;
+    width:47%;
+    color:#dabb84;
+}
+.ijy-order-open-item-openlots {
+    float: left;
+    font-size: 20px;
+    width: 13%;
+    color:#FFF;
+}
+.ijy-normalorder-open-item-openlots {
+    float: left;
+    font-size: 18px;
+    width: 30%;
+}
+.ijy-normalorder-open-item-profit {
+    font-size: 18px;
+}
+.ijy-order-open-item-profit {
+    font-size: 13px;
+    color:#FFF;
+}
+.ijy-order-open-item-middle {
+    font-size: 11px;
+    height: 20px;
+    line-height: 20px;
+}
+.ijy-order-open-item-dateopen {
+    float: left;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.ijy-order-open-item-openprice {
+    display: inline-block;
+    padding-right: 10px;
+}
+.ijy-order-open-item-closeprice {
+    display: inline-block;
+}
+.ijy-order-open-item-bottom {
+    font-size: 11px;
+    height: 25px;
+    line-height: 25px;
+    padding-left: 10px;
+}
+.ijy-order-open-item-rollover {
+    display: inline-block;
+    padding-left: 50px;
+}
+.ijy-order-open-item-orderid {
+    width: 50%;
+}
+/*委托订单*/
+.ijy-order-discretionary-title {
+    font-size: 12px;
+    height: 20px;
+    text-align: left;
+}
+.ijy-order-discretionary-title span {
+    display: inline-block;
+}
+.ijy-order-discretionary-title-name {
+    padding-left: 10px;
+    width: 50%;
+}
+.ijy-handorder-discretionary-title-name{
+    padding-left:10px;
+    width:74%;
+}
+.ijy-order-discretionary-title-number {
+    width: 13%
+}
+.ijy-order-discretionary-item {
+    height: 54px;
+}
+.ijy-order-discretionary-item-top {
+    height: 30px;
+    line-height: 30px;
+}
+.ijy-order-discretionary-item-isbuy {
+    display: inline-block;
+    padding-left: 5px;
+    font-size: 15px;
+}
+.ijy-order-discretionary-item-productname {
+    float: left;
+    font-family: microsoft yahei;
+    font-size: 16px;
+    line-height: 30px;
+    padding-left: 10px;
+    width: 50%;
+    color:#FFF;
+}
+.ijy-handorder-productname {
+    float: left;
+    font-family: microsoft yahei;
+    font-size: 16px;
+    line-height: 30px;
+    height:30px;
+    padding-left: 10px;
+    width: 75%;
+    color:#d9bc82;
+}
+.ijy-handorder-discretionaryprice{
+    font-size: 16px;
+    width: 25%;
+    float:left;
+}
+
+.ijy-handorder-discretionary-item{
+    background: none repeat scroll 0 0 #23262f;
+    border-bottom: 1px solid #30333d;
+    color: white;
+    padding:6px 0px;
+}
+.ijy-order-history-show{ overflow:hidden;border-bottom: 1px solid #30333d; color:#808080;}
+.ijy-order-history-show .left{ width:50%; float:left; padding:0 15px;}
+.ijy-order-history-show .right{ width:50%; float:right; padding:0 15px;}
+.ijy-order-history-show .left span,.ijy-order-history-show .right span{float:right;}
+
+.ijy-order-discretionary-item-openlots {
+    float: left;
+    font-size: 20px;
+    width: 13%;
+}
+.ijy-order-discretionary-item-discretionaryprice{
+    font-size: 13px;
+}
+.ijy-order-discretionary-item-middle {
+    font-size: 11px;
+    height: 20px;
+    line-height: 20px;
+    padding: 0 0 0 10px;
+}
+.ijy-order-discretionary-item-datecreate{
+    width: 30%;
+    display: inline-block;
+}
+.ijy-order-discretionary-item-price {
+    display: inline;
+}
+.ijy-stopUpDown-btn{padding:5px 0;}
+.ijy-stopUpDown-btn .btn-gold{background-color:#dabb84; color:#1f2129; padding:5px 19px;}
+.ijy-order-discretionary-item-dateexpire {
+    display: inline-block;
+}
+.ijy-order-discretionary-item-bottom {
+    font-size: 14px;
+    height: 25px;
+    line-height: 25px; padding: 0 0 0 10px;
+}.ijy-order-discretionary-item-orderid {
+     display: inline-block;
+     width: 30%;
+ }
+.ijy-order-open-item-price {
+    display: inline-block;
+}
+.ijy-stopUpDown{ font-size:14px; color:#CCC;}
+/*历史订单*/
+.ijy-order-history-title {
+    font-size: 12px;
+    height: 20px;
+    line-height:20px;
+    text-align: left;
+}
+.ijy-order-history-title span {
+    display: inline-block;
+}
+.ijy-order-history-title-name {
+    padding-left: 10px;
+    width: 56%;
+}
+.ijy-order-history-time{
+    padding-left: 10px;
+    width: 40%;
+}
+.ijy-order-into-time{
+    padding-left: 10px;
+    width: 50%;
+}
+.ijy-order-history-timename{
+    float: left;
+    font-family: microsoft yahei;
+    font-size: 12px;
+    padding-left: 10px;
+    width:40%;
+    line-height:40px; height:40px;
+    color:#a9a9ab;
+}
+.ijy-order-into-timename{
+    padding-left: 10px;
+    width: 50%;
+    color:#a9a9ab;
+}
+.ijy-order-history-time-closelots {
+    font-size: 12px;
+    color:#d9bc82;
+    width:20%;
+}
+.ijy-order-history-time-profit{
+    font-size:12px;
+    width:20%;
+}
+.ijy-order-history-time-profit span{
+    font-size:12px;
+}
+.ijy-order-history-title-closelots {
+    width: 20%
+}
+.ijy-order-into-capital {
+    width: 24%
+}
+.ijy-order-into-time-closelots{
+    width: 24%;font-size: 12px;
+    color:#d9bc82;
+}
+.ijy-order-history-title-yk{width:14%}
+.ijy-order-history-title-ye{width:22%}
+.ijy-order-history-item {
+    font-size: 12px;
+    padding-bottom:10px;
+}
+.ijy-order-history-item span {
+    display: inline-block;
+}
+.ijy-order-history-item-top {
+    height: 40px;
+    line-height: 40px;
+}
+.ijy-order-history-item-isbuy {
+    font-size: 15px;
+    padding: 0 3px 0 0;
+}
+.ijy-order-history-item-productname {
+    float: left;
+    font-family: microsoft yahei;
+    font-size: 16px;
+    padding-left: 10px;
+    width:56%;
+    line-height:40px; height:40px;
+    color:#d9bc82;
+}
+.ijy-order-history-item-closelots {
+    font-size: 16px;
+    color:#d9bc82;
+    width:22%;
+}
+.ijy-order-history-item-orderid {
+    font-size: 14px;
+    padding: 0 0 0 10px;
+    line-height:24px;
+}
+.ijy-order-history-item-mt4orderid {
+    font-size: 14px;
+    color: #777;
+    padding: 0 0 0 10px;
+    line-height:24px;
+}
+.ijy-order-history-item-align {
+    line-height: 26px;
+    padding-left: 10px;
+    color:#808080;
+}
+.ijy-order-history-item-datecreate {
+    padding:0 0 0 10px;
+}
+.ijy-order-history-item-openprice {
+}
+.ijy-order-history-item-closeprice {
+    margin-top: 10px;
+    padding-top: 10px;
+}
+.ijy-order-history-item-commission {
+    margin-top: 10px;
+    padding-top: 10px;
+}
+.ijy-order-history-item-profit span{
+    font-size:16px;
+}
+
+/*通知*/
+.ijy-notice-item {
+    height: 45px;
+    line-height: 45px;
+    padding: 0 10px;
+}
+.ijy-notice-item-left {
+    float: left;
+    font-size: 13px;
+    height: 100%;
+    overflow: hidden;
+    width: 73%;
+}
+.ijy-notice-item-right {
+    float: right;
+    font-size: 12px;
+    height: 100%;
+    text-align: right;
+    width: 27%;
+}
+/*新闻*/
+.ijy-news-item {
+    height: 45px;
+    line-height: 45px;
+    padding: 0 10px;
+}
+.ijy-news-item-userpic{
+    height:62px;
+    line-height:62px;
+    padding: 0 10px;
+}
+.ijy-news-item-userpic img{
+    border: 3px solid #dabb84;
+    border-radius: 50px;
+    margin-top:7px;
+}
+.ijy-news-item-left {
+    float: left;
+    font-size: 16px;
+    height: 100%;
+    overflow: hidden;
+    width: 73%;
+}
+.ijy-news-item-title{
+    color:#b89c69;
+}
+.ijy-news-item-right {
+    float: right;
+    font-size: 14px;
+    height: 100%;
+    text-align: right;
+    width: 27%;
+}
+.ijy-news-item-content ,.ijy-news-item-category{
+    display: none;
+}
+.active > .auto .text-active, .active > .text-active {
+    display: inline-block !important;
+}
+.active > .auto .text, .active > .text, .text-active {
+    display: none !important;
+}
+.ijy-news-detail-content img{width:100%; margin-bottom:20px;}
+.ijy-news-item-right .btn{margin-top:5px;}
+.ijy-news-item-right .btn-outline{background-color:transparent;border:1px solid #dabb84; color:#dabb84;}
+.ijy-news-item-right .active{background-color:#dabb84;border:1px solid #dabb84; color:#1f2129;}
+
+.ijy-news-detail-title {
+    font-size: 14px;
+    font-weight: bolder;
+    padding: 20px 0 10px;
+    text-align: center;
+}
+.ijy-news-detail {
+    font-size:12px;
+    height:22px;
+    text-align:center;
+}
+.ijy-news-detail-category,.ijy-news-detail-date{
+    padding: 0 4px 0 0; color:#8b8b8b;
+}
+.ijy-news-detail-content {
+    font-size: 14px;
+    line-height: 22px;
+    padding: 20px 0;
+    text-indent: 2em;
+}
+.ijy-clock{color:#d9bc82;}
+/*APP*/
+.ijy-app {
+    font-size: 18px;
+    height: 60px;
+    line-height: 60px;
+    padding: 100px 0 0;
+}
+
+
+/* 2016 11 16 */
+.ijy-modal-dialog-full-content{ font-size:16px; line-height:40px;}
+.row ijy-order-history-title{ }
+
+.nav>li>a:hover, .nav>li>a:focus {
+    background-color: #1d1f26;
+}
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
+    background-color: #1d1f26;
+    color:#d9bc82;
+}
+
+

@@ -1,0 +1,126 @@
+.input-form{
+	background-color: white;
+}
+
+.input-form ul li{
+	height: 1.8rem;
+	line-height: 1.8rem;
+	border-bottom: 1px solid #DFDFDF;
+	margin-left: 0.5rem;
+	font-size: 0.5rem;
+}
+.input-form ul li:last-child{
+	border: none !important;
+}
+.input-form-box{
+	margin-left: 0.6rem;
+	float: left;
+}
+.input-form-box input{
+	width: 100%;
+}
+.input-form ul li span{
+	display: block;float: left;
+}
+
+.input-slider{
+	width: 2rem;
+	height: 1rem;
+	border:1px solid #DFDFDF;
+	border-radius: 1rem;
+	overflow: hidden;
+	position: relative;
+}
+.input-slider input{
+	display: none;
+}
+.input-slider input:checked + label{
+	right: 0;
+}
+.input-slider input:checked + label + span{
+	margin-left: -2rem;
+}
+.input-slider-box{
+	width: 4rem;
+	height: 100%;
+}
+.input-slider-bottom{
+	display: block;
+	width: 0.8rem;
+	height: 0.8rem;
+	border: 1px solid #DFDFDF;
+	margin:0.05rem 0.05rem 0 0.05rem;
+	border-radius: 1rem;
+	position: absolute;
+	background-color: white;
+}
+
+.on{
+	width: 2rem;
+	line-height:1rem;
+	font-size: 0.5rem;
+	float: left;
+	background-color: #C91623;
+	color: white;
+}
+.on em{
+	display: block;
+	width: 1rem;
+	float: left;
+	text-align: center;
+	line-height: 1rem;
+}
+.off{
+	width: 2rem;
+	line-height:1rem;
+	font-size: 0.5rem;
+	float: right;
+	background-color: #F2F2F2;
+	color: black;
+}
+.off em{
+	display: block;
+	width: 1rem;
+	float: right;
+	text-align: center;
+	line-height: 1rem;
+	color: #AAAAAA;
+}
+
+.jd_btn{
+    display: block;
+    text-decoration: none;
+    width:14.5rem;/*290px*/
+    height:1.75rem;/*45px*/
+    text-align: center;
+    line-height: 1.75rem;/*45px*/
+    font-size: 0.6rem;/*12px*/
+    background-color: #C91623;
+    color: #fff;
+    border-radius:0.2rem ;/*4px*/
+}
+
+/*同时需要加上正常按钮的css*/
+.jd_btn_Disable{
+    background-color: #AAAAAA !important;
+    color: #FFFFFF !important;
+}
+.jd_btn_hollow{
+    display: block;
+    text-decoration: none;
+    width:14.5rem;/*290px*/
+    height:1.75rem;/*45px*/
+    text-align: center;
+    line-height: 1.75rem;/*45px*/
+    font-size: 0.6rem;/*12px*/
+    border:1px solid #f23030;
+    color: #f23030;
+    border-radius:0.2rem ;/*4px*/
+}
+
+.disabled{
+	background-color: #F2F2F2;
+}
+.disabled input{
+	background-color: #F2F2F2;
+}

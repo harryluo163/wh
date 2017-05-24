@@ -1,0 +1,173 @@
+.main {
+    margin-bottom: 2.4rem;
+    overflow: hidden;
+}
+
+.mms-head-bottom {
+    height: 7.8rem;
+    background: url(/images/headbg1.png) no-repeat;
+    background-size: cover;
+}
+
+.info-area {
+    float: left;
+    width: 100%;
+    height: 3rem;
+    margin-top: 2rem;
+}
+
+.mms-portrait {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 3rem;
+    background-position: center;
+    background-size: cover;
+    margin-left: 0.5rem;
+    border: 1px solid #DFDFDF;
+    float: left;
+}
+
+.info-content {
+    width: 11.4rem;
+    float: left;
+    height: 2.5rem;
+    margin-top: 0.25rem;
+    margin-left: 0.5rem;
+    font-size: 0.6rem;
+}
+
+.vvm {
+    margin-top: 0.6rem;
+}
+
+.uinfo {
+    float: left;
+}
+
+.ad-info {
+    float: right;
+    margin-top: 1.6rem;
+}
+
+.ad-info a {
+    text-decoration: none;
+}
+
+.ad-info label {
+    display: block;
+    color: black;
+    float: left;
+}
+
+.ad-info img {
+    width: 0.6rem;
+    height: 0.6rem;
+    float: right;
+    margin: 0.15rem 0 0 0.5rem;
+}
+
+.mms-order {
+    background-color: white;
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.mms-order-h {
+    height: 1.75rem;
+    padding: 0 0.5rem;
+    font-size: 0.6rem;
+    line-height: 1.75rem;
+    border-bottom: 1px solid #DFDFDF;
+}
+
+.mms-order-h span:last-child {
+    float: right;
+    color: #9F9F9F;
+}
+
+.mms-order-h em {
+    display: block;
+    float: left;
+}
+
+.mms-order-h img {
+    float: left;
+    margin: 0.5rem 0 0 0.5rem;
+    width: 0.6rem;
+    height: 0.6rem;
+}
+
+.mms-order-b {
+    height: 3.5rem;
+    font-size: 0.6rem;
+}
+
+.mms-order-b dl {
+    width: 4rem;
+    float: left;
+    text-align: center;
+    margin-top: 0.55rem;
+}
+
+.mms-order-b dl a {
+    text-decoration: none;
+    color: black;
+}
+
+.mms-order-b dl img {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.mms-menu {
+    overflow: hidden;
+}
+
+.mms-menu ul li {
+    background-color: white;
+    float: left;
+    width: 3.96rem;
+    height: 4rem;
+    border-right: 1px solid #F2F2F2;
+    font-size: 0.6rem;
+    text-align: center;
+}
+
+.mms-menu ul li img {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.mms-menu ul li a {
+    display: block;
+    width: 100%;
+    height: 3.2rem;
+    text-decoration: none;
+    color: black;
+}
+
+.mms-menu ul li dl {
+    margin-top: 0.8rem;
+}
+
+.mms-menu ul li:nth-child(4) {
+    border: none;
+}
+
+.mms-menu ul li:last-child {
+    border: none;
+}
+
+.jd_btn_hollow {
+    display: block;
+    text-decoration: none;
+    width: 14.5rem;
+    height: 1.75rem;
+    text-align: center;
+    line-height: 1.75rem;
+    font-size: 0.6rem;
+    border: 1px solid #AAAAAA;
+    color: #AAAAAA;
+    border-radius: 0.2rem;
+    margin: 1rem auto;
+}
