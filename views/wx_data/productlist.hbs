@@ -495,6 +495,8 @@
 
 
 </div></div>
+</div>
+<script src="/js/socket.io.js"></script>
 <script>
 $(function () {
     var symboltype =request.QueryString('symboltype');
@@ -506,45 +508,96 @@ $(function () {
       }
 });
 
-    function getNewList()
-    {
-        var msgid="";
-        var symboltype= $('#symboltype').val();
+//    function getNewList()
+//    {
+//        var msgid="";
+//        var symboltype= $('#symboltype').val();
+//
+//        $.ajax({
+//            type: "get",
+//            url: "/wx_data/productlistdata",
+//            success: function(msg, textStatus){
+//
+//                if(msg!="")
+//                {
+//                    var result = $.parseJSON(msg);
+//
+//                    for(var i = 0;i < result.length; i++) {
+//                        msgid="[id='"+result[i]['SYMBOL']+"A"+"']";
+//                        msgname="[id='"+result[i]['SYMBOL']+"NAME"+"']";
+//                        msgask="[id='"+result[i]['SYMBOL']+"ASK"+"']";
+//                        msgbid="[id='"+result[i]['SYMBOL']+"BID"+"']";
+//                        $(msgid).attr('href','/wx_data/productdetail?t='+result[i]['SYMBOL']+'');
+//                        $(msgname).html(result[i]['SYMBOLSTR']);
+//                        if(result[i]['direction']=="0")
+//                        {
+//                            $(msgask).css("color","#fd0000");
+//                            $(msgbid).css("color","#fd0000");
+//                        }
+//                        else
+//                        {
+//                            $(msgask).css("color","#0F0");
+//                            $(msgbid).css("color","#0F0");
+//                        }
+//                        $(msgask).html(parseFloat(result[i]['ASK']).toFixed(parseInt(result[i]['Digits'])));
+//                        $(msgbid).html(parseFloat(result[i]['BID']).toFixed(parseInt(result[i]['Digits'])));
+//                    }
+//
+//                }
+//            }
+//        });
+//    }
+//
+//    setInterval('getNewList()',500);
 
-        $.ajax({
-            type: "get",
-            url: "/wx_data/productlistdata",
-            success: function(msg, textStatus){
+var isConnected = false;
+var socket =  io.connect('http://106.14.255.45:10001');
+socket.on('connect', function() {
+    isConnected =false;
+});
+socket.on('chatevent', function(data) {
+    $.fn.SK_alert(data.userName+" "+data.message)
+});
 
-                if(msg!="")
-                {
-                    var result = $.parseJSON(msg);
-
-                    for(var i = 0;i < result.length; i++) {
-                        msgid="[id='"+result[i]['SYMBOL']+"A"+"']";
-                        msgname="[id='"+result[i]['SYMBOL']+"NAME"+"']";
-                        msgask="[id='"+result[i]['SYMBOL']+"ASK"+"']";
-                        msgbid="[id='"+result[i]['SYMBOL']+"BID"+"']";
-                        $(msgid).attr('href','/wx_data/productdetail?t='+result[i]['SYMBOL']+'');
-                        $(msgname).html(result[i]['SYMBOLSTR']);
-                        if(result[i]['direction']=="0")
-                        {
-                            $(msgask).css("color","#fd0000");
-                            $(msgbid).css("color","#fd0000");
-                        }
-                        else
-                        {
-                            $(msgask).css("color","#0F0");
-                            $(msgbid).css("color","#0F0");
-                        }
-                        $(msgask).html(parseFloat(result[i]['ASK']).toFixed(parseInt(result[i]['Digits'])));
-                        $(msgbid).html(parseFloat(result[i]['BID']).toFixed(parseInt(result[i]['Digits'])));
-                    }
-
-                }
-            }
-        });
+socket.on('quoteevent', function(data) {
+    var result = $.parseJSON(data);
+    if(result!=null){
+        msgid="[id='"+result.symbol+"A"+"']";
+        msgname="[id='"+result.symbol+"NAME"+"']";
+        msgask="[id='"+result.symbol+"ASK"+"']";
+        msgbid="[id='"+result.symbol+"BID"+"']";
+        $(msgid).attr('href','/wx_data/productdetail?t='+result.symbol+'');
+        $(msgname).html(result.symbol);
+//                        if(result[i]['direction']=="0")
+//                        {
+//                            $(msgask).css("color","#fd0000");
+//                            $(msgbid).css("color","#fd0000");
+//                        }
+//                        else
+//                        {
+//                            $(msgask).css("color","#0F0");
+//                            $(msgbid).css("color","#0F0");
+//                        }
+        $(msgask).html(parseFloat(result.ask).toFixed(2));
+        $(msgbid).html(parseFloat(result.bid).toFixed(2));
     }
 
-    setInterval('getNewList()',500);
+
+});
+
+socket.on('disconnect', function() {
+    socket.disconnect();
+});
+
+function sendDisconnect() {
+    socket.disconnect();
+}
+
+$(function () {
+
+})
+
+
+
+
 </script>
