@@ -1,0 +1,81 @@
+
+<div class="row ijy-modal-dialog-full-title navbar-fixed-top">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ijy-col-nopadding">
+        <div class="ijy-modal-dialog-full-title-left" onclick="historyBack()"><img src="/images/leftgo.png" alt=""> </div>
+        <div class="ijy-modal-dialog-full-title-middle">账号选择</div>
+    </div>
+</div>
+<style>
+    .new-detail-warp{ padding-top:30px; font-family:"微软雅黑";}
+    .new-detail-title p{ font-size:18px; color:#ff7d1d; line-height:28px; margin-bottom:0px;}
+    .new-detail-time span{ display:block; font-size:12px; color:#8b8b8b; line-height:40px;}
+    #content{ font-size:12px; color:#a4a6ae; line-height:28px;}
+    .new-detail-time{ border-bottom:#363b46 1px solid; margin-bottom:20px;}
+    .ijy-modal-changepassword-describe{ color: #d9bc82}
+    .titlet{color: #d9bc82;background: #31323a;padding: 6px 12px;}
+    .list-group-item{    position: relative;
+        display: block;
+        padding: 6px 12px;
+        margin-bottom: -1px;
+        border: 1px solid #000000;
+        border-left: 0px solid #000000;
+        color: #7c838d;
+        cursor:pointer;
+        border-radius:5px;
+        background: #23262F url(/images/todo.png) 92% center no-repeat;
+    }
+    .list-group-item.active{
+        border-color:#000000;
+        background: #23262F url(/images/gou.png) 91% center no-repeat;
+        color: #d9bc82;
+    }
+</style>
+<!-- 内容区域 -->
+<div class=" mt50" >
+
+
+
+            <div class="ijy-modal-dialog-full-content">
+
+
+                    <div class="panel-heading titlet">真实账号</div>
+
+                <ul class="list-group" style="margin-bottom: 0px;">
+                    <li class="list-group-item">212120001</li>
+                    <li class="list-group-item active">212120002</li>
+                    <li class="list-group-item">212120003</li>
+                    <li class="list-group-item">212120004</li>
+
+                </ul>
+
+
+                    <div class="panel-heading titlet">
+                       模拟账号
+                    </div>
+
+                <ul class="list-group">
+                    <li class="list-group-item">212120001</li>
+                    <li class="list-group-item">212120002</li>
+                    <li class="list-group-item">212120003</li>
+                    <li class="list-group-item">212120004</li>
+                </ul>
+
+
+            </div>
+
+
+
+</div>
+<!--底部菜单-->
+
+<!--密码修改窗口-->
+
+<!--JS 代码区-->
+<script>
+$(function () {
+    $(".list-group-item").on("click",function () {
+        $.fn.SK_alert("切换账号中")
+    })
+})
+</script>
+
