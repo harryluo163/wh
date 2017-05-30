@@ -1,0 +1,65 @@
+<style>
+    .ijy-modal-order-open-text{    border: 1px solid #464d5e; }
+</style>
+<div id="modalProduct" class="modal in" aria-hidden="false" aria-labelledby="basicModal" role="dialog" tabindex="-1" style="display: block;"><div class="modal-backdrop  in" style="height: 943px;"></div>
+    <div class="modal-dialog ijy-modal-dialog-full">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="row ijy-modal-dialog-full-title">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ijy-col-nopadding">
+                        <div class="ijy-modal-dialog-full-title-left" onclick="historyBack()"><img src="/images/leftgo.png" alt="">  </div>
+                        <div class="ijy-modal-dialog-full-title-middle">商品详情</div>
+                        <!--<div class="ijy-modal-dialog-full-title-right"><a href="#" class="btn btn-gold btn-sm">历史</a></div>-->
+                    </div>
+                </div>
+                <div class="ijy-modal-dialog-full-content">
+                    <div class="row ijy-product-title">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ijy-col-nopadding">
+                            <span class="ijy-product-title-name">商品</span><span class="ijy-product-title-price">买入</span><span class="ijy-product-title-price">卖出</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ijy-col-nopadding">
+                            <div class="XAGRMB ijy-product-item">
+
+                                <div class="ijy-product-item-name">XAGUSD(白银)<div class="ijy-product-item-name-time">更新时间:<span id="lasttime">14:35:57</span></div></div>
+                                <div class="ijy-product-item-buy ijy-product-item-equal "><span id="Ask">17.473</span></div>
+                                <div class="ijy-product-item-sale ijy-product-item-equal "><span id="Bid">17.469</span></div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <form name="buyForm" id="buyForm" class="form1" method="post" action="/do_buy" data-target="/order/hand.shtml?displaytype=mt4">
+                    <div class="row  mt20">
+
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ijy-col-nopadding ijy-col-option-detailset">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 text-right ijy-col-nopadding" style="color:#CCC; text-align:right; padding-right:10px; padding-left:0px; line-height:30px;">数量：</div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left ijy-col-nopadding">
+                                <input type="text" class="form-control  ijy-modal-order-open-text ijy-modal-order-open-takeprofit-input" name="volume" id="volume" data-rules="int" data-failuremessage="数量格式不合法" value="1">
+                                <input type="text" class="" style="display:none" name="symbol" id="symbol" value="XAGUSD">
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 ijy-col-nopadding">
+                                <div class="ijy-modal-order-open-tip"><span class="ijy-modal-order-open-takeprofit">1-100</span></div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+
+
+
+                    <div class="row ijy-modal-product-button ijy_button_warp2">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ijy-col-nopadding">
+                            <input onclick="historyBack()" class="ijy-modal-product-button-cancel" value="取消" style=" text-align:center;" type="button">
+                            <input type="button" class="ijy-modal-product-button-event btnSub" value="买入">
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>

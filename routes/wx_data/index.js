@@ -120,5 +120,21 @@ router.get('/newslist', function(req, res, next) {
     res.locals.page_title = '财经资讯';
     res.render('wx_data/newslist');
 });
+
+//买入
+router.get('/buyproduct', function(req, res, next) {
+    res.locals.page_title = '商品详情';
+    res.render('wx_data/buyproduct');
+});
+//卖出
+router.get('/saleproduct', function(req, res, next) {
+    res.locals.page_title = '商品详情';
+    res.render('wx_data/saleproduct');
+});
+//挂单
+router.get('/entrustproduct', function(req, res, next) {
+    res.locals.page_title = '商品详情';
+    res.render('wx_data/entrustproduct');
+});
 module.exports = router;
 
