@@ -74,7 +74,22 @@
 <script>
 $(function () {
     $(".list-group-item").on("click",function () {
-        $.fn.SK_alert("切换账号中")
+        $.fn.SK_alert("切换账号中，请稍后")
+
+        var options = {
+            userName: $(this).text(),
+            password: "",
+
+        };
+
+        $.post("/wx_data/Login/Login", options, function (data) {
+
+            if (data.success == 1) {
+                location.href = "/wx_data";
+            } else if (data.success == 0) {
+                $.fn.SK_confirm("切换账号失败，请重新登录！",window.location.href='/wx_data/login')
+            }
+        });
     })
 })
 </script>

@@ -1,0 +1,105 @@
+<html><head>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+    <meta name="viewport" content="width=device-width,  maximum-scale=1.0, minimum-scale=1.0">
+    <meta content="telephone=no" name="format-detection">
+    <title>登录</title>
+    <link id="cssid" href="/css/login/login.css" rel="stylesheet" type="text/css">
+    <link href="/css/common.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/alertStyle.css" rel="stylesheet" type="text/css" />
+    <script src="/js/jquery-3.1.0.min.js"></script>
+    <script src="/js/alert.js"></script>
+    <script src="/js/placeholder.js"></script>
+
+
+</head>
+<script>
+    $(function(){
+        getSize()
+    })
+    function getSize(){
+        //获取网页正文全文宽
+        var screenWidth = document.body.scrollWidth ;
+        if(screenWidth <= 960){
+            $("#cssid").attr("href","/css/login/loginh5.css")
+
+        }
+    };
+
+</script>
+<body class="wapbg">
+
+<div class="homeWraper">
+    <p class="logo tc">
+        <a href="javascript:;"><img src="/images/45127.png" width="191" height="" alt=""></a>
+        <span class="">认证登录</span>
+    </p>
+    <div class="loginLayer">
+        <form action="" method="POST" id="login-form">
+            <div class="logindetail">
+                <p class="loginline"><i class="user-icon"></i><input type="text" class="txt_ipt" name="userName" id="userName" placeholder="请输入账号"></p>
+                <p class="loginline" style="border-top:1px solid #ccc;"><i class="lock-icon"></i><input name="password" id="password" type="password" class="txt_ipt" placeholder="请输入密码"></p>
+            </div>
+            <p style="margin:20px 0 10px 0;"><a href="javascript:void(0)" class="red_btn login-btn">登录</a></p>
+
+
+
+        </form>
+    </div>
+</div>
+<div class="fortan" style="display:none;">
+    <div class="fortanMain">
+        <ul>
+            <li>密码错误！</li>
+        </ul>
+    </div>
+</div>
+<div class="popupLayer"></div>
+
+<script type="text/javascript">
+    $(function () {
+        $("#loginform").attr("action", location.href);
+    });
+    $(function () {
+        $(".login-btn").click(function () {
+            if ($(this).html() == "登录中") {
+                return false;
+            }
+            $(this).html("登录中");
+            if (!$("#userName").val()) {
+                 $.fn.SK_alert("请输入账号！");
+                return false;
+            }
+            if (!$("#password").val()) {
+                 $.fn.SK_alert("请输入密码！");
+                return false;
+            }
+            var options = {
+                userName: $("#userName").val(),
+                password: $("#password").val(),
+
+            };
+
+
+            $.post("/wx_data/Login/Login", options, function (data) {
+                $(".login-btn").html("登录");
+                if (data.success == 1) {
+                    location.href = "/wx_data";
+                } else if (data.ResultNo == 0) {
+                    $.fn.SK_alert("密码错误！")
+                }
+            });
+        });
+
+
+
+
+    });
+
+
+</script>
+
+
+</body></html>
