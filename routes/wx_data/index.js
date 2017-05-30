@@ -107,7 +107,7 @@ router.get('/bindaccount', function(req, res, next) {
 });
 //账号选择
 router.get('/changeaccount', function(req, res, next) {
-    res.locals.page_title = '账号绑定';
+    res.locals.page_title = '账号选择';
     res.render('wx_data/changeaccount');
 });
 //持仓
