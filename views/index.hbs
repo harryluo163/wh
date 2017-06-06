@@ -1,0 +1,605 @@
+<script type="text/javascript">
+    function getLineInfo(val) {
+        var period = $("#timePart").attr("value");
+        if (period == "") {
+            period = "1";
+        }
+        $.ajax({
+            type: "get",
+            dataType: "json",
+            url: "/wx_data/getLineInfox?period=" + $("#timePart").attr("value") + "&symbol=" + $("#symbol").attr("value"),
+            success: function (data, textStatus) {
+                if (data != '') {
+                    data = eval('(' + data + ')');
+                    var ohlc = [];
+                    var volume = [];
+                    var arg5 = [];
+                    var sum5 = 0;
+                    var arg10 = [];
+                    var sum10 = 0;
+                    var arg15 = [];
+                    var sum15 = 0;
+
+                    for (var i = 0; i < data.mainData.length; i++) {
+                        if (period == "9999") {
+                            ohlc.push([
+                                data.mainData[i]['time'], // the date
+
+                                data.mainData[i]['close'] // close
+                            ]);
+
+                            volume.push([
+                                data.mainData[i]['time'], // the date
+                                data.mainData[i]['vol'] // the volume
+                            ]);
+                        }
+                        else {
+                            ohlc.push([
+                                data.mainData[i]['time'], // the date
+                                data.mainData[i]['open'], // open
+                                data.mainData[i]['hign'], // high
+                                data.mainData[i]['low'], // low
+                                data.mainData[i]['close'] // close
+                            ]);
+
+                            volume.push([
+                                data.mainData[i]['time'], // the date
+                                data.mainData[i]['vol'] // the volume
+                            ]);
+                            /*if(i<4)
+                            {
+                                arg5.push([
+                                data.mainData[i]['time'], // the date
+                                data.mainData[i]['close'] // the volume
+                                ]);
+                            }
+                            if(i<9)
+                            {
+                                arg10.push([
+                                data.mainData[i]['time'], // the date
+                                data.mainData[i]['close'] // the volume
+                                ]);
+                            }
+                            if(i<14)
+                            {
+                                arg15.push([
+                                data.mainData[i]['time'], // the date
+                                data.mainData[i]['close'] // the volume
+                                ]);
+                            }*/
+                            if (i >= 4) {
+                                sum5 = 0;
+
+                                for (var j = i; j >= i - 4; j--) {
+                                    sum5 = sum5 + data.mainData[j]['close'];
+                                }
+                                sum5 = sum5 / 5;
+                                sum5 = parseFloat(sum5.toFixed(data.dotNum));
+                                //alert(sum5);
+                                arg5.push([
+                                    data.mainData[i]['time'], // the date
+                                    sum5 // the volumetoFixed(2)
+                                ]);
+                            }
+                            if (i >= 9) {
+                                sum10 = 0;
+                                for (var j = i; j >= i - 9; j--) {
+                                    sum10 = sum10 + data.mainData[j]['close'];
+                                }
+                                //alert(sum5);
+                                sum10 = sum10 / 10;
+                                sum10 = parseFloat(sum10.toFixed(data.dotNum));
+                                arg10.push([
+                                    data.mainData[i]['time'], // the date
+                                    sum10 // the volume
+                                ]);
+                            }
+                            if (i >= 14) {
+                                sum15 = 0;
+                                for (var j = i; j >= i - 14; j--) {
+                                    sum15 = sum15 + data.mainData[j]['close'];
+                                }
+
+                                sum15 = sum15 / 15;
+                                sum15 = parseFloat(sum15.toFixed(data.dotNum));
+                                //alert(sum5);
+                                arg15.push([
+                                    data.mainData[i]['time'], // the date
+                                    sum15 // the volume
+                                ]);
+                            }
+                        }
+                    }
+
+                    var originalDrawPoints = Highcharts.seriesTypes.column.prototype.drawPoints;
+                    Highcharts.seriesTypes.column.prototype.drawPoints = function () {
+                        var merge = Highcharts.merge,
+                                series = this,
+                                chart = this.chart,
+                                points = series.points,
+                                i = points.length;
+
+                        while (i--) {
+                            if (typeof(chart.series[0].points[i]) != "undefined" && typeof(chart.series[0].points[i]) != undefined) {
+                                var candlePoint = chart.series[0].points[i];
+                                if (candlePoint.open != undefined && candlePoint.close != undefined) {  //如果是K线图 改变矩形条颜色，否则不变
+                                    var color = (candlePoint.open < candlePoint.close) ? '#FF3232' : '#54FCFC';
+                                    var seriesPointAttr = merge(series.pointAttr);
+                                    seriesPointAttr[''].fill = color;
+                                    seriesPointAttr.hover.fill = color;
+                                    seriesPointAttr.select.fill = color;
+                                } else {
+                                    var seriesPointAttr = merge(series.pointAttr);
+                                }
+
+                                points[i].pointAttr = seriesPointAttr;
+                            }
+                        }
+
+                        originalDrawPoints.call(this);
+                    } ,
+
+                            Highcharts.setOptions({
+                                global: {
+                                    useUTC: false
+                                },
+                                lang: {
+                                    resetZoom: '还原',
+                                    resetZoomTitle: '还原',
+                                    thousandsSep: ',',
+                                    months: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
+                                    shortMonths: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
+                                    weekdays: ['周日', '周一', '周二', '周三', '周四', '周五', '周六'],
+                                    numericSymbols: null
+                                }
+                            });
+                    // create the chart
+                    $('#container').highcharts('StockChart', {
+                        chart: {
+                            animation: true,
+                            backgroundColor: '#000',
+                            margin: '0',
+                            marginRight: '45',
+                            zoomType: 'x',
+                            events: {
+                                load: function () {
+                                    var series0 = this.series[0];
+                                    var series1 = this.series[4];
+                                    var series2 = this.series[1];
+                                    var series3 = this.series[2];
+                                    var series4 = this.series[3];
+                                    var yAxis = this.yAxis[0];
+                                    var pertime = $("#timePart").attr("value");
+                                    var jsq = 0;
+                                    setInterval(function () {
+                                        jsq = jsq + 1;
+                                        var askvalue = $("#Bid").text();
+                                        if (jsq % (60 * parseInt(pertime)) == 0) {
+
+                                            $.ajax({
+                                                type: "get",
+                                                dataType: "json",
+                                                url: "/wx_data/getLineInfotwo?period=" + $("#timePart").attr("value") + "&symbol=" + $("#symbol").attr("value"),
+                                                success: function (data, textStatus) {
+                                                    for (var j = 0; j < data.mainData.length; j++) {
+                                                        var isSeriesExist = 0;
+                                                        var isSeriesNeedUpdate = 0;
+                                                        var seriesDataIndex = 0;
+
+
+                                                        for (var i = series0.xData.length - 1; i >= 0; i--) {
+                                                            if (period != "9999") {
+                                                                if (data.mainData[j]['time'] == series0.xData[i] && data.mainData[j]['open'] == series0.yData[i][0] && data.mainData[j]['hign'] == series0.yData[i][1] && data.mainData[j]['low'] == series0.yData[i][2] && data.mainData[j]['close'] == series0.yData[i][3] && data.mainData[j]['vol'] == series1.yData[i]) {
+                                                                    isSeriesExist = 1;
+                                                                    seriesDataIndex = i;
+                                                                    break;
+                                                                }
+                                                                if (data.mainData[j]['time'] == series0.xData[i] && (data.mainData[j]['open'] != series0.yData[i][0] || data.mainData[j]['hign'] != series0.yData[i][1] || data.mainData[j]['low'] != series0.yData[i][2] || data.mainData[j]['close'] != series0.yData[i][3] || data.mainData[j]['vol'] != series1.yData[i])) {
+                                                                    isSeriesNeedUpdate = 1;
+                                                                    seriesDataIndex = i;
+                                                                    break;
+                                                                }
+
+                                                            }
+                                                            else if (period == "9999") {
+
+                                                                if (data.mainData[j]['time'] == series0.xData[i] && data.mainData[j]['close'] == series0.yData[i]) {
+                                                                    isSeriesExist = 1;
+                                                                    seriesDataIndex = i;
+                                                                    break;
+                                                                }
+                                                                if (data.mainData[j]['time'] == series0.xData[i] && data.mainData[j]['close'] != series0.yData[i]) {
+                                                                    isSeriesNeedUpdate = 1;
+                                                                    seriesDataIndex = i;
+                                                                    break;
+                                                                }
+                                                            }
+
+
+                                                        }
+
+                                                        if (isSeriesNeedUpdate == 1 && period != "9999" && period != "") {
+
+                                                            series0.removePoint(seriesDataIndex);
+                                                            series1.removePoint(seriesDataIndex);
+                                                            series0.addPoint([data.mainData[j]['time'], data.mainData[j]['open'], data.mainData[j]['hign'], data.mainData[j]['low'], data.mainData[j]['close']]);
+                                                            series1.addPoint([data.mainData[j]['time'], data.mainData[j]['vol']]);
+
+                                                        }
+                                                        else if (isSeriesExist == 0 && period != "9999" && period != "") {
+
+                                                            var dsum5 = 0;
+                                                            var dsum10 = 0;
+                                                            var dsum15 = 0;
+                                                            series0.addPoint([data.mainData[j]['time'], data.mainData[j]['open'], data.mainData[j]['hign'], data.mainData[j]['low'], data.mainData[j]['close']]);
+                                                            for (var i = series0.xData.length - 1; i >= 0; i--) {
+                                                                if (i > series0.xData.length - 5) {
+                                                                    dsum5 = dsum5 + series0.yData[i][3];
+                                                                }
+                                                                if (i > series0.xData.length - 10) {
+                                                                    dsum10 = dsum10 + series0.yData[i][3];
+                                                                }
+                                                                if (i > series0.xData.length - 15) {
+                                                                    dsum15 = dsum15 + series0.yData[i][3];
+                                                                }
+                                                            }
+
+                                                            dsum5 = dsum5 + data.mainData[j]['close'];
+                                                            dsum5 = dsum5 / 5;
+                                                            dsum5 = parseFloat(dsum5.toFixed(data.dotNum));
+                                                            dsum10 = dsum10 + data.mainData[j]['close'];
+                                                            dsum10 = dsum10 / 10;
+                                                            dsum10 = parseFloat(dsum10.toFixed(data.dotNum));
+                                                            dsum15 = dsum15 + data.mainData[j]['close'];
+                                                            dsum15 = dsum15 / 15;
+                                                            dsum15 = parseFloat(dsum15.toFixed(data.dotNum));
+
+                                                            series1.addPoint([data.mainData[j]['time'], data.mainData[j]['vol']]);
+                                                            series2.addPoint([data.mainData[j]['time'], dsum5]);
+                                                            series3.addPoint([data.mainData[j]['time'], dsum10]);
+                                                            series4.addPoint([data.mainData[j]['time'], dsum15]);
+
+                                                        }
+                                                        else if (isSeriesNeedUpdate == 1 && period == "9999") {
+                                                            series0.removePoint(seriesDataIndex);
+                                                            series0.addPoint([data.mainData[j]['time'], data.mainData[j]['close']]);
+                                                        }
+                                                        else if (isSeriesExist == 0 && period == "9999") {
+                                                            series0.addPoint([data.mainData[j]['time'], data.mainData[j]['close']]);
+                                                        }
+
+                                                    }
+                                                }
+                                            });
+                                        }
+                                        else {
+
+                                            //series1.removePoint(data.mainData.length-1);
+                                            var woopen = series0.yData[series0.xData.length - 1][0];
+                                            var wohign = series0.yData[series0.xData.length - 1][1];
+                                            var wolow = initnumint(series0.yData[series0.xData.length - 1][2]);
+                                            var woclose = series0.yData[series0.xData.length - 1][3];
+                                            if (parseFloat(askvalue) > series0.yData[series0.xData.length - 1][1] && parseFloat(askvalue) > 0) {
+                                                wohign = parseFloat(askvalue);
+                                            }
+                                            if (parseFloat(askvalue) < series0.yData[series0.xData.length - 1][2] && parseFloat(askvalue) > 0) {
+                                                wolow = parseFloat(askvalue);
+                                            }
+                                            if (parseFloat(askvalue) > 0) {
+
+                                                woclose = parseFloat(askvalue);
+                                            }
+                                            var wotime = series0.xData[series0.xData.length - 1];
+
+                                            series0.removePoint(series0.xData.length - 1);
+                                            //alert(series0.xData[series0.xData.length-1]);
+                                            series0.addPoint([wotime, woopen, wohign, wolow, woclose]);
+
+
+                                        }
+                                        yAxis.removePlotLine('plot-line-1');
+                                        yAxis.addPlotLine({
+                                            value: askvalue,
+                                            width: 1,
+                                            color: '#CCCCCC',
+                                            dashStyle: 'solid',
+                                            id: 'plot-line-1',
+                                            zIndex: 99999,
+                                            label: {
+                                                text: askvalue,
+                                                align: 'right',
+                                                verticalAlign: 'bottom',
+                                                x: 45,
+                                                style: {
+                                                    "color": '#FFF'
+                                                }
+                                            }
+                                        });
+                                    }, 1000);
+                                }
+                            }
+                        },
+                        exporting: {
+                            enabled: false
+                        },
+                        credits: {
+                            enabled: true,
+                            href: '',
+                            text: 'copyright sitong 2015',
+                            position: {
+                                align: 'right',
+                                x: 10,
+                                verticalAlign: 'bottom',
+                                y: 10
+                            }
+                        },
+                        navigator: {
+                            height: 30,
+                            margin: 40
+                        },
+                        scrollbar: {
+                            enabled: true,
+                            liveRedraw: true,
+                            height: 0,
+                            barBackgroundColor: '#F00',
+                            barBorderColor: '#000',
+                            buttonArrowColor: '#FFF',
+                            buttonBackgroundColor: '#FFF',
+                            buttonBorderColor: '#000',
+                            trackBackgroundColor: '#000',
+                            trackBorderColor: '#000'
+                        },
+                        tooltip: {
+                            borderWidth: 0,
+                            borderRadius: 0,
+                            snap: 10,
+                            positioner: function () {
+                                return {x: 5, y: 25};
+                            },
+                            shadow: false,
+                            crosshairs: [true, true]
+                        },
+                        rangeSelector: {
+                            enabled: true,
+                            buttons: [{
+                                type: 'minute',
+                                count: 30,
+                                text: '30分钟'
+                            }, {
+                                type: 'minute',
+                                count: 150,
+                                text: '150分钟'
+                            }, {
+                                type: 'minute',
+                                count: 450,
+                                text: '450分钟'
+                            }, {
+                                type: 'minute',
+                                count: 900,
+                                text: '900分钟'
+                            }, {
+                                type: 'minute',
+                                count: 1800,
+                                text: '1800分钟'
+                            }, {
+                                type: 'minute',
+                                count: 43200,
+                                text: '43200分钟'
+                            }, {
+                                type: 'minute',
+                                count: 302400,
+                                text: '302400分钟'
+                            }, {
+                                type: 'minute',
+                                count: 1296000,
+                                text: '1296000分钟'
+                            }, {
+                                type: 'minute',
+                                count: 30,
+                                text: '30分钟'
+                            }, {
+                                type: 'all',
+                                text: '所有'
+                            }],
+                            inputEnabled: false,
+                            labelStyle: {
+                                color: 'silver',
+                                fontWeight: 'bold'
+                            },
+                            selected: $("#selected").attr("value")
+                        },
+
+                        title: {
+                            text: ''
+                        },
+                        plotOptions: {
+                            column: {
+                                groupPadding: 0.1
+                            },
+                            candlestick: {
+                                groupPadding: 0.1
+                            }
+                        },
+                        yAxis: [{
+                            title: {
+                                text: ''
+                            },
+                            labels: {
+                                align: 'right',
+                                x: 45,
+                                style: {
+                                    "color": "#B6322B"
+                                },
+                                formatter: function () {
+                                    var valueStr = this.value.toString();
+                                    var valueStrLen = valueStr.length;
+                                    var valueStrDotPostion = valueStr.indexOf('.');
+                                    var zeroStr = '';
+                                    if (data.dotNum > 0) {
+                                        if (valueStrDotPostion < 0) {
+                                            for (var j = 1; j <= data.dotNum; j++) {
+                                                zeroStr = zeroStr + '0';
+                                            }
+                                            return this.value + '.' + zeroStr;
+                                        }
+                                        else if (valueStrLen - valueStrDotPostion - 1 < data.dotNum) {
+                                            var len = data.dotNum - (valueStrLen - valueStrDotPostion - 1);
+                                            for (var j = 1; j <= len; j++) {
+                                                zeroStr = zeroStr + '0';
+                                            }
+                                            return this.value + zeroStr;
+                                        }
+                                        else {
+                                            return this.value;
+                                        }
+                                    }
+                                    else {
+                                        return this.value;
+                                    }
+                                }
+                            },
+                            plotLines: [{
+                                value: data.recentlyOpen,
+                                width: 1,
+                                color: '#CCCCCC',
+                                dashStyle: 'solid',
+                                id: 'plot-line-1',
+                                zIndex: 99999,
+                                label: {
+                                    text: data.recentlyOpenText,
+                                    align: 'right',
+                                    verticalAlign: 'bottom',
+                                    x: 45,
+                                    style: {
+                                        "color": '#FFF'
+                                    }
+                                }
+                            }],
+                            height: '60%',
+                            lineWidth: 1,
+                            lineColor: '#800000',
+                            gridLineColor: '#800000',
+                            gridLineDashStyle: 'shortdash'
+                        },
+                            {
+                                title: {
+                                    text: ''
+                                },
+                                labels: {
+                                    align: 'right',
+                                    x: 25,
+                                    style: {
+                                        "color": "#B6322B"
+                                    }
+                                },
+                                top: '65%',
+                                height: '35%',
+                                lineWidth: 1,
+                                lineColor: '#800000',
+                                gridLineColor: '#800000',
+                                gridLineDashStyle: 'shortdash'
+                            }
+                        ],
+
+                        series: [{
+                            type: 'candlestick',
+                            color: '#54FCFC', //下降块颜色
+                            lineColor: '#54FCFC', //下降块线条颜色
+                            upColor: '#000000', //上升块颜色
+                            upLineColor: "#FF3232", //上升块线条颜色
+                            name: '{{t}}',
+                            data: ohlc
+
+                        },
+                            {
+                                type: 'line',
+                                lineWidth: 1,
+                                color: '#ffffff',
+                                lineColor: '#ffffff',
+                                name: 'avg5',
+                                data: arg5,
+                                yAxis: 0
+                            },
+                            {
+                                type: 'line',
+                                lineWidth: 1,
+                                color: '#ffff00',
+                                lineColor: '#ffff00',
+                                name: 'avg10',
+                                data: arg10,
+                                yAxis: 0
+                            },
+                            {
+                                type: 'line',
+                                lineWidth: 1,
+                                color: '#ff00ff',
+                                lineColor: '#ff00ff',
+                                name: 'avg15',
+                                data: arg15,
+                                yAxis: 0
+                            },
+                            {
+                                type: 'column',
+                                name: '交易量',
+                                data: volume,
+                                yAxis: 1
+                            }
+                        ]
+                    });
+                }
+            }
+        });
+    }
+    $(function () {
+
+        getLineInfo();
+
+        $(".ijy-modal-product-quote-button").click(function () {
+            var val = $(this).attr("data-value");
+            window.location.href = '/wx_data/productdetail?t={{t}}&period=' + val;
+        });
+
+        $(".ijy-normalorder-open-button-event").click(function () {
+            var val = $(this).text();
+            if (val == "买入") {
+                window.location.href = '/wx_data/buyproduct?t={{t}}'
+            } else if (val == "卖出") {
+                window.location.href = location.href = '/wx_data/saleproduct?t={{t}}'
+            } else if (val == "挂单") {
+                window.location.href = location.href = '/wx_data/entrustproduct?t={{t}}'
+            }
+
+        });
+    });
+    function showDetail() {
+        window.location = '/index/list';
+    }
+    function refreshInfo() {
+        $.ajax({
+            type: "get",
+            url: "/wx_data/getLineInfoxSymbol_price?t={{t}}",
+            success: function (msg, textStatus) {
+                var result = $.parseJSON(msg);
+                $("#lasttime").text(result.lasttime);
+                $("#Ask").text(result.Ask);
+                $("#Bid").text(result.Bid);
+                if (result.flag == 1) {
+                    $("#Ask").addClass("ownGreen");
+                    $("#Bid").addClass("ownGreen");
+                } else {
+                    $("#Ask").removeClass("ownGreen");
+                    $("#Bid").removeClass("ownGreen");
+                }
+            }
+        });
+    }
+
+    setInterval('refreshInfo()', 1000);
+
+    function initnumint(str){
+        if(str==undefined){
+            return 0;
+        }else{
+            return Number(str).toFixed(0);
+        }}
+</script>

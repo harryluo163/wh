@@ -48,22 +48,26 @@ router.get('/addproduct', function(req, res, next) {
 router.get('/productdetail', function(req, res, next) {
     res.locals.page_title = '交易';
     var t = req.query.t;
-    res.render('wx_data/productdetail',{t:t});
+    var p=req.query.period!=null?req.query.period:1;
+    res.render('wx_data/productdetail',{t:t,p:p});
 });
 
 //行情
 router.get('/getLineInfox', function(req, res, next) {
 var symbol = req.query.symbol;
+    var period = req.query.period;
     var opt = {
         method: "post",
 
     };
-    request.post({ url:'http://cts-trading.creatrader.cn/index_contr/getLineInfo.shtml?period=1&symbol='+symbol,formData: opt
+    request.post({ url:'http://cts-trading.creatrader.cn/index_contr/getLineInfo.shtml?period='+period+'&symbol='+symbol,formData: opt
     }, function(err,httpResponse,body){
         res.json(body);
     })
 
 });
+
+
 router.get('/getLineInfoxSymbol_price', function(req, res, next) {
     var t = req.query.t;
     var opt = {

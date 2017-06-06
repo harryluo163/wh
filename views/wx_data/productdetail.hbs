@@ -1,110 +1,188 @@
 <body class="modal-open">
 
 
-
 <!--单个商品窗口-->
-<div id="modalProduct" class="modal in" aria-hidden="false" aria-labelledby="basicModal" role="dialog" tabindex="-1" style="display: block;"><div class="modal-backdrop  in" style="height: 943px;"></div>
+<div id="modalProduct" class="modal in" aria-hidden="false" aria-labelledby="basicModal" role="dialog" tabindex="-1"
+     style="display: block;">
+    <div class="modal-backdrop  in" style="height: 943px;"></div>
     <div class="modal-dialog ijy-modal-dialog-full">
         <div class="modal-content">
             <div class="modal-body">
                 <div class="row ijy-modal-dialog-full-title">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ijy-col-nopadding">
-                        <div class="ijy-modal-dialog-full-title-left" onclick="historyBack()"><img src="/images/leftgo.png" alt=""> </div>
+                        <div class="ijy-modal-dialog-full-title-left" onclick="historyBack()"><img
+                                src="/images/leftgo.png" alt=""></div>
                         <div class="ijy-modal-dialog-full-title-middle">商品详情</div>
-                         <div class="ijy-modal-dialog-full-title-right" ><a href="/wx_data/productlist?symboltype=1" style="margin-top: 0px" class="btn btn-gold btn-sm">首页</a></div>
+                        <div class="ijy-modal-dialog-full-title-right"><a href="/wx_data/productlist?symboltype=1"
+                                                                          style="margin-top: 0px"
+                                                                          class="btn btn-gold btn-sm">首页</a></div>
                     </div>
                 </div>
                 <div class="ijy-modal-dialog-full-content">
                     <div class="row ijy-product-title">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ijy-col-nopadding">
-                            <span class="ijy-product-title-name">商品</span><span class="ijy-product-title-price">买入</span><span class="ijy-product-title-price">卖出</span>
+                            <span class="ijy-product-title-name">商品</span><span
+                                class="ijy-product-title-price">买入</span><span class="ijy-product-title-price">卖出</span>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ijy-col-nopadding">
-                            <div class="XAGRMB ijy-product-item"><div class="ijy-product-item-name">{{t}}</div>
-                                <div class="ijy-product-item-buy ijy-product-item-equal"><span id="Ask" class="ownGreen">1.12515</span></div><div class="ijy-product-item-sale ijy-product-item-equal"><span id="Bid" class="ownGreen">1.12513</span></div>
+                            <div class="XAGRMB ijy-product-item">
+                                <div class="ijy-product-item-name">{{t}}</div>
+                                <div class="ijy-product-item-buy ijy-product-item-equal"><span id="Ask"
+                                                                                               class="ownGreen"></span>
+                                </div>
+                                <div class="ijy-product-item-sale ijy-product-item-equal"><span id="Bid"
+                                                                                                class="ownGreen">1.</span>
+                                </div>
                             </div>
                         </div>
                     </div>
 
 
-
-
-
                     <div class="row ijy-modal-order-open-button" style="z-index:99999999">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ijy-col-nopadding">
-                            <button class="ijy-normalorder-open-button-event"  style="width:32%"><img src="/upgrade/images/i-ru.png" width="36">买入</button>
-                            <button class="ijy-normalorder-open-button-event"  style="width:32%"><img src="/upgrade/images/i-chu.png" width="36">卖出</button>
-                            <button class="ijy-normalorder-open-button-event bordernone" ><img src="/upgrade/images/i-gua.png" width="36">挂单</button>
+                            <button class="ijy-normalorder-open-button-event" style="width:32%"><img
+                                    src="/upgrade/images/i-ru.png" width="36">买入
+                            </button>
+                            <button class="ijy-normalorder-open-button-event" style="width:32%"><img
+                                    src="/upgrade/images/i-chu.png" width="36">卖出
+                            </button>
+                            <button class="ijy-normalorder-open-button-event bordernone"><img
+                                    src="/upgrade/images/i-gua.png" width="36">挂单
+                            </button>
                         </div>
                     </div>
-                    <div class="row" style="position:absolute; top: 170px;left: 18px;width: 98%;height: 400px;z-index: 2;">
+                    <div class="row"
+                         style="position:absolute; top: 170px;left: 18px;width: 98%;height: 400px;z-index: 2;">
                         <div id="container" style="height: 320px; width: 100%;" data-highcharts-chart="0"><</div>
                         <div style="height: 70px;width: 100%;"></div>
                     </div>
                     <iframe style="position:absolute;left:0px;top:168px;width: 100%;height:40px;background:#000;overflow: hidden;z-index: 3;border: none;"></iframe>
                     <div style="position:absolute;left:0px;top:158px;width: 100%;height:40px;overflow: hidden;z-index: 99999; background: #000;">
+                        {{#compare p '==' '9999'}}
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 ijy-col-nopadding" style="width: 11.1%;">
+                                <button data-value="9999"
+                                        class="ijy-modal-product-quote-button ijy-modal-product-quote-button-active">F
+                                </button>
+                            </div>
+                        {{else}}
                         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 ijy-col-nopadding" style="width: 11.1%;">
                             <button data-value="9999" class="ijy-modal-product-quote-button">F</button>
                         </div>
+                        {{/compare}}
+
+                        {{#compare p '==' '1'}}
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 ijy-col-nopadding" style="width: 11.1%;">
+                                <button data-value="1"
+                                        class="ijy-modal-product-quote-button ijy-modal-product-quote-button-active">M1
+                                </button>
+                            </div>
+                        {{else}}
                         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 ijy-col-nopadding" style="width: 11.1%;">
-                            <button data-value="1" class="ijy-modal-product-quote-button ijy-modal-product-quote-button-active">M1</button>
-                        </div>
+                            <button data-value="1" class="ijy-modal-product-quote-button">M1</button>         </div>
+                        {{/compare}}
+
+                        {{#compare p '==' '5'}}
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 ijy-col-nopadding" style="width: 11.1%;">
+                                <button data-value="5"
+                                        class="ijy-modal-product-quote-button ijy-modal-product-quote-button-active">M5
+                                </button>
+                            </div>
+                        {{else}}
                         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 ijy-col-nopadding" style="width: 11.1%;">
-                            <button data-value="5" class="ijy-modal-product-quote-button">M5</button>
-                        </div>
+                            <button data-value="5" class="ijy-modal-product-quote-button">M5</button>         </div>
+                        {{/compare}} {{#compare p '==' '15'}}
                         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 ijy-col-nopadding" style="width: 11.1%;">
-                            <button data-value="15" class="ijy-modal-product-quote-button">M15</button>
+                            <button data-value="15"
+                                    class="ijy-modal-product-quote-button ijy-modal-product-quote-button-active">M15
+                            </button>
                         </div>
+                    {{else}}
+                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 ijy-col-nopadding" style="width: 11.1%;">
+                        <button data-value="15" class="ijy-modal-product-quote-button">M15</button>         </div>
+                    {{/compare}} {{#compare p '==' '30'}}
                         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 ijy-col-nopadding" style="width: 11.1%;">
-                            <button data-value="30" class="ijy-modal-product-quote-button">M30</button>
+                            <button data-value="30"
+                                    class="ijy-modal-product-quote-button ijy-modal-product-quote-button-active">M30
+                            </button>
                         </div>
+                    {{else}}
+                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 ijy-col-nopadding" style="width: 11.1%;">
+                        <button data-value="30" class="ijy-modal-product-quote-button">N30</button>         </div>
+                    {{/compare}} {{#compare p '==' '60'}}
                         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 ijy-col-nopadding" style="width: 11.1%;">
-                            <button data-value="60" class="ijy-modal-product-quote-button">H1</button>
+                            <button data-value="60"
+                                    class="ijy-modal-product-quote-button ijy-modal-product-quote-button-active">H1
+                            </button>
                         </div>
+                    {{else}}
+                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 ijy-col-nopadding" style="width: 11.1%;">
+                        <button data-value="60" class="ijy-modal-product-quote-button">H1</button>         </div>
+                    {{/compare}} {{#compare p '==' '1440'}}
                         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 ijy-col-nopadding" style="width: 11.1%;">
-                            <button data-value="1440" class="ijy-modal-product-quote-button">D1</button>
+                            <button data-value="1440"
+                                    class="ijy-modal-product-quote-button ijy-modal-product-quote-button-active">D1
+                            </button>
                         </div>
+                    {{else}}
+                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 ijy-col-nopadding" style="width: 11.1%;">
+                        <button data-value="1440" class="ijy-modal-product-quote-button">D1</button>         </div>
+                    {{/compare}} {{#compare p '==' '10080'}}
                         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 ijy-col-nopadding" style="width: 11.1%;">
-                            <button data-value="10080" class="ijy-modal-product-quote-button">W1</button>
+                            <button data-value="10080"
+                                    class="ijy-modal-product-quote-button ijy-modal-product-quote-button-active">W1
+                            </button>
                         </div>
+                    {{else}}
+                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 ijy-col-nopadding" style="width: 11.1%;">
+                        <button data-value="10080" class="ijy-modal-product-quote-button">W1</button>         </div>
+                    {{/compare}}
+                        {{#compare p '==' '43200'}}
                         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 ijy-col-nopadding" style="width: 11.1%;">
-                            <button data-value="43200" class="ijy-modal-product-quote-button">MN</button>
+                            <button data-value="43200"
+                                    class="ijy-modal-product-quote-button ijy-modal-product-quote-button-active">MN
+                            </button>
                         </div>
+                    {{else}}
+                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 ijy-col-nopadding" style="width: 11.1%;">
+                        <button data-value="43200" class="ijy-modal-product-quote-button">MN</button>         </div>
+                    {{/compare}}
+
+
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
 
 
-<!--JS 代码区-->
+                        <!--JS 代码区-->
 
-<script type="text/javascript" src="/upgrade/js/hidpi-canvas.min.js"></script>
-<script type="text/javascript" src="/upgrade/js/Map.js"></script>
-<script type="text/javascript" src="/upgrade/js/moment.js"></script>
-<script type="text/javascript" src="/upgrade/js/vkchart.js"></script>
-<script type="text/javascript" src="/upgrade/js/jweixin-1.0.0.js"></script>
-<script type="text/javascript" src="/upgrade/js/ijy-index-common-profession.js"></script>
-<script type="text/javascript" src="/upgrade/js/ijy-index-button-profession.js"></script>
-<script type="text/javascript" src="/upgrade/js/ijy-index-modal-profession.js"></script>
-<script type="text/javascript" src="/upgrade/js/ijy-index-read-profession.js"></script>
-<script type="text/javascript" src="/upgrade/js/ijy-index-event-profession.js"></script>
-
-
+                        <script type="text/javascript" src="/upgrade/js/hidpi-canvas.min.js"></script>
+                        <script type="text/javascript" src="/upgrade/js/Map.js"></script>
+                        <script type="text/javascript" src="/upgrade/js/moment.js"></script>
+                        <script type="text/javascript" src="/upgrade/js/vkchart.js"></script>
+                        <script type="text/javascript" src="/upgrade/js/jweixin-1.0.0.js"></script>
+                        <script type="text/javascript" src="/upgrade/js/ijy-index-common-profession.js"></script>
+                        <script type="text/javascript" src="/upgrade/js/ijy-index-button-profession.js"></script>
+                        <script type="text/javascript" src="/upgrade/js/ijy-index-modal-profession.js"></script>
+                        <script type="text/javascript" src="/upgrade/js/ijy-index-read-profession.js"></script>
+                        <script type="text/javascript" src="/upgrade/js/ijy-index-event-profession.js"></script>
 
 
-<input type="hidden" value="0" id="selected">
+                        <input type="hidden" value="0" id="selected">
 
-<input type="hidden" id="timePart" value="1">
-<input type="hidden" value="{{t}}" id="symbol">
-<input type="hidden" id="OrderNo" value="">
-<input type="hidden" id="Digits" value="0">
+                        <input type="hidden" id="timePart" value="{{p}}">
+                        <input type="hidden" value="{{t}}" id="symbol">
+                        <input type="hidden" id="OrderNo" value="">
+                        <input type="hidden" id="Digits" value="0">
 
-<script src="/upgrade/js/higchart/highstock.src.js"></script>
-<script src="/upgrade/js/higchart/exporting.js"></script>
+                        <script src="/upgrade/js/higchart/highstock.src.js"></script>
+                        <script src="/upgrade/js/higchart/exporting.js"></script>
+
+
 <script type="text/javascript">
     function getLineInfo(val)
     {
@@ -114,13 +192,13 @@
             period="1";
         }
         $.ajax({
-            type: "get",
+            type: "GET",
             dataType: "json",
             url: "/wx_data/getLineInfox?period="+$("#timePart").attr("value")+"&symbol="+$("#symbol").attr("value"),
             success: function(data, textStatus){
                 if(data != '')
                 {
-                    data=  eval('(' + data + ')');
+                    data = eval('(' + data + ')');
                     var ohlc = [];
                     var volume = [];
                     var arg5=[];
@@ -263,12 +341,12 @@
                                     useUTC: false
                                 },
                                 lang: {
-                                    resetZoom : '还原',
-                                    resetZoomTitle:'还原',
+                                    resetZoom : 'Reset',
+                                    resetZoomTitle:'Reset',
                                     thousandsSep:',',
-                                    months:['一月','二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
-                                    shortMonths:['一月','二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
-                                    weekdays: ['周日', '周一','周二', '周三', '周四', '周五', '周六'],
+                                    months:['Jan.','Feb.', 'Mar.', 'Apr.', 'May', 'Jun', 'Jul.', 'Aug', 'Sept.', 'Oct.', 'Nov.', 'Dec'],
+                                    shortMonths:['Jan.','Feb.', 'Mar.', 'Apr.', 'May', 'Jun', 'Jul.', 'Aug', 'Sept.', 'Oct.', 'Nov.', 'Dec'],
+                                    weekdays: ['Sun.', 'Mon.','Tues.', 'Wed.', 'Thur.', 'Fri.', 'Sat.'],
                                     numericSymbols:null
                                 }
                             });
@@ -299,7 +377,7 @@
                                             $.ajax({
                                                 type: "post",
                                                 dataType: "json",
-                                                url: "/index_contr/getLineInfo?period=" + $("#timePart").attr("value")+"&symbol="+$("#symbol").attr("value"),
+                                                url: "/wx_data/getLineInfox?period="+$("#timePart").attr("value")+"&symbol="+$("#symbol").attr("value"),
                                                 success: function (data, textStatus) {
                                                     for (var j=0; j < data.mainData.length; j++)
                                                     {
@@ -504,42 +582,42 @@
                             buttons: [{
                                 type: 'minute',
                                 count: 30,
-                                text: '30分钟'
+                                text: '30Minute'
                             }, {
                                 type: 'minute',
                                 count: 150,
-                                text: '150分钟'
+                                text: '150Minute'
                             }, {
                                 type: 'minute',
                                 count: 450,
-                                text: '450分钟'
+                                text: '450Minute'
                             }, {
                                 type: 'minute',
                                 count: 900,
-                                text: '900分钟'
+                                text: '900Minute'
                             }, {
                                 type: 'minute',
                                 count: 1800,
-                                text: '1800分钟'
+                                text: '1800Minute'
                             }, {
                                 type: 'minute',
                                 count: 43200,
-                                text: '43200分钟'
+                                text: '43200Minute'
                             }, {
                                 type: 'minute',
                                 count: 302400,
-                                text: '302400分钟'
+                                text: '302400Minute'
                             }, {
                                 type: 'minute',
                                 count: 1296000,
-                                text: '1296000分钟'
+                                text: '1296000Minute'
                             },{
                                 type: 'minute',
                                 count: 30,
-                                text: '30分钟'
+                                text: '30Minute'
                             },{
                                 type: 'all',
-                                text: '所有'
+                                text: 'ALL'
                             }],
                             inputEnabled:false,
                             labelStyle: {
@@ -654,7 +732,7 @@
                             lineColor: '#54FCFC', //下降块线条颜色
                             upColor: '#000000', //上升块颜色
                             upLineColor: "#FF3232", //上升块线条颜色
-                            name: '{{t}}',
+                            name: 'USOil',
                             data: ohlc
 
                         },
@@ -687,7 +765,7 @@
                             },
                             {
                                 type: 'column',
-                                name: '交易量',
+                                name: 'Volumes',
                                 data: volume,
                                 yAxis: 1
                             }
@@ -698,21 +776,22 @@
         });
     }
     $(function () {
+
         getLineInfo();
 
-        $(".ijy-modal-product-quote-button").click(function(){
+        $(".ijy-modal-product-quote-button").click(function () {
             var val = $(this).attr("data-value");
-            window.location.href='/wx_data/productdetail?t={{t}}&period='+val;
+            window.location.href = '/wx_data/productdetail?t={{t}}&period=' + val;
         });
 
-        $(".ijy-normalorder-open-button-event").click(function(){
+        $(".ijy-normalorder-open-button-event").click(function () {
             var val = $(this).text();
-            if(val=="买入"){
-             window.location.href='/wx_data/buyproduct?t={{t}}'
-            }else if (val=="卖出"){
-                window.location.href=location.href='/wx_data/saleproduct?t={{t}}'
-            }else if (val=="挂单"){
-                window.location.href=location.href='/wx_data/entrustproduct?t={{t}}'
+            if (val == "买入") {
+                window.location.href = '/wx_data/buyproduct?t={{t}}'
+            } else if (val == "卖出") {
+                window.location.href = location.href = '/wx_data/saleproduct?t={{t}}'
+            } else if (val == "挂单") {
+                window.location.href = location.href = '/wx_data/entrustproduct?t={{t}}'
             }
 
         });
@@ -724,7 +803,7 @@
     function refreshInfo()
     {
         $.ajax({
-            type: "get",
+            type: "GET",
             url: "/wx_data/getLineInfoxSymbol_price?t={{t}}",
             success: function(msg, textStatus){
                 var result = $.parseJSON(msg);
@@ -743,6 +822,4 @@
     }
 
     setInterval('refreshInfo()',1000);
-
-    
 </script>

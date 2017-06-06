@@ -30,15 +30,6 @@ sessionconfig(app);
  */
 var routes = require('./routes/index');
 routes.setroute(app);
-//
-// app.set('trust proxy', function (ip) {
-//     if (ip === '127.0.0.1' || ip === '10.58.8.45') {
-//         return true;    // trusted IPs
-//     }
-//     else {
-//         return false;
-//     }
-// });
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
