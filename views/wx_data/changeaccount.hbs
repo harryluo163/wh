@@ -22,11 +22,11 @@
         color: #7c838d;
         cursor:pointer;
         border-radius:5px;
-        background: #23262F url(/images/todo.png) 92% center no-repeat;
+        background: #23262F url(/images/todo.png) 97% center no-repeat;
     }
     .list-group-item.active{
         border-color:#000000;
-        background: #23262F url(/images/gou.png) 91% center no-repeat;
+        background: #23262F url(/images/gou.png) 96% center no-repeat;
         color: #d9bc82;
     }
 </style>
@@ -74,7 +74,22 @@
 <script>
 $(function () {
     $(".list-group-item").on("click",function () {
-        $.fn.SK_alert("切换账号中")
+        $.fn.SK_alert("切换账号中，请稍后")
+
+        var options = {
+            userName: $(this).text(),
+            password: "",
+
+        };
+
+        $.post("/wx_data/Login/Login", options, function (data) {
+
+            if (data.success == 1) {
+                location.href = "/wx_data";
+            } else if (data.success == 0) {
+                $.fn.SK_confirm("切换账号失败，请重新登录！",window.location.href='/wx_data/login')
+            }
+        });
     })
 })
 </script>

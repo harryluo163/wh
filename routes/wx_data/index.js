@@ -4,7 +4,7 @@
 var express = require('express');
 var request = require("request");
 var router = express.Router();
-
+var  Loginrout = require("./routes/login.js");
 router.use('/',function(req, res, next){
     res.locals.page_title = "";
     res.locals.isdown = "";
@@ -14,12 +14,17 @@ router.use('/',function(req, res, next){
 //个人中心
 router.get('/', function(req, res, next) {
     res.locals.page_title = '用户';
-    res.render('wx_data/index');
+    res.redirect('/wx_data/index');
+
 });
 //个人信息
 router.get('/userDetails', function(req, res, next) {
     res.locals.page_title = '个人信息';
-    res.render('wx_data/userDetails',{isdown:"true"});
+    var name = "游客"
+    if(req.session['cas_user']){
+        name=req.session['cas_user'];
+    }
+    res.render('wx_data/userDetails',{isdown:"true",name:name});
 });
 //交易
 router.get('/productlist', function(req, res, next) {
@@ -93,7 +98,12 @@ router.get('/productlistdata', function(req, res, next) {
 //个人中心
 router.get('/index', function(req, res, next) {
     res.locals.page_title = '个人中心';
-    res.render('wx_data/index');
+
+    var name = "游客"
+    if(req.session['cas_user']){
+        name=req.session['cas_user'];
+    }
+    res.render('wx_data/index',{name:name});
 });
 //账号
 router.get('/uselist', function(req, res, next) {
@@ -107,7 +117,7 @@ router.get('/bindaccount', function(req, res, next) {
 });
 //账号选择
 router.get('/changeaccount', function(req, res, next) {
-    res.locals.page_title = '账号绑定';
+    res.locals.page_title = '账号选择';
     res.render('wx_data/changeaccount');
 });
 //持仓
@@ -120,5 +130,34 @@ router.get('/newslist', function(req, res, next) {
     res.locals.page_title = '财经资讯';
     res.render('wx_data/newslist');
 });
+
+//买入
+router.get('/buyproduct', function(req, res, next) {
+    res.locals.page_title = '商品详情';
+    res.render('wx_data/buyproduct');
+});
+//卖出
+router.get('/saleproduct', function(req, res, next) {
+    res.locals.page_title = '商品详情';
+    res.render('wx_data/saleproduct');
+});
+//挂单
+router.get('/entrustproduct', function(req, res, next) {
+    res.locals.page_title = '商品详情';
+    res.render('wx_data/entrustproduct');
+});
+
+//登录
+router.get('/login', function(req, res, next) {
+    res.locals.layout = '';
+    res.locals.page_title = '登录';
+    res.render('wx_data/login');
+});
+//登录
+router.post('/login/Login', function(req, res, next) {
+    Loginrout.login(req, res, next)
+
+});
+
 module.exports = router;
 

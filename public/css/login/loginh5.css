@@ -1,0 +1,42 @@
+/*重置*/
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,code,del,dfn,em,img,q,dl,
+dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,input,textarea,article,aside,audio,
+canvas,command,datalist,details,dialog,embed,figure,header,hgroup,keygen,mark,meter,nav,output,progress,rp,rt,ruby,
+section,source,time,video{border:0;margin:0;padding:0;border:0;font-weight:inherit;font-style:inherit;font-size:100%;font-family:inherit;
+    vertical-align:baseline;list-style:none;-webkit-tap-highlight-color:rgba(0,0,0,0)}
+.icon-select {background-image: url("/images/icon-select.png"); background-size:18px 16px; display: inline-block; height: 1rem;    width: 1.1rem;}
+.clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden}.tc{text-align: center;}
+.cRed{color:#ff1313!important;}.cBlue{color:#64caec!important;}.cGreen{color:#6adc37!important;}.f666{color:#666!important;}.f999{color:#999!important;}
+.clearfix{display:inline-block}.clearfix{display:block}a:link,a:visited{text-decoration:none}a:hover,a:active{text-decoration:none}input::-ms-clear{display:none}input::-webkit-outer-spin-button,input::-webkit-inner-spin-button{-webkit-appearance:none!important;margin:0}input,a{-webkit-tap-highlight-color:rgba(0,0,0,0);outline:0;*hide-focus:none}a{color:#4271e8}body,html{height:100%}body{font-family:Arial,\9ED1\4F53;font-size:10px;color:#372c2a;background:#f1eeed;-webkit-text-size-adjust:none}.iconSearch,.iconNav,.iconArror,.checxLabel i,.GOTOP,.loading,.iconArror02,.iStateGreen,.iStateRed,.iStateGary,.GOBackA,.iconShare,.iconPhotoRed,.iconPhotoBlack,.iconCounter,.iconCollect,.shareClose{background:url(/images/icon.png) no-repeat;background-size:250px 250px;display:inline-block}.iconSearch{background-position:-35px 0;height:50px;width:50px}.iconNav{background-position:-35px -62px;height:50px;width:50px}.iconArror{background-position:-1px -2px;height:8px;width:14px}.checxLabel{display:inline-block}.checxLabel i{background-position:0 -27px;height:18px;width:18px;vertical-align:middle;margin-right:3px}.checxLabel.cur i{background-position:0 -62px}.checxLabel .white{background-position:-103px -112px;height:19px;width:19px;vertical-align:middle;margin-right:3px}.checxLabel.cur .white{background-position:-103px -145px}.GOTOP{background-position:-103px 0;height:44px;width:44px;position:fixed;bottom:80px;right:12px;display:none;z-index:99}.loading{background-position:-150px 0;height:100px;width:100px;position:fixed;top:50%;left:50%;margin:-50px 0 0 -50px;z-index:999}.iconArror02{background-position:0 -103px;width:20px;height:20px}.stateGreen{color:#094!important}.iStateGreen{background-position:0 -150px;width:7px;height:15px;position:relative;top:2px;margin-left:2px}.stateGary{color:#87807f!important}.iStateGary{background-position:-35px -180px;width:16px;height:8px}.stateRed{color:#f87047!important}.iStateRed{background-position:-13px -150px;width:7px;height:15px;position:relative;top:2px;margin-left:2px}.GOBackA{background-position:-205px -113px;height:45px;width:45px;position:absolute;top:10px;left:10px;z-index:10}.iconShare{background-position:-150px -112px;height:32px;width:32px}.iconPhotoRed{background-position:-1px -175px;height:18px;width:18px}
+body{width:100%;height:100%;display:block;background:url(/images/sso_login_wap.jpg) no-repeat 0 0;}
+.homeWraper{width:100%;height:100%;margin:0 auto;}
+.logo,.success{margin:0 auto;text-align: center;padding:3rem 0 0 0;}
+.success{padding-top: 6rem;}
+.logo span,.success span{display: block;font-size:2.2em;text-align: center;margin-top: 1.2em;color: #fff}
+.f000{color:#000;}.f18{font-size:1.8em;}
+.loginLayer{width:100%;margin-top: 6em;}
+.loginline{height:30px;padding:15px 0 15px 56px;line-height:36px;color:#a6a6a6;position:relative;}
+.loginline i{display: block;position: absolute;left:0;top:0;width:50px;height:40px;}
+i.user-icon{background: url(/images/sso_icon.png)  19px 10px  no-repeat;margin-top:10px;background-size: 20px}
+i.lock-icon{background: url(/images/sso_icon.png) 19px -21px no-repeat;margin-top:3px;background-size:18px}
+.loginline input{height: 30px;border:none;width:95%;font-size:0.8rem;color:#666;background: none;}
+.homeWraper .botB{margin-top:40px;font-size:1.6em;}
+.logindetail{background:#fff;height: 121px;box-shadow: 1px 1px 1px #999;}
+.loginLayer .bot{font-size:1rem;text-align: center;margin-top: 15px;}
+.red_btn{height:3.5em;display:block;text-align: center;line-height:3.5em;border:none;font-size:1.8em;color:#fff;}
+.red_btn{background: #d9bc82;}
+.fortan{width:100%;position:fixed;top:25%;font-size:1.6em}
+.fortanMain{width:65%;background:rgba(0,0,0,0.5) repeat;text-align:center;border-radius:12px;color:#fff;line-height:25px;padding:30px 0;margin:20px auto 0}
+.red_btn:hover,.gray_btn:hover{text-decoration: none;}
+::-webkit-input-placeholder {color: #666; } :-moz-placeholder {color: #666; } .placeholder {color: #666; }
+.popupLayer{display: block;width:100%;height: 100%;z-index: 10;left:0;top:0;position:fixed;
+    background:rgba(0,0,0,0.5);display: none;}
+.popupMain{background: #fff;display:none;border-radius: 8px;width:280px;position: absolute;top:35%;left:50%;
+    margin-left:-150px;padding:10px 20px;border:1px solid #ccc;z-index:101; }
+.popupMain .close_btn{position: absolute;right:10px;top:10px;width:16px;height:16px;
+    background:url(/images/close_btn.png) no-repeat 0 0;}
+.popupMain .popRedBtn{display:block;text-align: center;height: 36px;line-height: 36px;
+    background: #e60012;color:#fff;font-size:16px;border-radius: 5px;margin-top: 25px;}
+.popupMain .popRedBtn:hover{text-decoration: none;}
+.popupMain ul li {color:#000;line-height: 28px;margin-top: 6px;font-size:16px;font-family: "Microsoft Yahei";}
+.popupMain ul li input{vertical-align: -3px;margin-right: 5px;}

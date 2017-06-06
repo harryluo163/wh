@@ -1,0 +1,130 @@
+<div id="modalProduct" class="modal in" aria-hidden="false" aria-labelledby="basicModal" role="dialog" tabindex="-1" style="display: block;"><div class="modal-backdrop  in" style="height: 943px;"></div>
+    <div class="modal-dialog ijy-modal-dialog-full">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="row ijy-modal-dialog-full-title">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ijy-col-nopadding">
+                        <div class="ijy-modal-dialog-full-title-left" onclick="historyBack()"><img src="/images/leftgo.png" alt="">  </div>
+                        <div class="ijy-modal-dialog-full-title-middle">商品详情</div>
+                        <div class="ijy-modal-dialog-full-title-right"><!--<a href="#" class="btn btn-gold btn-sm">历史</a>--></div>
+                    </div>
+                </div>
+                <div class="ijy-modal-dialog-full-content">
+                    <div class="row ijy-product-title">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ijy-col-nopadding">
+                            <span class="ijy-product-title-name">商品</span><span class="ijy-product-title-price">买入</span><span class="ijy-product-title-price">卖出</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ijy-col-nopadding">
+                            <div class="XAGRMB ijy-product-item">
+
+                                <div class="ijy-product-item-name">XAGUSD(白银)<div class="ijy-product-item-name-time">更新时间:<span id="lasttime">14:39:19</span></div></div>
+                                <div class="ijy-product-item-buy ijy-product-item-equal "><span id="Ask" class="">17.474</span></div>
+                                <div class="ijy-product-item-sale ijy-product-item-equal "><span id="Bid" class="">17.467</span></div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <form name="saleForm" id="saleForm" class="form1" method="post" action="/do_entrust" data-target="/order/entrust.shtml">
+                    <input type="hidden" id="ycdork" value="1">
+                    <div class="row  mt20">
+
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ijy-col-nopadding ijy-col-option-detailset">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 text-right ijy-col-nopadding" style="color:#CCC; text-align:right; padding-right:10px; padding-left:0px; line-height:30px;">委托类型：</div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left ijy-col-nopadding" style="background: none repeat scroll 0 0 #23262f;border: 1px solid #414755;">
+
+                                <select class="select" id="type" name="type" style="display: inline-block;font-size: 14px;height: 34px;line-height: 34px;padding-left: 12px;width: 100%;background: none repeat scroll 0 0 #202020;border: 1px solid #333;color: #999;">
+                                    <option value="2" class="ijy-modal-product-discretionary-category-more-item">限价买入</option>   <!--低位挂多-->
+                                    <option value="3" class="ijy-modal-product-discretionary-category-more-item">限价卖出</option>   <!--高位挂空-->
+                                    <option value="4" class="ijy-modal-product-discretionary-category-more-item">突破买入</option>   <!--高位挂多-->
+                                    <option value="5" class="ijy-modal-product-discretionary-category-more-item">突破卖出</option>	<!--低位挂空-->
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ijy-col-nopadding ijy-col-option-detailset mt10">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 text-right ijy-col-nopadding" style="color:#CCC; text-align:right; padding-right:10px; padding-left:0px; line-height:30px;">数量：</div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left ijy-col-nopadding">
+                                <input type="text" class="" style="display:none" name="symbol" id="symbol" value="XAGUSD">
+                                <input type="text" class="" style="display:none" name="Digits" id="Digits" value="3">
+                                <input type="text" class="form-control  ijy-modal-order-open-text ijy-modal-order-open-takeprofit-input" name="volume" id="volume" data-rules="int" data-failuremessage="数量设置有误" value="1">
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 ijy-col-nopadding">
+                                <div class="ijy-modal-order-open-tip"><span class="ijy-modal-order-open-takeprofit">1-100</span></div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ijy-col-nopadding ijy-col-option-detailset mt10">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 text-right ijy-col-nopadding" style="color:#CCC; text-align:right; padding-right:10px; padding-left:0px; line-height:30px;">价格：</div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left ijy-col-nopadding">
+                                <input type="text" class="form-control  ijy-modal-order-open-text ijy-modal-order-open-takeprofit-input" name="money" id="money" data-rules="int|float" data-failuremessage="价格设置有误">
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 ijy-col-nopadding">
+                                <div class="ijy-modal-order-open-tip"><span class="ijy-modal-product-discretionary-price-status">
+							<span id="viewsign">&lt;</span>
+							<input type="hidden" value="<" id="sign" name="sign" style="border:none;width:10px; background-color:transparent;" readonly=""></span><span class="ijy-modal-order-open-takeprofit" id="nowprice">17.174</span></div>
+                                <input type="text" value="17.174" id="price" name="price" style="border:none; display:none;">
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ijy-col-nopadding ijy-col-option-detailset mt10">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 text-right ijy-col-nopadding">
+                                <div class="ijy-checkbox">
+                                    <input type="checkbox" id="ijy-modal-order-open-takeprofit-checkbox" name="ctp" class="ijy-modal-order-open-takeprofit-checkbox">
+                                    <label for="ijy-modal-order-open-takeprofit-checkbox"></label>
+                                </div>
+                                <span class="ijy-modal-product-introduction">止盈：</span>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left ijy-col-nopadding">
+                                <input type="text" class="form-control  ijy-modal-order-open-text ijy-modal-order-open-takeprofit-input" name="tp" id="tp">
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 ijy-col-nopadding">
+                                <div class="ijy-modal-order-open-tip"><span class="ijy-modal-order-open-takeprofit-status">
+							<span id="viewtpsign">&gt;</span>
+							<input type="hidden" value=">" id="tpsign" name="tpsign" style="border:none;width:10px;background-color:#23262f;" readonly=""></span><span class="ijy-modal-order-open-takeprofit" id="nowtp"></span></div>
+                                <input type="text" value="17.174" id="tpprice" name="tpprice" style="border:none; display:none;">
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ijy-col-nopadding ijy-col-option-detailset mt10">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 text-right ijy-col-nopadding">
+                                <div class="ijy-checkbox">
+                                    <input type="checkbox" id="ijy-modal-order-open-stoploss-checkbox" name="csl" class="ijy-modal-order-open-stoploss-checkbox">
+                                    <label for="ijy-modal-order-open-stoploss-checkbox"></label>
+                                </div>
+                                <span class="ijy-modal-product-introduction">止损：</span>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left ijy-col-nopadding">
+                                <input type="text" class="form-control ijy-modal-order-open-text ijy-modal-order-open-stoploss-input" name="sl" id="sl">
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 ijy-col-nopadding">
+                                <div class="ijy-modal-order-open-tip"><span class="ijy-modal-order-open-stoploss-status">
+							<span id="viewslsign">&lt;</span>
+							<input type="hidden" value="<" id="slsign" name="slsign" style="border:none;width:10px;background-color:#23262f;" readonly=""></span><span class="ijy-modal-order-open-stoploss" id="nowsl"></span></div>
+                                <input type="text" value="17.174" id="slprice" name="slprice" style="border:none; display:none;" readonly="">
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+
+
+
+
+
+                    <div class="row ijy-modal-product-button ijy_button_warp2">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ijy-col-nopadding">
+                            <input onclick="historyBack()" class="ijy-modal-product-button-cancel" value="取消" style=" text-align:center;" type="button">
+                            <input type="button" class="ijy-modal-product-button-event btnSub" value="确定">
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
