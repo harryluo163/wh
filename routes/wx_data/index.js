@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Created by harry on 2017/2/7.
  */
 var express = require('express');
@@ -163,5 +163,32 @@ router.post('/login/Login', function(req, res, next) {
 
 });
 
+var Sequelize = require('sequelize');
+var ceo_data_db= new Sequelize(
+    "SKMall",
+    "sa",
+    "admin_123456",{
+        dialect:'mssql',
+        host:'115.28.57.211',
+        port:1433
+    }
+);
+
+router.get('/getcount', function(req, res, next) {
+    var count=4850;
+    var sql="select Count(1) as count  from usercar1";
+    ceo_data_db.query(sql).then(function(results){
+         count+=results[0][0].count;
+        res.jsonp({count:count.toString()});
+
+    });
+});
+router.get('/addcount', function(req, res, next) {
+    var count=4850;
+    var sql="insert into usercar1 values(GETDATE());";
+    ceo_data_db.query(sql).then(function(results){
+        res.jsonp({"re":"true"});
+    });
+});
 module.exports = router;
 

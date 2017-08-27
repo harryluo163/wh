@@ -16,7 +16,12 @@
     "hbs": "~3.1.0",
     "jade": "~1.11.0",
     "morgan": "~1.7.0",
+    "mysql": "^2.9.0",
+    "pg": "^6.2.3",
+    "pg-hstore": "^2.3.2",
     "request": "^2.81.0",
-    "serve-favicon": "~2.3.2"
+    "sequelize": "^3.30.4",
+    "serve-favicon": "~2.3.2",
+    "tedious": "^2.0.0"
   }
 }
