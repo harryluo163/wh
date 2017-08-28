@@ -8,8 +8,16 @@ var  Loginrout = require("./routes/login.js");
 router.use('/',function(req, res, next){
     res.locals.page_title = "";
     res.locals.isdown = "";
+    if(!req.session['cas_user']){
+        if(req.originalUrl.indexOf("wx_data/login")<0){
+        res.redirect('/wx_data/login');
+        }else{
+            next();
+        }
+    }else{
+        next();
+    }
 
-    next();
 })
 //个人中心
 router.get('/', function(req, res, next) {
@@ -101,13 +109,7 @@ router.get('/productlistdata', function(req, res, next) {
 
 //个人中心
 router.get('/index', function(req, res, next) {
-    res.locals.page_title = '个人中心';
-
-    var name = "游客"
-    if(req.session['cas_user']){
-        name=req.session['cas_user'];
-    }
-    res.render('wx_data/index',{name:name});
+    Loginrout.index(req, res, next)
 });
 //账号
 router.get('/uselist', function(req, res, next) {
@@ -160,35 +162,8 @@ router.get('/login', function(req, res, next) {
 //登录
 router.post('/login/Login', function(req, res, next) {
     Loginrout.login(req, res, next)
-
 });
 
-var Sequelize = require('sequelize');
-var ceo_data_db= new Sequelize(
-    "SKMall",
-    "sa",
-    "admin_123456",{
-        dialect:'mssql',
-        host:'115.28.57.211',
-        port:1433
-    }
-);
 
-router.get('/getcount', function(req, res, next) {
-    var count=4850;
-    var sql="select Count(1) as count  from usercar1";
-    ceo_data_db.query(sql).then(function(results){
-         count+=results[0][0].count;
-        res.jsonp({count:count.toString()});
-
-    });
-});
-router.get('/addcount', function(req, res, next) {
-    var count=4850;
-    var sql="insert into usercar1 values(GETDATE());";
-    ceo_data_db.query(sql).then(function(results){
-        res.jsonp({"re":"true"});
-    });
-});
 module.exports = router;
 
