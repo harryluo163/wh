@@ -4,7 +4,8 @@
 var express = require('express');
 var request = require("request");
 var router = express.Router();
-var  Loginrout = require("./routes/login.js");
+var  Loginrout = require("./routes/login");
+var  api = require("./routes/api");
 router.use('/',function(req, res, next){
     res.locals.page_title = "";
     res.locals.isdown = "";
@@ -46,10 +47,13 @@ router.get('/productlist', function(req, res, next) {
 });
 //添加自选
 router.get('/addproduct', function(req, res, next) {
-    res.locals.page_title = '添加自选品种';
-    res.render('wx_data/addproduct');
+    api.index(req, res, next)
 });
-
+//添加自选
+router.post('/api/addproduct', function(req, res, next) {
+    console.log(1)
+    api.addproduct(req, res, next)
+});
 
 
 //详情
@@ -66,7 +70,6 @@ var symbol = req.query.symbol;
     var period = req.query.period;
     var opt = {
         method: "post",
-
     };
     request.post({ url:'http://cts-trading.creatrader.cn/index_contr/getLineInfo.shtml?period='+period+'&symbol='+symbol,formData: opt
     }, function(err,httpResponse,body){

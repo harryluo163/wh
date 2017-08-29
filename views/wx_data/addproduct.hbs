@@ -397,7 +397,6 @@
 
 <script>
     $(function () {
-
         $("#symboltj").click(function(){
             var symbol="";
             $("input[name='symbol']").each(
@@ -408,13 +407,13 @@
                     });
             $.ajax({
                 type: "post",
-                url: "/index_contr/addsymbol.shtml",
+                url: "/wx_data/api/addproduct",
                 data:{symbol:symbol},
                 success: function(msg, textStatus){
-                    if(msg=="1")
+                    if(msg.success=="1")
                     {
                         $.fn.SK_alert("提交成功");
-                        setTimeout('window.location.href="/index_contr/lists"',500);
+                        setTimeout('window.location.href=window.location.href',500);
                     }
                     else
                     {
@@ -423,6 +422,7 @@
                 }
             });
         });
+        var data ={{objectToJson data}}
 
     });
 </script>
