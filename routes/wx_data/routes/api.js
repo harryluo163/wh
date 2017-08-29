@@ -45,9 +45,13 @@ exports.addproduct = function (req, res, next) {
 
 exports.index=function (req, res, next) {
     res.locals.page_title = '添加自选品种';
-    var sql="select * from  wx_myoptional   where UserName ='"+req.session['cas_user']+"' ";
+    var sql="select name from  wx_myoptional   where UserName ='"+req.session['cas_user']+"' ";
     data_db.query(sql).then(function (r) {
-        res.render('wx_data/addproduct',{data:r[0]});
+        let  data =[];
+        for(let d of r[0]){
+            data.push(d.name)
+        }
+        res.render('wx_data/addproduct',{data:data});
     });
 
 }

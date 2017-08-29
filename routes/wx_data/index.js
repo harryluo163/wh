@@ -5,6 +5,7 @@ var express = require('express');
 var request = require("request");
 var router = express.Router();
 var  Loginrout = require("./routes/login");
+var  pay = require("./routes/pay");
 var  api = require("./routes/api");
 router.use('/',function(req, res, next){
     res.locals.page_title = "";
@@ -37,13 +38,7 @@ router.get('/userDetails', function(req, res, next) {
 });
 //交易
 router.get('/productlist', function(req, res, next) {
-    res.locals.page_title = '交易';
-
-    var symboltype = req.query.symboltype;
-    if(symboltype==""&&symboltype==undefined){
-        symboltype=1;
-    }
-    res.render('wx_data/productlist',{symboltype:symboltype});
+    pay.productlist(req, res, next)
 });
 //添加自选
 router.get('/addproduct', function(req, res, next) {
