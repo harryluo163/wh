@@ -41,30 +41,21 @@
         <div class="tab-pane fade in active" id="zs">
             <table width="100%" cellpadding="0" cellspacing="0" class="table ">
                 <tbody>
-                <tr >
+                <tr>
                     <th >正式账号</th>
                     <th >货币</th>
                     <th >余额</th>
                     <th >杠杆</th>
                 </tr>
-                <tr newid="1">
-                    <td><strong>20001</strong>
+         {{#each real}}
+                <tr newid="{{id}}">
+                    <td><strong>{{login}}</strong>
                     <td>USD</td>
-                    <td>1000</td>
-                    <td>1：300</td>
+                    <td>{{balance}}</td>
+                    <td>1：{{leverage}}</td>
                 </tr>
-                <tr newid="2">
-                    <td><strong>20001</strong>
-                    <td>USD</td>
-                    <td>1000</td>
-                    <td>1：300</td>
-                </tr>
-                <tr newid="3">
-                    <td><strong>20004</strong>
-                    <td>USD</td>
-                    <td>1000</td>
-                    <td>1：300</td>
-                </tr>
+            {{/each}}
+
 
                 </tbody>
             </table>
@@ -78,24 +69,14 @@
                     <th >余额</th>
                     <th >杠杆</th>
                 </tr>
-                <tr newid="1">
-                    <td><strong>20001</strong>
-                    <td>USD</td>
-                    <td>1000</td>
-                    <td>1：300</td>
-                </tr>
-                <tr newid="2">
-                    <td><strong>20001</strong>
-                    <td>USD</td>
-                    <td>1000</td>
-                    <td>1：300</td>
-                </tr>
-                <tr newid="3">
-                    <td><strong>20004</strong>
-                    <td>USD</td>
-                    <td>1000</td>
-                    <td>1：300</td>
-                </tr>
+                {{#each dome}}
+                    <tr newid="{{id}}">
+                        <td><strong>{{login}}</strong>
+                        <td>USD</td>
+                        <td>{{balance}}</td>
+                        <td>1：{{leverage}}</td>
+                    </tr>
+                {{/each}}
 
                 </tbody>
             </table>

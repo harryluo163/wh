@@ -111,18 +111,20 @@ router.get('/index', function(req, res, next) {
 });
 //账号
 router.get('/uselist', function(req, res, next) {
-    res.locals.page_title = '账号列表';
-    res.render('wx_data/uselist');
+    api.uselist(req, res, next)
 });
 //绑定账号
 router.get('/bindaccount', function(req, res, next) {
     res.locals.page_title = '账号绑定';
     res.render('wx_data/bindaccount');
 });
+
+router.post('/api/binUser', function(req, res, next) {
+    api.binUser(req, res, next)
+});
 //账号选择
 router.get('/changeaccount', function(req, res, next) {
-    res.locals.page_title = '账号选择';
-    res.render('wx_data/changeaccount');
+    api.changeaccount(req, res, next)
 });
 //持仓
 router.get('/positionlist', function(req, res, next) {
@@ -161,6 +163,11 @@ router.get('/login', function(req, res, next) {
 router.post('/login/Login', function(req, res, next) {
     Loginrout.login(req, res, next)
 });
+//账号切换
+router.post('/api/cklogin', function(req, res, next) {
+    api.cklogin(req, res, next)
+});
+
 
 
 module.exports = router;

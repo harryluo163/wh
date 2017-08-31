@@ -1,32 +1,59 @@
-
 <div class="row ijy-modal-dialog-full-title navbar-fixed-top">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ijy-col-nopadding">
-        <div class="ijy-modal-dialog-full-title-left" onclick="historyBack()"><img src="/images/leftgo.png" alt=""> </div>
+        <div class="ijy-modal-dialog-full-title-left" onclick="historyBack()"><img src="/images/leftgo.png" alt="">
+        </div>
         <div class="ijy-modal-dialog-full-title-middle">账号绑定</div>
     </div>
 </div>
 <style>
-    .new-detail-warp{ padding-top:30px; font-family:"微软雅黑";}
-    .new-detail-title p{ font-size:18px; color:#ff7d1d; line-height:28px; margin-bottom:0px;}
-    .new-detail-time span{ display:block; font-size:12px; color:#8b8b8b; line-height:40px;}
-    #content{ font-size:12px; color:#a4a6ae; line-height:28px;}
-    .new-detail-time{ border-bottom:#363b46 1px solid; margin-bottom:20px;}
-    .ijy-modal-changepassword-describe{ color: #d9bc82}
+    .new-detail-warp {
+        padding-top: 30px;
+        font-family: "微软雅黑";
+    }
+
+    .new-detail-title p {
+        font-size: 18px;
+        color: #ff7d1d;
+        line-height: 28px;
+        margin-bottom: 0px;
+    }
+
+    .new-detail-time span {
+        display: block;
+        font-size: 12px;
+        color: #8b8b8b;
+        line-height: 40px;
+    }
+
+    #content {
+        font-size: 12px;
+        color: #a4a6ae;
+        line-height: 28px;
+    }
+
+    .new-detail-time {
+        border-bottom: #363b46 1px solid;
+        margin-bottom: 20px;
+    }
+
+    .ijy-modal-changepassword-describe {
+        color: #d9bc82
+    }
 
 </style>
 <!-- 内容区域 -->
-<div class="ijy-fluid-container mt50" >
+<div class="ijy-fluid-container mt50">
     <div class="tab-content">
         <div class="new-detail-warp">
 
             <div class="ijy-modal-dialog-full-content">
                 <div class="row">
                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3  ijy-col-nopadding">
-                        <div class=" ijy-modal-changepassword-describe" >账号类型：</div>
+                        <div class=" ijy-modal-changepassword-describe">账号类型：</div>
                     </div>
                     <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 ijy-col-nopadding">
                         <div>
-                            <select class="form-control   ijy-modal-changepassword-text-oldpassword">
+                            <select id="usertype" class="form-control   ijy-modal-changepassword-text-oldpassword">
                                 <option>真实</option>
                                 <option>模拟</option>
 
@@ -43,7 +70,8 @@
                     </div>
                     <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 ijy-col-nopadding">
                         <div>
-                            <input type="text" class="form-control   ijy-modal-changepassword-text-oldpassword">
+                            <input id="login" type="text"
+                                   class="form-control   ijy-modal-changepassword-text-oldpassword">
                         </div>
                     </div>
                     <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
@@ -54,7 +82,8 @@
                     </div>
                     <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 ijy-col-nopadding">
                         <div>
-                            <input type="password" class="form-control   ijy-modal-changepassword-text-oldpassword">
+                            <input id="password" type="password"
+                                   class="form-control   ijy-modal-changepassword-text-oldpassword">
                         </div>
                     </div>
                     <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
@@ -65,14 +94,17 @@
                     </div>
                     <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 ijy-col-nopadding">
                         <div>
-                            <input type="password" class="form-control   ijy-modal-changepassword-text-newpassword">
+                            <input id="passwordagain" type="password"
+                                   class="form-control   ijy-modal-changepassword-text-newpassword">
                         </div>
                     </div>
                     <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
                 </div>
                 <div class="row" style="    text-align: center;margin-top: 50px">
 
-                    <button  onclick="ckaccount()" class="ijy-modal-changepassword-buttonbox-button" style="color: #dabb84">绑定</button>
+                    <button onclick="ckaccount()" class="ijy-modal-changepassword-buttonbox-button"
+                            style="color: #dabb84">绑定
+                    </button>
                 </div>
 
             </div>
@@ -81,65 +113,10 @@
 </div>
 <!--底部菜单-->
 
-<!--密码修改窗口-->
-<div id="modalChangePassword" class="modal" aria-hidden="true" aria-labelledby="basicModal" role="dialog" tabindex="-1" style="display: none;">
-    <div class="modal-dialog ijy-modal-dialog-full">
-        <div class="modal-content">
-            <div class="modal-body">
-                <div class="row ijy-modal-dialog-full-title">
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ijy-col-nopadding">
-                        <div class="ijy-modal-dialog-full-title-left" onclick="historyBack()">〈返回 </div>
-                        <div class="ijy-modal-dialog-full-title-middle">密码修改</div>
-                    </div>
-                </div>
-                <div class="ijy-modal-dialog-full-content">
-                    <div class="row">
-                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3  ijy-col-nopadding">
-                            <div class=" ijy-modal-changepassword-describe">原密码：</div>
-                        </div>
-                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 ijy-col-nopadding">
-                            <div>
-                                <input type="password" class="form-control   ijy-modal-changepassword-text-oldpassword">
-                            </div>
-                        </div>
-                        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3  ijy-col-nopadding">
-                            <div class=" ijy-modal-changepassword-describe">新密码：</div>
-                        </div>
-                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 ijy-col-nopadding">
-                            <div>
-                                <input type="password" class="form-control   ijy-modal-changepassword-text-newpassword">
-                            </div>
-                        </div>
-                        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 "></div>
-                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 ijy-col-nopadding">
-                            <div class="ijy-modal-changepassword-fastsignin">
-                                <div class="ijy-checkbox">
-                                    <input type="checkbox" id="ijy-modal-changepassword-fastsignin-checkbox" class="ijy-modal-changepassword-fastsignin-checkbox">
-                                    <label for="ijy-modal-changepassword-fastsignin-checkbox"></label>
-                                </div>
-                                <span class="ijy-modal-changepassword-fastsignin-describe">启用快速登录</span> </div>
-                        </div>
-                        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
-                    </div>
-                    <div class="row ijy-modal-changepassword-buttonbox">
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ijy-col-nopadding">
-                            <button class="ijy-modal-changepassword-buttonbox-button" onclick="historyBack()">取消</button>
-                            <button class="ijy-modal-changepassword-buttonbox-button" onclick="confirmOpen('你确定修改密码？','eventUpdatePassword')">修改</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+
 <!--提示窗口-->
-<div id="modalAlert" class="modal" aria-hidden="true" aria-labelledby="basicModal" role="dialog" tabindex="-1" style="display: none;">
+<div id="modalAlert" class="modal" aria-hidden="true" aria-labelledby="basicModal" role="dialog" tabindex="-1"
+     style="display: none;">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">操作提示</div>
@@ -157,13 +134,46 @@
 <!--JS 代码区-->
 <script>
     function ckaccount() {
-        $("#modalAlert").show();
+
+        var type = $("#usertype").val();
+        var login = $("#login").val();
+        var password = $("#password").val();
+        var passwordagain = $("#passwordagain").val();
+
+        if (login == "") {
+            $.fn.SK_alert("请输入MT4账号")
+            return;
+        }
+        if (password == "") {
+            $.fn.SK_alert("请输入密码")
+            return;
+        }
+        if (password != passwordagain) {
+            $.fn.SK_alert("你输入的密码不一致")
+            return;
+        }
+        var options = {
+            type: type,
+            login: login,
+            password: password,
+            passwordagain: passwordagain,
+        };
+        $.post("/wx_data/api/binUser", options, function (data) {
+
+            if (data.success == 1) {
+                $.fn.SK_alert(data.msg, function () {
+                    window.location.href = '/wx_data/uselist';
+                })
+            } else {
+                $.fn.SK_alert("绑定账号失败", function () {
+                    window.location.href = '/wx_data/uselist';
+                })
+
+            }
+        });
+
+
     }
-    function alertClose() {
-        $("#modalAlert").hide()
-    }
-    function alertok() {
-        $("#modalAlert").hide()
-    }
+
 </script>
 

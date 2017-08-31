@@ -15,7 +15,7 @@ exports.login= function (req, res, next) {
             function(cb){
                 dbmodels.user.findAll(
                     {
-                        where:{username:username,password:password}
+                        where:{username:username,password:password,status:1}
                     }
                 ).then(function(results){
                     cb(null,results);
@@ -33,26 +33,34 @@ exports.login= function (req, res, next) {
     }
  }
 
- exports.index=function (req, res, next) {
+
+
+exports.index=function (req, res, next) {
      res.locals.page_title = '个人中心';
      let name = "游客";
+     let useacount ="";
      let use={
          username:"游客",
+         useacount:"",
          cnname:"游客",
          mobile:"无",
          email:"无",
          applytime: new Date().Format("yyyy-MM-dd HH:mm:ss")
      }
      if(req.session['cas_user']){
+         //登录名
          name=req.session['cas_user'];
+
          dbmodels.user.findAll(
              {
                  where:{username:name}
              }
          ).then(function(results){
             if(results.length>0){
+                if(req.session['mt4_user']!=""&&req.session['mt4_user']!=undefined){  useacount=req.session['mt4_user']}
                 use.username=name;
                 use.cnname=results[0].cnname;
+                use.useacount=useacount;
                 use.mobile=results[0].mobile;
                 use.email=results[0].email;
                 use.applytime=results[0].applytime==""?new Date().Format("yyyy-MM-dd hh:mm:ss"):new Date(results[0].applytime).Format("yyyy-MM-dd hh:mm:ss");
@@ -64,6 +72,7 @@ exports.login= function (req, res, next) {
      }
 
  }
+
 
 Date.prototype.Format = function (fmt) { //author: meizz
     var o = {
