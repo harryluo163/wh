@@ -140,17 +140,20 @@ router.get('/newslist', function(req, res, next) {
 //买入
 router.get('/buyproduct', function(req, res, next) {
     res.locals.page_title = '商品详情';
-    res.render('wx_data/buyproduct');
+    var t = req.query.t;
+    res.render('wx_data/buyproduct',{t:t});
 });
 //卖出
 router.get('/saleproduct', function(req, res, next) {
     res.locals.page_title = '商品详情';
-    res.render('wx_data/saleproduct');
+    var t = req.query.t;
+    res.render('wx_data/saleproduct',{t:t});
 });
 //挂单
 router.get('/entrustproduct', function(req, res, next) {
     res.locals.page_title = '商品详情';
-    res.render('wx_data/entrustproduct');
+    var t = req.query.t;
+    res.render('wx_data/entrustproduct',{t:t});
 });
 
 //登录

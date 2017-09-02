@@ -22,9 +22,9 @@
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ijy-col-nopadding">
                             <div class="XAGRMB ijy-product-item">
 
-                                <div class="ijy-product-item-name">XAGUSD(白银)<div class="ijy-product-item-name-time">更新时间:<span id="lasttime">14:35:57</span></div></div>
-                                <div class="ijy-product-item-buy ijy-product-item-equal "><span id="Ask">17.473</span></div>
-                                <div class="ijy-product-item-sale ijy-product-item-equal "><span id="Bid">17.469</span></div>
+                                <div class="ijy-product-item-name">{{t}}<div class="ijy-product-item-name-time">更新时间:<span id="lasttime"></span></div></div>
+                                <div class="ijy-product-item-buy ijy-product-item-equal "><span id="Ask"></span></div>
+                                <div class="ijy-product-item-sale ijy-product-item-equal "><span id="Bid"></span></div>
 
                             </div>
                         </div>
@@ -63,3 +63,35 @@
         </div>
     </div>
 </div>
+
+<script language="javascript">
+    function refreshInfo()
+    {
+        $.ajax({
+            type: "GET",
+            url: "/wx_data/getLineInfoxSymbol_price?t={{t}}",
+            success: function(msg, textStatus){
+
+                var result = $.parseJSON(msg);
+
+                $("#lasttime").text(result.lasttime);
+                $("#Ask").text(result.Ask);
+
+                $("#Bid").text(result.Bid);
+                $("#tpbid").text(result.Ask);
+                $("#slbid").text(result.Ask);
+                $("#tpprice").attr("value",result.Ask);
+                $("#slprice").attr("value",result.Ask);
+                if(result.flag == 1){
+
+                    $("#Ask").addClass("ownGreen");
+                    $("#Bid").addClass("ownGreen");
+                }else{
+                    $("#Ask").removeClass("ownGreen");
+                    $("#Bid").removeClass("ownGreen");
+                }
+            }
+        });
+    }
+    setInterval('refreshInfo()',1000);
+</script>

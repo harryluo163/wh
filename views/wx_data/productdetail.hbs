@@ -33,7 +33,7 @@
                                                                                                class="ownGreen"></span>
                                 </div>
                                 <div class="ijy-product-item-sale ijy-product-item-equal"><span id="Bid"
-                                                                                                class="ownGreen">1.</span>
+                                                                                                class="ownGreen"></span>
                                 </div>
                             </div>
                         </div>
@@ -786,11 +786,11 @@
 
         $(".ijy-normalorder-open-button-event").click(function () {
             var val = $(this).text();
-            if (val == "买入") {
+            if (val.indexOf("买入")>=0) {
                 window.location.href = '/wx_data/buyproduct?t={{t}}'
-            } else if (val == "卖出") {
+            } else if (val.indexOf("卖出")>=0) {
                 window.location.href = location.href = '/wx_data/saleproduct?t={{t}}'
-            } else if (val == "挂单") {
+            } else if (val.indexOf("挂单")>=0) {
                 window.location.href = location.href = '/wx_data/entrustproduct?t={{t}}'
             }
 
