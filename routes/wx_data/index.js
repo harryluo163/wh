@@ -149,6 +149,12 @@ router.get('/buyproduct', function(req, res, next) {
     var t = req.query.t;
     res.render('wx_data/buyproduct',{t:t});
 });
+
+router.post('/api/buy_api', function(req, res, next) {
+
+     api.buy_api(req, res, next);
+});
+
 //卖出
 router.get('/saleproduct', function(req, res, next) {
     res.locals.page_title = '商品详情';

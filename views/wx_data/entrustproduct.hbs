@@ -64,7 +64,7 @@
                             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 ijy-col-nopadding">
                                 <div class="ijy-modal-order-open-tip"><span class="ijy-modal-product-discretionary-price-status">
 							<span id="viewsign">&lt;</span>
-							<input type="hidden" value="<" id="sign" name="sign" style="border:none;width:10px; background-color:transparent;" readonly=""></span><span class="ijy-modal-order-open-takeprofit" id="nowprice">17.174</span></div>
+							<input type="hidden" value="<" id="sign" name="sign" style="border:none;width:10px; background-color:transparent;" readonly=""></span><span class="ijy-modal-order-open-takeprofit" id="nowprice"></span></div>
                                 <input type="text" value="17.174" id="price" name="price" style="border:none; display:none;">
                             </div>
                         </div>
@@ -119,7 +119,7 @@
                     <div class="row ijy-modal-product-button ijy_button_warp2">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ijy-col-nopadding">
                             <input onclick="historyBack()" class="ijy-modal-product-button-cancel" value="取消" style=" text-align:center;" type="button">
-                            <input type="button" class="ijy-modal-product-button-event btnSub" value="确定">
+                            <input type="button" onclick="go()" class="ijy-modal-product-button-event btnSub" value="确定">
                         </div>
                     </div>
                 </form>
@@ -158,4 +158,65 @@
         });
     }
     setInterval('refreshInfo()',1000);
+    
+    function go() {
+        var cmd =$("#type").val();
+        var num =$("#volume").val();
+        var money =$("#money").val();
+        var tp =$("#ijy-modal-order-open-takeprofit-checkbox:checked").val()=="on"?$("#tp").val():"";
+        var sl =$("#ijy-modal-order-open-stoploss-checkbox:checked").val()=="on"?$("#sl").val():"";
+        if(/^\d+$/.test(num)&&Number(num)>0&&Number(num)<100){
+
+        }else{
+            $.fn.SK_alert("数量输入有误");
+            return;
+        }
+        if(isFloat(money)||/^\d+$/.test(money)){
+
+        }else{
+            $.fn.SK_alert("价格输入有误");
+            return;
+        }
+     if($("#ijy-modal-order-open-takeprofit-checkbox:checked").val()=="on"){
+         if(isFloat(tp)||/^\d+$/.test(tp)){}else{
+             $.fn.SK_alert("止盈输入有误");
+             return;
+         }
+       }
+        if($("#ijy-modal-order-open-stoploss-checkbox:checked").val()=="on"){
+            if(isFloat(sl)||/^\d+$/.test(sl)){}else{
+                $.fn.SK_alert("止盈输入有误");
+                return;
+            }
+
+        }
+        var opt ={symbol:'{{t}}',cmd:cmd,type:75,volume:num,price:money,comment:"from wetrade",sl:sl,tp:tp}
+        $.post("/wx_data/api/buy_api",opt , function (data) {
+            if(data.success==1){
+                $.fn.SK_alert("成功挂单",function () {
+                    window.location.href="/wx_data/positionlist"
+                });
+            }else if(data.success==2){
+                window.location.href= "/wx_data/changeaccount";
+            }else{
+                window.location.href= window.location.href;
+            }
+        });
+    }
+
+    /**
+     * 判断传入参数是否为浮点型
+     * @param $param
+     * @return bool
+     */
+    function isFloat(param)
+    {
+        if(/^\d+\.\d+$/g.test(param))
+        {
+            return true;
+        }else{
+            return false;
+        }
+    }
+
 </script>

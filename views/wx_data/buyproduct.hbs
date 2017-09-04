@@ -98,9 +98,17 @@
     function buy() {
         var num =$("#volume").val();
         if(/^\d+$/.test(num)&&Number(num)>0&&Number(num)<=100){
-
-            $.post("/wx_data/api/cklogin", {t:'{{t}}',num:num}, function (data) {
-
+        var opt ={symbol:'{{t}}',cmd:"0",type:75,volume:num,price:$("#Bid").text(),comment:"from wetrade"}
+            $.post("/wx_data/api/buy_api",opt , function (data) {
+                if(data.success==1){
+                    $.fn.SK_alert("买入成功",function () {
+                        window.location.href="/wx_data/positionlist"
+                    });
+                }else if(data.success==2){
+                    window.location.href= "/wx_data/changeaccount";
+                }else{
+                    window.location.href= window.location.href;
+                }
             });
         }else{
             $.fn.SK_alert("数量输入有误");

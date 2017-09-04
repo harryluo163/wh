@@ -54,7 +54,7 @@
                     <div class="row ijy-modal-product-button ijy_button_warp2">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ijy-col-nopadding">
                             <input onclick="historyBack()" class="ijy-modal-product-button-cancel" value="取消" style=" text-align:center;" type="button">
-                            <input type="button" class="ijy-modal-product-button-event btnSub" value="卖出">
+                            <input type="button" onclick="sale() " class="ijy-modal-product-button-event btnSub" value="卖出">
                         </div>
                     </div>
                 </form>
@@ -93,4 +93,25 @@
                 });
             }
             setInterval('refreshInfo()',1000);
+
+            function sale() {
+                var num =$("#volume").val();
+                if(/^\d+$/.test(num)&&Number(num)>0&&Number(num)<=100){
+                    var opt ={symbol:'{{t}}',cmd:"1",type:75,volume:num,price:$("#Bid").text(),comment:"from wetrade"}
+                    $.post("/wx_data/api/buy_api",opt , function (data) {
+                        if(data.success==1){
+                            $.fn.SK_alert("成功卖出",function () {
+                                window.location.href="/wx_data/positionlist"
+                            });
+                        }else if(data.success==2){
+                            window.location.href= "/wx_data/changeaccount";
+                        }else{
+                            window.location.href= window.location.href;
+                        }
+                    });
+                }else{
+                    $.fn.SK_alert("数量输入有误");
+                    return;
+                }
+            }
         </script>

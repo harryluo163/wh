@@ -188,17 +188,17 @@ exports.binUser=function (req, res, next){
 
 //开仓
 exports.buy_api=function (req, res, next) {
-    var symbol=req.body.symbol!=undefined?req.body.symbol:"";//MT4账号
+    var symbol=req.body.symbol!=undefined?req.body.symbol:"";
     var type=req.body.type!=undefined?req.body.type:"";//类型75：开仓
     var cmd=req.body.cmd!=undefined?req.body.cmd:"";//交易命令
     var volume=req.body.volume!=undefined?req.body.volume:"";//手数
     var price=req.body.price!=undefined?req.body.price:"";//价格
     var comment=req.body.comment!=undefined?req.body.comment:"";//注释固定为“from wetrade”
-    var sl=req.body.sl!=undefined?req.body.sl:"";//止盈价
-    var tp=req.body.tp!=undefined?req.body.tp:"";//止损价
-    comment="from wetrade";
+    var sl=req.body.sl!=undefined?req.body.sl:0;//止盈价
+    var tp=req.body.tp!=undefined?req.body.tp:0;//止损价
+
     //MT4账号无效
-    if(req.session['mt4_user']==""){
+    if(req.session['mt4_user']==""||req.session['mt4_user']==undefined){
         res.json({success: 2});
     }else {
         var opt = {
