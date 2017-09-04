@@ -128,8 +128,14 @@ router.get('/changeaccount', function(req, res, next) {
 });
 //持仓
 router.get('/positionlist', function(req, res, next) {
-    res.locals.page_title = '持仓';
-    res.render('wx_data/positionlist');
+
+    pay.positionlist(req, res, next)
+
+});
+//历史持仓
+router.get('/positionlisthistory', function(req, res, next) {
+    pay.positionlisthistory(req, res, next)
+
 });
 //财经
 router.get('/newslist', function(req, res, next) {

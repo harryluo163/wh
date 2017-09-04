@@ -185,3 +185,100 @@ exports.binUser=function (req, res, next){
         }
     })
 }
+
+//开仓
+exports.buy_api=function (req, res, next) {
+    var symbol=req.body.symbol!=undefined?req.body.symbol:"";//MT4账号
+    var type=req.body.type!=undefined?req.body.type:"";//类型75：开仓
+    var cmd=req.body.cmd!=undefined?req.body.cmd:"";//交易命令
+    var volume=req.body.volume!=undefined?req.body.volume:"";//手数
+    var price=req.body.price!=undefined?req.body.price:"";//价格
+    var comment=req.body.comment!=undefined?req.body.comment:"";//注释固定为“from wetrade”
+    var sl=req.body.sl!=undefined?req.body.sl:"";//止盈价
+    var tp=req.body.tp!=undefined?req.body.tp:"";//止损价
+    comment="from wetrade";
+    //MT4账号无效
+    if(req.session['mt4_user']==""){
+        res.json({success: 2});
+    }else {
+        var opt = {
+            login: req.session['mt4_user'],
+            symbol: symbol,
+            type: type,
+            cmd: cmd,
+            volume: volume,
+            price: price,
+            comment: comment,
+            sl: sl,
+            tp: tp
+
+
+        };
+        request.post({
+            url: 'http://139.224.135.183:3001/api/trade/account/open', formData: opt
+        }, function (err, httpResponse, body) {
+            var data = JSON.parse(body);
+            if (data.code == 0) {
+                res.json({success: 1});
+            } else {
+                res.json({success: 0});
+            }
+        })
+    }
+}
+
+//平仓
+exports.sale_api=function (req, res, next) {
+    var order=req.body.order!=undefined?req.body.order:"";//订单号
+    var symbol=req.body.symbol!=undefined?req.body.symbol:"";//品种
+    var type=req.body.品种!=undefined?req.body.品种:"";//76：平仓 77：删除（取消）挂单
+    var cmd=req.body.cmd!=undefined?req.body.cmd:"";//cmd
+    var volume=req.body.volume!=undefined?req.body.volume:"";//手数
+    var price=req.body.price!=undefined?req.body.price:"";//价格
+    var comment=req.body.comment!=undefined?req.body.comment:"";//注释固定为“from wetrade”
+    var sl=req.body.sl!=undefined?req.body.sl:"";//止盈价
+    var tp=req.body.tp!=undefined?req.body.tp:"";//止损价
+    if(req.session['mt4_user']==""){
+        res.json({success: 2});
+    }else {
+        var opt = {
+            login: req.session['mt4_user'],
+            order:order,
+            symbol: symbol,
+            type: type,
+            cmd: cmd,
+            volume: volume,
+            price: price,
+            comment: comment,
+            sl: sl,
+            tp: tp
+
+        };
+        request.post({
+            url: 'http://139.224.135.183:3001//api/trade/account/close', formData: opt
+        }, function (err, httpResponse, body) {
+            var data = JSON.parse(body);
+            if (data.code == 0) {
+                res.json({success: 1});
+            } else {
+                res.json({success: 0});
+            }
+        })
+    }
+
+}
+
+//查询持仓
+exports.position_search_api=function (req, res, next) {
+
+}
+
+//查询持仓
+exports.history_search_api=function (req, res, next) {
+
+}
+
+//查询MT4账号
+exports.user_search_api=function (req, res, next) {
+
+}

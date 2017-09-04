@@ -37,7 +37,7 @@
                             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 text-right ijy-col-nopadding" style="color:#CCC; text-align:right; padding-right:10px; padding-left:0px; line-height:30px;">数量：</div>
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left ijy-col-nopadding">
                                 <input type="text" class="form-control  ijy-modal-order-open-text ijy-modal-order-open-takeprofit-input" name="volume" id="volume" data-rules="int" data-failuremessage="数量格式不合法" value="1">
-                                <input type="text" class="" style="display:none" name="symbol" id="symbol" value="XAGUSD">
+                                <input type="text" class="" style="display:none" name="symbol" id="symbol" value="{{t}}">
                             </div>
                             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 ijy-col-nopadding">
                                 <div class="ijy-modal-order-open-tip"><span class="ijy-modal-order-open-takeprofit">1-100</span></div>
@@ -54,7 +54,7 @@
                     <div class="row ijy-modal-product-button ijy_button_warp2">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ijy-col-nopadding">
                             <input onclick="historyBack()" class="ijy-modal-product-button-cancel" value="取消" style=" text-align:center;" type="button">
-                            <input type="button" class="ijy-modal-product-button-event btnSub" value="买入">
+                            <input type="button" onclick="buy() " class="ijy-modal-product-button-event btnSub" value="买入">
                         </div>
                     </div>
                 </form>
@@ -94,4 +94,17 @@
         });
     }
     setInterval('refreshInfo()',1000);
+    
+    function buy() {
+        var num =$("#volume").val();
+        if(/^\d+$/.test(num)&&Number(num)>0&&Number(num)<=100){
+
+            $.post("/wx_data/api/cklogin", {t:'{{t}}',num:num}, function (data) {
+
+            });
+        }else{
+            $.fn.SK_alert("数量输入有误");
+            return;
+        }
+    }
 </script>
