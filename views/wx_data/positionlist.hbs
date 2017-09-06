@@ -152,7 +152,7 @@
                     var result = $.parseJSON(msg);
                     for(var i = 0;i < result.length; i++) {
                         msgask=""+result[i]['SYMBOL']+"ASK"+"";
-                        if(result[i]['SYMBOL']=="USDJPY") {
+
                             $("."+msgask).text(parseFloat(result[i]['ASK']).toFixed(parseInt(result[i]['Digits'])));
 
                             $("."+msgask).each(function () {
@@ -168,7 +168,7 @@
                                 }
 
                             })
-                        }
+
                     }
                 }
             }
