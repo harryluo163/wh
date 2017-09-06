@@ -22,6 +22,10 @@ hbs.registerHelper('block', function(name) {
     return val;
 });
 
+hbs.registerHelper('totime', function(name) {
+    return  new Date(name).Format("yyyy-MM-dd hh:mm:ss");
+});
+
 //判断是否相等
 hbs.registerHelper('compare', function(left, operator, right, options) {
     if (arguments.length < 3) {

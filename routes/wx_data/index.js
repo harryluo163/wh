@@ -86,6 +86,18 @@ router.get('/getLineInfoxSymbol_price', function(req, res, next) {
     })
 
 });
+router.get('/getLineInfoxSymbol_price_order', function(req, res, next) {
+    var t = req.query.t;
+    var opt = {
+        method: "post",
+        url: "",
+    };
+    request.post({url:'http://cts-trading.creatrader.cn/index_contr/symbol_price_ajax/'+t+'.shtml', formData: opt
+    }, function(err,httpResponse,body){
+        res.json(body);
+    })
+
+});
 
 
 //列表
@@ -128,15 +140,26 @@ router.get('/changeaccount', function(req, res, next) {
 });
 //持仓
 router.get('/positionlist', function(req, res, next) {
-
     pay.positionlist(req, res, next)
-
+});
+router.get('/positionlist_search', function(req, res, next) {
+    pay.positionlist_search(req, res, next)
+});
+router.get('/positionlisthistory_search', function(req, res, next) {
+    pay.positionlisthistory_search(req, res, next)
 });
 //历史持仓
 router.get('/positionlisthistory', function(req, res, next) {
     pay.positionlisthistory(req, res, next)
 
 });
+
+//持仓详情
+router.get('/positiondetail', function(req, res, next) {
+    pay.positiondetail(req, res, next)
+
+});
+
 //财经
 router.get('/newslist', function(req, res, next) {
     res.locals.page_title = '财经资讯';

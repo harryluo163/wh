@@ -1,0 +1,206 @@
+
+
+
+<!--单个商品窗口-->
+<div id="modalProduct" class="modal in" aria-hidden="false" aria-labelledby="basicModal" role="dialog" tabindex="-1" style="display: block;"><div class="modal-backdrop  in" style="height: 943px;"></div>
+    <div class="modal-dialog ijy-modal-dialog-full">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="row ijy-modal-dialog-full-title">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ijy-col-nopadding">
+                        <div class="ijy-modal-dialog-full-title-left" onclick="historybb()"><img
+                                src="/images/leftgo.png" alt=""> </div>
+                        <div class="ijy-modal-dialog-full-title-middle">在手订单</div>
+                        <div class="ijy-modal-dialog-full-title-right"><a href="/wx_data/positionlisthistory" class="btn btn-gold btn-sm">历史</a></div>
+                    </div>
+                </div>
+
+                <div class="ijy-modal-dialog-full-content">
+                    <div class="row ijy-product-title">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ijy-col-nopadding">
+                            <span class="ijy-product-title-name">商品</span><span class="ijy-product-title-price">数量</span><span class="ijy-product-title-price">盈亏</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ijy-col-nopadding">
+                            <div class="ijy-order-history-item">
+                                <div class="ijy-order-history-item-top"><span class="ijy-order-history-item-productname">AUDUSD<span class="ijy-color-up">(多单)</span></span>
+                                    <span class="ijy-order-history-item-closelots">20</span><span class="ijy-order-history-item-profit"><span class="ijy-color-down" id="profit">5060</span></span></div>
+                                <div class="ijy-order-history-item-orderid">下单价格：0.79682<img src="/images/i-ar.png" style="width:18px; margin:0 6px;">当前价格：<span class="ijy-color-up" id="nowprice">0.79935</span></div>
+
+                                <div class="ijy-order-discretionary-item-bottom">订单号:
+                                    <span class="ijy-order-discretionary-item-orderid">3080059</span>
+                                    <!--过期时间:
+                                    <div class="ijy-order-discretionary-item-dateexpire">05-26 11:27</div>-->
+                                </div>
+                                <div class="ijy-order-discretionary-item-bottom">服务费:
+                                    <span class="ijy-order-discretionary-item-orderid">0</span>
+                                    库存费:
+                                    <div class="ijy-order-discretionary-item-dateexpire">0</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row mt20">
+
+                    <form name="closeForm" id="closeForm" class="form1" method="post" action="/order/hand/do_close" data-target="/order/history.shtml?displaytype=mt4">
+                        <div class="ijy-modal-order-open-close col-lg-12 col-md-12 col-sm-12 col-xs-12 ijy-col-nopadding ijy-col-option-detailset mt10">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 text-right ijy-col-nopadding">
+                                <span class="ijy-modal-product-introduction">平仓数量：</span>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left ijy-col-nopadding">
+                                <input type="text" class="form-control ijy-modal-order-open-text  ijy-modal-order-open-close-input" name="volume" id="volume" data-rules="int|float" data-failureMessage="平仓数量设置有误" value="20">
+                                <input type="text" class="" style="display:none" name="porderno" id="porderno" value="3080059">
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 ijy-col-nopadding">
+                                <div class="ijy-modal-order-open-tip">
+                                </div>
+                            </div>
+                        </div>
+                        <input type="button" class="ijy-modal-product-button-event btnSub" value="平仓" style=" display:none;" id="btnclose" name="btnclose">
+                    </form>
+                </div>
+
+
+
+
+
+                <div class="row ijy-modal-order-open-button ijy_button_warp3">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ijy-col-nopadding">
+                        <input onclick="historybb()" class="ijy-modal-order-open-button-event" value="取消" style=" text-align:center;" type="button">
+
+                        <input class="ijy-modal-order-open-button-event" value="平仓" style=" text-align:center; float:right; margin-right:40px;" type="button" id="closed">
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--JS 代码区-->
+
+
+
+<script type="text/javascript" src="/upgrade/js/hidpi-canvas.min.js"></script>
+<script type="text/javascript" src="/upgrade/js/Map.js"></script>
+<script type="text/javascript" src="/upgrade/js/moment.js"></script>
+<script type="text/javascript" src="/upgrade/js/vkchart.js"></script>
+<script type="text/javascript" src="/upgrade/js/jweixin-1.0.0.js"></script>
+<script type="text/javascript" src="/upgrade/js/ijy-index-common-profession.js"></script>
+<script type="text/javascript" src="/upgrade/js/ijy-index-button-profession.js"></script>
+<script type="text/javascript" src="/upgrade/js/ijy-index-modal-profession.js"></script>
+<script type="text/javascript" src="/upgrade/js/ijy-index-read-profession.js"></script>
+<script type="text/javascript" src="/upgrade/js/ijy-index-event-profession.js"></script>
+
+
+<script type="text/javascript">
+    function historybb(){
+        window.location.href="/order/hand.shtml";
+    }
+</script>
+
+<script language="javascript">
+    function refreshInfo()
+    {
+
+        $.ajax({
+            type: "GET",
+            url: "/wx_data/getLineInfoxSymbol_price_order?t={{t}}",
+            success: function(msg, textStatus){
+
+                var result = $.parseJSON(msg);
+                var nowprice=0;
+                var sign=1;
+                $("#nowprice").text(result.Bid);
+                $("#dbprice").text(result.Bid);
+                nowprice=result.Bid;
+
+                if(result.ProfitMode==2)
+                {
+
+                    $("#profit").text((sign*(nowprice-0.79682)*result.TickPrice/result.TickSize*2000/100).toFixed(2));
+                }
+                else
+                {
+                    $("#profit").text((sign*(nowprice-0.79682)*result.ContractSize*result.rate*2000/100).toFixed(2));
+                }
+
+                if(result.flag == 1){
+                    $("#nowprice").addClass("ownGreen");
+
+                }else{
+                    $("#nowprice").removeClass("ownGreen");
+
+                }
+            }
+        });
+    }
+    setInterval('refreshInfo()',1000);
+</script>
+<script language="javascript">
+    $(function(){
+        var cslnum=0;
+        var ctpnum=0;
+        $("input[name='ctp']").click(function(){
+            ctpnum=ctpnum+1;
+            if(ctpnum%2==1)
+            {
+                $("#tp").attr('data-rules','empty');
+                $("#tp").attr('data-failureMessage','请输入止盈价格');
+
+            }
+            else
+            {
+                $("#tp").removeAttr("data-rules");
+                $("#tp").removeAttr("data-failureMessage");
+            }
+        });
+        $("input[name='csl']").click(function(){
+            cslnum=cslnum+1;
+            if(cslnum%2==1)
+            {
+                $("#sl").attr('data-rules','empty');
+                $("#sl").attr('data-failureMessage','请输入止损价格');
+            }
+            else
+            {
+                $("#sl").removeAttr("data-rules");
+                $("#sl").removeAttr("data-failureMessage");
+            }
+        });
+        $("#tpsl").click(function(){
+            $("#btnsltp").click();
+        });
+        $("#closed").click(function(){
+
+            $("#btnclose").click();
+        });
+        $("#tp").keypress(function(event){
+            var keycode = (event.keyCode ? event.keyCode : event.which);
+            if(keycode == '13'){
+
+                return false;
+            }
+        });
+        $("#sl").keypress(function(event){
+            var keycode = (event.keyCode ? event.keyCode : event.which);
+            if(keycode == '13'){
+
+                return false;
+            }
+        });
+        $("#volume").keypress(function(event){
+            var keycode = (event.keyCode ? event.keyCode : event.which);
+            if(keycode == '13'){
+
+                return false;
+            }
+        });
+    });
+</script>
