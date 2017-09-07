@@ -12,19 +12,7 @@
 
 
 <div class="row pd0-15 ijy-common-total mt50">
-    <!-- <div class="left">结余：</div><div class="right">567,820</div>
-</div>
-<div class="row pd0-15 ijy-common-total">
-    <div class="left">净值：</div><div class="right">567,820</div>
-</div>
-<div class="row pd0-15 ijy-common-total">
-    <div class="left">可用预付款：</div><div class="right">567,820</div>
-</div>
-<div class="row pd0-15 ijy-common-total">
-    <div class="left">预付款比率(%)：</div><div class="right">567,820</div>
-</div>
-<div class="row pd0-15 ijy-common-total mb10">
-    <div class="left">预付款：</div><div class="right">567,820</div> -->
+
 </div>
 
 
@@ -47,28 +35,27 @@
                     </div>
                 </div>
                 <input type="hidden" id="mt4pageid" value="2">
-                <div class="row" id="mt4container" style=" margin-bottom:100px;"></div>
+                <div class="row" id="mt4container" style=" margin-bottom:100px;">
+                {{#each data}}
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ijy-col-nopadding"
+                             onclick="showDetail('{{symbol}}_{{record.volume}}_{{record.open_price}}_{{record.order}}_{{totime  record.open_time}}_{{record.close_price}}_{{totime record.close_time}}_{{record.sl}}_{{record.tp}}_{{record.profit}}_{{record.taxes}}')">
+                            <div class="ijy-order-history-item">
+                                <div class="ijy-order-history-item-top"><span class="ijy-order-history-item-productname">{{symbol}}<span class="ijy-order-history-item-isbuy"><span class="ijy-color-up">&nbsp</span></span></span>
+                                    <span class="ijy-order-history-item-closelots">{{record.volume}}</span><span class="ijy-order-history-item-profit">
+                                                        <span class="ijy-color-up">{{record.profit}}</span>
+                                                        </span></div>
+                                <div class="ijy-order-history-item-mt4orderid">开仓时间：{{totime  record.open_time}}　 开仓价格：{{  record.open_price}} </div>
+                                <div class="ijy-order-history-item-mt4orderid">平仓价格：{{record.close_price}}</div>
+                            </div>
+                        </div>
+                {{/each}}
+
+                </div>
 
             </div>
 
         </div>
-        <!-- 在手订单tab -->
-        <div role="tabpanel" class="tab-pane" id="tab-order-open-option">
 
-            <div class="ijy-modal-dialog-full-content">
-                <div class="row ijy-order-history-title">
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ijy-col-nopadding">
-                        <span class="ijy-order-history-title-name">商品</span><span class="ijy-order-history-title-closelots">投资额</span><span>盈亏</span>
-                    </div>
-                </div>
-                <input type="hidden" id="eypageid" value="2">
-                <div class="row order-borderBottom" id="eycontainer" style=" margin-bottom:100px;">
-                    <!--  -->
-                </div>
-            </div>
-            <input type="hidden" id="type" value="mt4">
-            <div onclick="showDetail('3080059')"  class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ijy-col-nopadding"><div class="ijy-order-history-item"><div class="ijy-order-history-item-top"><span class="ijy-order-history-item-productname">AUDUSD<span class="ijy-order-history-item-isbuy"><span class="ijy-color-up">(多单)</span></span></span> <span class="ijy-order-history-item-closelots">20</span><span class="ijy-order-history-item-profit"><span class="ijy-color-up">2600</span></span></div><div class="ijy-order-history-item-mt4orderid">时间：2017-09-06 21:47:02</div><div class="ijy-order-history-item-mt4orderid">开仓:0.79682&nbsp;&nbsp;&nbsp;当前价:<span class="ijy-color-up">0.79812</span></div></div></div>
-        </div>
 
     </div>
 </div>
@@ -132,91 +119,13 @@
             $("#type").attr("value",'ey');
         });
 
-        $(window).scroll(function(){
-            var scrollTop = $(document).scrollTop();
-            var type = $("#type").attr("value");
-            if(scrollTop >= $(document).height()-$(window).height()){
-                if(type == 'mt4')
-                {
-                    var page = parseInt($("#mt4pageid").attr("value"));
-                }
-                else
-                {
-                    var page = parseInt($("#eypageid").attr("value"));
-                }
-                var url = '/order/index_contr/ajax_hand.shtml?type='+type+'&page='+page;
-                $.ajax({
-                    type: "get",
-                    url: url,
-                    beforeSend: function(XMLHttpRequest){
-                        if(type == 'mt4') {
-                            $("#loading1").css("display", "block");
-                            $("#loadingTips1").css("display", "none");
-                        }else{
-                            $("#loading2").css("display", "block");
-                            $("#loadingTips2").css("display", "none");
-                        }
-                    },
-                    success: function(msg, textStatus){
-                        if(type == 'mt4')
-                        {
-                            $("#mt4pageid").attr("value",page+1);
-                            $("#loading1").css("display","none");
-                            $("#loadingTips1").css("display","block");
-                            if(msg == ''){
-                                $("#loadingTips1").text('已无更多信息');
-                            }
-                            $("#mt4container").append(msg);
-                        }
-                        else
-                        {
-                            $("#eypageid").attr("value",page+1);
-                            $("#loading2").css("display","none");
-                            $("#loadingTips2").css("display","block");
-                            if(msg == ''){
-                                $("#loadingTips2").text('已无更多信息');
-                            }
-                            $("#eycontainer").append(msg);
-                        }
-                    }
-                });
-            }
-        });
+
     });
     function showDetail(orderNo)
     {
-        window.location='/order/hand/detail/'+orderNo+'.shtml';
+        window.location='/wx_data/positionlisthistoryddetail?t='+orderNo;
     }
-    function getData(){
-        var type = $("#type").attr("value");
-        if(type == 'mt4')
-        {
-            var page = parseInt($("#mt4pageid").attr("value"));
-        }
-        else
-        {
-            var page = parseInt($("#eypageid").attr("value"));
-        }
-        var url = '/order/index_contr/ajax_hand.shtml?type='+type+'&page='+page+'&mark=1';
-        $.ajax({
-            type: "get",
-            url: url,
-            beforeSend: function(XMLHttpRequest){
-            },
-            success: function(msg, textStatus){
 
-                if(type == 'mt4')
-                {
-                    $("#mt4container").html(msg);
-                }
-                else
-                {
-                    $("#eycontainer").html(msg);
-                }
-            }
-        });
-    }
-//    setInterval("getData()",1000);
 </script>
 
 <!--JS 代码区-->

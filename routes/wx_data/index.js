@@ -153,7 +153,11 @@ router.get('/positionlisthistory', function(req, res, next) {
     pay.positionlisthistory(req, res, next)
 
 });
+//历史详情
+router.get('/positionlisthistoryddetail', function(req, res, next) {
+    pay.positionlisthistoryddetail(req, res, next)
 
+});
 //持仓详情
 router.get('/positiondetail', function(req, res, next) {
     pay.positiondetail(req, res, next)
@@ -178,6 +182,10 @@ router.post('/api/buy_api', function(req, res, next) {
      api.buy_api(req, res, next);
 });
 
+router.post('/api/sale_api', function(req, res, next) {
+
+    api.sale_api(req, res, next);
+});
 //卖出
 router.get('/saleproduct', function(req, res, next) {
     res.locals.page_title = '商品详情';

@@ -56,22 +56,56 @@ exports.positionlist_search=function (req, res, next) {
 //历史持仓
 exports.positionlisthistory=function (req, res, next) {
     res.locals.page_title = '历史持仓';
+
     if(req.session['mt4_user']==""||req.session['mt4_user']==undefined){
         res.redirect('/wx_data/changeaccount');
     }else {
-        res.render('wx_data/positionlisthistory');
+        var date =  new Date(), timestamp;
+        timestamp = date.getTime();
+        var   end = Math.round(new Date().getTime()/1000).toString();
+        var  begin = Math.round(new Date(timestamp - 60 * 24 * 3600 * 1000).getTime()/1000).toString();
+        request.post({
+            url: 'http://139.224.135.183:3001/api/trade/account/history', formData: {login: req.session['mt4_user'],begin:begin,end:end}
+        }, function (err, httpResponse, body) {
+            var data = JSON.parse(body);
+            if (data.code == 0) {
+                res.render('wx_data/positionlisthistory',{data:data.data});
+            } else {
+                res.redirect('/wx_data/changeaccount');
+            }
+        })
+    }
+
+}
+exports.positionlisthistoryddetail=function (req, res, next) {
+    res.locals.page_title = '历史持仓';
+    var t = req.query.t;
+    var data =t.split("_")
+    if(req.session['mt4_user']==""||req.session['mt4_user']==undefined){
+        res.redirect('/wx_data/changeaccount');
+    }else {
+        var t={t:data[0],volume:data[1],open_price:data[2],order:data[3],open_time:data[4],
+            close_price:data[5],close_time:data[6],sl:data[7]
+            ,tp:data[8],profit:data[9],taxes:data[10]
+        }
+        res.render('wx_data/positionlisthistoryddetail',t);
 
     }
 
 }
+
 //查询历史持仓
 exports.positionlisthistory_search=function (req, res, next) {
     res.locals.page_title = '历史持仓';
     if(req.session['mt4_user']==""||req.session['mt4_user']==undefined){
         res.redirect('/wx_data/changeaccount');
     }else {
+        var date =  new Date(), timestamp, newDate;
+        timestamp = date.getTime();
+        var   end = Math.round(new Date().getTime()/1000).toString();
+        var  begin = Math.round(new Date(timestamp - 60 * 24 * 3600 * 1000).getTime()/1000).toString();
         request.post({
-            url: 'http://139.224.135.183:3001/api/trade/account/history', formData: {login: req.session['mt4_user']}
+            url: 'http://139.224.135.183:3001/api/trade/account/history', formData: {login: req.session['mt4_user'],begin:begin,end:end}
         }, function (err, httpResponse, body) {
             var data = JSON.parse(body);
             if (data.code == 0) {
@@ -87,7 +121,7 @@ exports.positionlisthistory_search=function (req, res, next) {
 exports.positiondetail=function (req, res, next) {
     res.locals.page_title = '详情';
     var t = req.query.t;
-    res.render('wx_data/positiondetail',{t:t})
-
+    var data =t.split("_")
+    res.render('wx_data/positiondetail',{t:data[0],volume:data[1],open_price:data[2],order:data[3]})
 
 }

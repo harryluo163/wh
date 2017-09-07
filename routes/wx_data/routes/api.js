@@ -231,7 +231,7 @@ exports.buy_api=function (req, res, next) {
 exports.sale_api=function (req, res, next) {
     var order=req.body.order!=undefined?req.body.order:"";//订单号
     var symbol=req.body.symbol!=undefined?req.body.symbol:"";//品种
-    var type=req.body.品种!=undefined?req.body.品种:"";//76：平仓 77：删除（取消）挂单
+    var type=req.body.type!=undefined?req.body.type:"";//76：平仓 77：删除（取消）挂单
     var cmd=req.body.cmd!=undefined?req.body.cmd:"";//cmd
     var volume=req.body.volume!=undefined?req.body.volume:"";//手数
     var price=req.body.price!=undefined?req.body.price:"";//价格
@@ -254,8 +254,9 @@ exports.sale_api=function (req, res, next) {
             tp: tp
 
         };
+        console.log(opt)
         request.post({
-            url: 'http://139.224.135.183:3001//api/trade/account/close', formData: opt
+            url: 'http://139.224.135.183:3001/api/trade/account/close', formData: opt
         }, function (err, httpResponse, body) {
             var data = JSON.parse(body);
             if (data.code == 0) {
