@@ -21,6 +21,12 @@ router.use('/',function(req, res, next){
     }
 
 })
+//微信
+router.get('/login/weixin', function(req, res, next) {
+    res.send(req.query.echostr)
+
+});
+
 //个人中心
 router.get('/', function(req, res, next) {
     res.locals.page_title = '用户';
