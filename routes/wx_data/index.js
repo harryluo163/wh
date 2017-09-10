@@ -7,23 +7,40 @@ var router = express.Router();
 var  Loginrout = require("./routes/login");
 var  pay = require("./routes/pay");
 var  api = require("./routes/api");
+var wx_config= require('../../confs/weixinconfig');
+
+
 router.use('/',function(req, res, next){
     res.locals.page_title = "";
     res.locals.isdown = "";
-    if(!req.session['cas_user']){
-        if(req.originalUrl.indexOf("wx_data/login")<0){
-        res.redirect('/wx_data/login');
-        }else{
+        //是否登录
+        if (!req.session['cas_user']) {
+            var code_get =req.query.code;
+            var code_post =req.body.code;
+            //判断是否为微信登录，如果是就获取用户code
+            if(req.headers["user-agent"].indexOf("MicroMessenger")>=0&&(code_get==""||code_get==undefined)&&(code_post==""||code_post==undefined)){
+                res.redirect('https://open.weixin.qq.com/connect/oauth2/authorize?appid='+wx_config.appId+'&redirect_uri='+wx_config.redirect_uri+'&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect');
+            }  else {
+            //session没有值，全都调到登录页面
+            if (req.originalUrl.indexOf("wx_data/login") < 0) {
+                res.redirect('/wx_data/login?code='+code);
+            } else {
+                next();
+            }
+        }
+    } else {
             next();
         }
-    }else{
-        next();
-    }
-
 })
-//微信
+//微信服务配置
 router.get('/login/weixin', function(req, res, next) {
     res.send(req.query.echostr)
+
+});
+
+///微信授权登录回调地址
+router.get('/login/weixin_redirect_uri', function(req, res, next) {
+    Loginrout.wx_login(req, res, next)
 
 });
 
@@ -207,9 +224,8 @@ router.get('/entrustproduct', function(req, res, next) {
 
 //登录
 router.get('/login', function(req, res, next) {
-    res.locals.layout = '';
-    res.locals.page_title = '登录';
-    res.render('wx_data/login');
+
+    Loginrout.wx_login(req, res, next)
 });
 //登录
 router.post('/login/Login', function(req, res, next) {
