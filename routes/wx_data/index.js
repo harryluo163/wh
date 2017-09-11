@@ -23,7 +23,7 @@ router.use('/',function(req, res, next){
             }  else {
             //session没有值，全都调到登录页面
             if (req.originalUrl.indexOf("wx_data/login") < 0) {
-                res.redirect('/wx_data/login?code='+code);
+                res.redirect('/wx_data/login');
             } else {
                 next();
             }
