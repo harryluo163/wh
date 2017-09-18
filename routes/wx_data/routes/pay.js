@@ -18,7 +18,7 @@ exports.productlist=function (req, res, next) {
 //持仓
 
 exports.positionlist=function (req, res, next) {
-    res.locals.page_title = '持仓';
+     res.locals.page_title = '持仓';
     if(req.session['mt4_user']==""||req.session['mt4_user']==undefined){
         res.redirect('/wx_data/changeaccount');
     }else {
@@ -27,7 +27,15 @@ exports.positionlist=function (req, res, next) {
         }, function (err, httpResponse, body) {
             var data = JSON.parse(body);
             if (data.code == 0) {
-                res.render('wx_data/positionlist',{data:data.data});
+                var kd=[],gd=[];
+                for(var a of data.data){
+                    if(a.record.cmd==0||a.recordcmd==1){
+                        kd.push(a)
+                    }else  if(a.record.cmd==2||a.record.cmd==3||a.record.cmd==4||a.record.cmd==5){
+                        gd.push(a)
+                    }
+                }
+                res.render('wx_data/positionlist',{kd:kd,gd:gd});
             } else {
                 res.redirect('/wx_data/changeaccount');
             }
