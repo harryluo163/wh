@@ -205,6 +205,7 @@ router.post('/api/buy_api', function(req, res, next) {
      api.buy_api(req, res, next);
 });
 
+
 router.post('/api/sale_api', function(req, res, next) {
 
     api.sale_api(req, res, next);
@@ -221,7 +222,14 @@ router.get('/entrustproduct', function(req, res, next) {
     var t = req.query.t;
     res.render('wx_data/entrustproduct',{t:t});
 });
+//挂单详情
+router.get('/entrustproduct_order', function(req, res, next) {
+    res.locals.page_title = '挂单详情';
+    var t = req.query.t;
+    var data =t.split("_")
+    res.render('wx_data/entrustproduct_order',{t:data[0],volume:data[1],open_price:data[2],order:data[3],open_time:data[4],cmd:data[5],sl:data[6],tp:data[7]})
 
+});
 //登录
 router.get('/login', function(req, res, next) {
 

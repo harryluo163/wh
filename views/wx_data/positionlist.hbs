@@ -84,7 +84,7 @@
                     </div>
                 </div>
         {{#each gd}}
-                <a href="javascript:void(0)" onclick="showDetailgd('{{symbol}}_{{record.volume}}_{{record.open_price}}_{{record.order}}')">
+                <a href="javascript:void(0)" onclick="showDetailgd('{{symbol}}_{{record.volume}}_{{record.open_price}}_{{record.order}}_{{totime record.open_time}}_{{record.cmd}}_{{record.sl}}_{{record.tp}}')">
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ijy-col-nopadding">
                             <div class="ijy-order-history-item">
@@ -146,6 +146,9 @@
     });
     function showDetail(orderNo) {
         window.location = '/wx_data/positiondetail?t=' + orderNo;
+    }
+    function showDetailgd(orderNo) {
+        window.location = '/wx_data/entrustproduct_order?t=' + orderNo;
     }
     function getData() {
         $.ajax({

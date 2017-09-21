@@ -1,0 +1,256 @@
+<div id="modalProduct" class="modal in" aria-hidden="false" aria-labelledby="basicModal" role="dialog" tabindex="-1" style="display: block;"><div class="modal-backdrop  in" style="height: 943px;"></div>
+    <div class="modal-dialog ijy-modal-dialog-full">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="row ijy-modal-dialog-full-title">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ijy-col-nopadding">
+                        <div class="ijy-modal-dialog-full-title-left" onclick="historyBack()"><img src="/images/leftgo.png" alt="">  </div>
+                        <div class="ijy-modal-dialog-full-title-middle">挂单详情</div>
+                        <div class="ijy-modal-dialog-full-title-right"><!--<a href="#" class="btn btn-gold btn-sm">历史</a>--></div>
+                    </div>
+                </div>
+                <div class="ijy-modal-dialog-full-content">
+                    <div class="row ijy-product-title">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ijy-col-nopadding">
+                            <span class="ijy-product-title-name">商品</span><span class="ijy-product-title-price">数量</span><span class="ijy-product-title-price">挂单价格</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ijy-col-nopadding">
+                            <div class="ijy-order-history-item">
+                                <div class="ijy-order-history-item-top"><span class="ijy-order-history-item-productname" >{{t}}<span class="ijy-color-up">({{tocmd cmd}})</span></span>
+                                    <span class="ijy-order-history-item-closelots" >{{volume}}</span><span class="ijy-order-history-item-profit"><span class="ijy-color-down">{{open_price}}</span></span></div>
+                                <div class="ijy-order-history-item-mt4orderid">创建时间：{{open_time}}　 当前价格：<span id="nowprice" ></span></div>
+                                <div class="ijy-order-history-item-mt4orderid">交易单据 {{order}}</div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <form name="saleForm" id="saleForm" class="form1" method="post" action="/do_entrust" >
+                    <input type="hidden" id="ycdork" value="1">
+                    <div class="row  mt20">
+
+
+
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ijy-col-nopadding ijy-col-option-detailset mt10">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 text-right ijy-col-nopadding" style="color:#CCC; text-align:right; padding-right:10px; padding-left:0px; line-height:30px;">数量：</div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left ijy-col-nopadding">
+                                <input type="text" class="" style="display:none" name="symbol" id="symbol" value="XAGUSD">
+                                <input type="text" class="" style="display:none" name="Digits" id="Digits" value="3">
+                                <input type="text" class="form-control  ijy-modal-order-open-text ijy-modal-order-open-takeprofit-input" name="volume" id="volume" data-rules="int" data-failuremessage="数量设置有误" value="{{volume}}">
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 ijy-col-nopadding">
+                                <div class="ijy-modal-order-open-tip"><span class="ijy-modal-order-open-takeprofit">1-100</span></div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ijy-col-nopadding ijy-col-option-detailset mt10">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 text-right ijy-col-nopadding" style="color:#CCC; text-align:right; padding-right:10px; padding-left:0px; line-height:30px;">价格：</div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left ijy-col-nopadding">
+                                <input type="text" class="form-control  ijy-modal-order-open-text ijy-modal-order-open-takeprofit-input" name="money" value="{{open_price}}" id="money" data-rules="int|float" data-failuremessage="价格设置有误">
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 ijy-col-nopadding">
+                                <div class="ijy-modal-order-open-tip"><span class="ijy-modal-product-discretionary-price-status">
+							<span id="viewsign">&lt;</span>
+							<input type="hidden" value="<" id="sign" name="sign" style="border:none;width:10px; background-color:transparent;" readonly=""></span><span class="ijy-modal-order-open-takeprofit" id="nowprice"></span></div>
+                                <input type="text" value="17.174" id="price" name="price" style="border:none; display:none;">
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ijy-col-nopadding ijy-col-option-detailset mt10">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 text-right ijy-col-nopadding">
+
+                                <div class="ijy-checkbox">
+                                    <input type="checkbox" id="ijy-modal-order-open-takeprofit-checkbox" name="ctp" class="ijy-modal-order-open-takeprofit-checkbox">
+                                    <label for="ijy-modal-order-open-takeprofit-checkbox" name="ctp"></label>
+                                </div>
+
+                                <span class="ijy-modal-product-introduction">止盈：</span>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left ijy-col-nopadding">
+                                <input type="text" class="form-control  ijy-modal-order-open-text ijy-modal-order-open-takeprofit-input" value="{{tp}}" name="tp" id="tp">
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 ijy-col-nopadding">
+                                <div class="ijy-modal-order-open-tip"><span class="ijy-modal-order-open-takeprofit-status">
+							<span id="viewtpsign">&gt;</span>
+							<input type="hidden" value=">" id="tpsign" name="tpsign" style="border:none;width:10px;background-color:#23262f;" readonly=""></span><span class="ijy-modal-order-open-takeprofit" id="nowtp"></span></div>
+                                <input type="text" value="17.174" id="tpprice" name="tpprice" style="border:none; display:none;">
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ijy-col-nopadding ijy-col-option-detailset mt10">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 text-right ijy-col-nopadding">
+                                <div class="ijy-checkbox">
+                                    <input type="checkbox" id="ijy-modal-order-open-stoploss-checkbox" name="csl" class="ijy-modal-order-open-stoploss-checkbox">
+                                    <label for="ijy-modal-order-open-stoploss-checkbox"></label>
+                                </div>
+                                <span class="ijy-modal-product-introduction">止损：</span>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left ijy-col-nopadding">
+                                <input type="text" class="form-control ijy-modal-order-open-text ijy-modal-order-open-stoploss-input"value="{{sl}}"  name="sl" id="sl">
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 ijy-col-nopadding">
+                                <div class="ijy-modal-order-open-tip"><span class="ijy-modal-order-open-stoploss-status">
+							<span id="viewslsign">&lt;</span>
+							<input type="hidden" value="<" id="slsign" name="slsign" style="border:none;width:10px;background-color:#23262f;" readonly=""></span><span class="ijy-modal-order-open-stoploss" id="nowsl"></span></div>
+                                <input type="text" value="17.174" id="slprice" name="slprice" style="border:none; display:none;" readonly="">
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+
+
+
+
+
+                    <div class="row ijy-modal-product-button ijy_button_warp2">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ijy-col-nopadding">
+                            <input onclick="historyBack()" class="ijy-modal-order-discretionary-button-event" value="取消" style=" text-align:center;width: 26%" type="button">
+                            <input class="ijy-modal-order-discretionary-button-event" value="删除" onclick="del()" style=" text-align:center;width: 27%" type="button" id="del">
+                            <input type="button" onclick="go()" class="ijy-modal-product-button-event btnSub"  style=" text-align:center;  margin: 0 0 0 5%;width: 28% "  value="更新">
+
+
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+<script language="javascript">
+    $(function () {
+        if('{{sl}}'=='0'){
+        }else{
+            $("#ijy-modal-order-open-stoploss-checkbox").click()
+        }
+        if('{{tp}}'=='0'){
+
+        }else{
+            $("#ijy-modal-order-open-takeprofit-checkbox").click()
+        }
+
+        var cslnum=0;
+        var ctpnum=0;
+        $('#valid').datetimepicker({lang:'ch',format:"Y-m-d H:i"});
+
+
+
+    })
+    function refreshInfo()
+    {
+        $.ajax({
+            type: "GET",
+            url: "/wx_data/getLineInfoxSymbol_price?t={{t}}",
+            success: function(msg, textStatus){
+
+                var result = $.parseJSON(msg);
+                $("#nowprice").text(result.Ask);
+
+                $("#dbprice").text((parseFloat(result.Ask)-parseFloat(0.5)).toFixed(result.Digits));
+
+                if(result.flag == 1){
+                    $("#nowprice").addClass("ownGreen");
+                    $("#nowprice").removeClass("ownRed");
+
+                }else{
+                    $("#nowprice").addClass("ownRed");
+                    $("#nowprice").removeClass("ownGreen");
+
+                }
+
+            }
+        });
+    }
+    setInterval('refreshInfo()',1000);
+
+    function go() {
+        var cmd =$("#type").val();
+        var num =$("#volume").val();
+        var money =$("#money").val();
+        var tp =$("#ijy-modal-order-open-takeprofit-checkbox:checked").val()=="on"?$("#tp").val():"";
+        var sl =$("#ijy-modal-order-open-stoploss-checkbox:checked").val()=="on"?$("#sl").val():"";
+        if(/^\d+$/.test(num)&&Number(num)>0&&Number(num)<100){
+
+        }else{
+            $.fn.SK_alert("数量输入有误");
+            return;
+        }
+        if(isFloat(money)||/^\d+$/.test(money)){
+
+        }else{
+            $.fn.SK_alert("价格输入有误");
+            return;
+        }
+        if($("#ijy-modal-order-open-takeprofit-checkbox:checked").val()=="on"){
+            if(isFloat(tp)||/^\d+$/.test(tp)){}else{
+                $.fn.SK_alert("止盈输入有误");
+                return;
+            }
+        }
+        if($("#ijy-modal-order-open-stoploss-checkbox:checked").val()=="on"){
+            if(isFloat(sl)||/^\d+$/.test(sl)){}else{
+                $.fn.SK_alert("止盈输入有误");
+                return;
+            }
+
+        }
+        var opt ={symbol:'{{t}}',cmd:cmd,type:75,volume:num,price:money,comment:"from wetrade",sl:sl,tp:tp}
+        function del() {
+            var opt ={symbol:'{{t}}',cmd:"0",type:'77',volume:{{volume}},price:{{open_price}},comment:"from wetrade",order:'{{order}}'}
+            $.post("/wx_data/api/sale_api",opt , function (data) {
+                if(data.success==1){
+                    $.post("/wx_data/api/buy_api",opt , function (data) {
+                        if(data.success==1){
+                            $.fn.SK_alert("成功挂单",function () {
+                                window.location.href="/wx_data/positionlist"
+                            });
+                        }else if(data.success==2){
+                            window.location.href= "/wx_data/changeaccount";
+                        }else{
+                            window.location.href= window.location.href;
+                        }
+                    });
+                }else if(data.success==2){
+                    window.location.href= "/wx_data/changeaccount";
+                }else{
+                    window.location.href= window.location.href;
+                }
+            });
+        }
+
+    }
+    function del() {
+        var opt ={symbol:'{{t}}',cmd:"0",type:'77',volume:{{volume}},price:{{open_price}},comment:"from wetrade",order:'{{order}}'}
+        $.post("/wx_data/api/sale_api",opt , function (data) {
+            if(data.success==1){
+                $.fn.SK_alert("成功挂单",function () {
+                    window.location.href="/wx_data/positionlist"
+                });
+            }else if(data.success==2){
+                window.location.href= "/wx_data/changeaccount";
+            }else{
+                window.location.href= window.location.href;
+            }
+        });
+    }
+    /**
+     * 判断传入参数是否为浮点型
+     * @param $param
+     * @return bool
+     */
+    function isFloat(param)
+    {
+        if(/^\d+\.\d+$/g.test(param))
+        {
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+</script>

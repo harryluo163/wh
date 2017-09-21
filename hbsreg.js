@@ -25,6 +25,31 @@ hbs.registerHelper('block', function(name) {
 hbs.registerHelper('totime', function(name) {
     return  new Date(name).Format("yyyy-MM-dd hh:mm:ss");
 });
+hbs.registerHelper('tocmd', function(name) {
+    switch (Number(name)){
+        case 0:
+            return "市价买";
+            break;
+        case 1:
+            return "市价卖";
+            break;
+        case 2:
+            return "限价买入";
+            break;
+        case 3:
+            return "限价卖出";
+            break;
+        case 4:
+            return "突破买入";
+            break;
+        case 4:
+            return "突破卖出";
+            break;
+        default:
+            return ""
+
+    }
+});
 
 //判断是否相等
 hbs.registerHelper('compare', function(left, operator, right, options) {
