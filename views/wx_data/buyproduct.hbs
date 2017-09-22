@@ -107,7 +107,10 @@
                 }else if(data.success==2){
                     window.location.href= "/wx_data/changeaccount";
                 }else{
-                    window.location.href= window.location.href;
+                    $.fn.SK_alert("买入失败",function () {
+                        window.location.href= window.location.href;
+                    });
+
                 }
             });
         }else{

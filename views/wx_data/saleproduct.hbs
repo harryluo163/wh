@@ -100,13 +100,16 @@
                     var opt ={symbol:'{{t}}',cmd:"1",type:75,volume:num,price:$("#Bid").text(),comment:"from wetrade"}
                     $.post("/wx_data/api/buy_api",opt , function (data) {
                         if(data.success==1){
-                            $.fn.SK_alert("成功卖出",function () {
+                            $.fn.SK_alert("成功",function () {
                                 window.location.href="/wx_data/positionlist"
                             });
                         }else if(data.success==2){
                             window.location.href= "/wx_data/changeaccount";
                         }else{
-                            window.location.href= window.location.href;
+                            $.fn.SK_alert("卖出失败",function () {
+                                window.location.href= window.location.href;
+                            });
+
                         }
                     });
                 }else{
