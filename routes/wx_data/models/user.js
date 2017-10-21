@@ -12,9 +12,9 @@ var user = data_db.define('user', {
         type: Sequelize.STRING(20),
         field: 'username'
     },
-    isadmin: {
+    type: {
         type: Sequelize.INTEGER,
-        field: 'isadmin'
+        field: 'type'
     },
     ibid: {
         type: Sequelize.INTEGER,
